@@ -1,0 +1,27 @@
+Command: python -X utf8 01_data_baseline/scripts/prepare.py 
+Raw hashes verified; reading all four tables
+Quality: {"ratings": {"rows": 32000204, "schema": {"userId": "Int32", "movieId": "Int32", "rating": "Float32", "timestamp": "Int64"}, "nulls": {"userId": 0, "movieId": 0, "rating": 0, "timestamp": 0}, "duplicate_rows": 0, "duplicate_primary_keys": null, "duplicate_user_movie_pairs": 0, "invalid_rating_values": 0, "nonpositive_ids_or_timestamp": 0}, "movies": {"rows": 87585, "schema": {"movieId": "Int32", "title": "String", "genres": "String"}, "nulls": {"movieId": 0, "title": 0, "genres": 0}, "duplicate_rows": 0, "duplicate_primary_keys": 0}, "tags": {"rows": 2000072, "schema": {"userId": "Int32", "movieId": "Int32", "tag": "String", "timestamp": "Int64"}, "nulls": {"userId": 0, "movieId": 0, "tag": 0, "timestamp": 0}, "duplicate_rows": 0, "duplicate_primary_keys": null, "empty_or_whitespace_tags": 6}, "links": {"rows": 87585, "schema": {"movieId": "Int32", "imdbId": "Int32", "tmdbId": "Int32"}, "nulls": {"movieId": 0, "imdbId": 0, "tmdbId": 124}, "duplicate_rows": 0, "duplicate_primary_keys": 0}, "foreign_keys": {"ratings_movie_unknown": 0, "tags_movie_unknown": 0, "tags_user_not_in_ratings": 0, "links_movie_unknown": 0, "movies_without_links": 0}, "notes": ["links.tmdbId is optional external metadata; missing values are reported and retained.", "Tags are events, not a user/movie primary-key table. Full duplicate rows are reported without modifying raw data.", "No user master table exists. Tag-only users are reported separately."], "required_field_and_relation_checks_passed": true}
+Sorting and splitting full ratings
+Generating fixed candidates for every user with test positives
+candidate preparation 0/200948 users
+candidate preparation 10000/200948 users
+candidate preparation 20000/200948 users
+candidate preparation 30000/200948 users
+candidate preparation 40000/200948 users
+candidate preparation 50000/200948 users
+candidate preparation 60000/200948 users
+candidate preparation 70000/200948 users
+candidate preparation 80000/200948 users
+candidate preparation 90000/200948 users
+candidate preparation 100000/200948 users
+candidate preparation 110000/200948 users
+candidate preparation 120000/200948 users
+candidate preparation 130000/200948 users
+candidate preparation 140000/200948 users
+candidate preparation 150000/200948 users
+candidate preparation 160000/200948 users
+candidate preparation 170000/200948 users
+candidate preparation 180000/200948 users
+candidate preparation 190000/200948 users
+candidate preparation 200000/200948 users
+Preparation completed: {"split": {"counts": {"train": 25520897, "validation": 3188339, "test": 3290968}, "policy": "floor(0.8*n), floor(0.9*n), residual test", "users": 200948, "all_rows_partitioned_once": true, "train_after_validation": 0, "validation_after_test": 0, "train_validation_equal_timestamp_users": 35119, "validation_test_equal_timestamp_users": 32555, "train_positive_events": 12905652, "teacher_alignment": "pending; teacher scripts not supplied"}, "candidates": {"seed": 20260907, "rng": "numpy PCG64 default_rng; rejection sample, ordered first occurrences", "evaluated_users": 191007, "excluded_no_test_positive_users": 9941, "positive_items": 1559731, "negatives_per_user": 100, "positive_definition": "test rating >=4", "negative_exclusion": "all rated movies, regardless of rating or split", "recommendation_cutoff": "first timestamp of user's test block, including nonpositive rows", "candidate_sha256": "7663bc94e5a1ce7eaaa14489c2d00b42818205bf10becc724ad8e86e5253066a"}, "seconds": 39.35530060000019}

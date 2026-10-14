@@ -1,0 +1,6 @@
+{
+  "directory": "04_streaming_incremental",
+  "title": "阶段四 流式增量处理机制",
+  "status": "planned",
+  "goal": "时间回放、窗口统计、增量画像与状态验证；路线目标为单条评分处理小于100ms且效果不下降。"
+}

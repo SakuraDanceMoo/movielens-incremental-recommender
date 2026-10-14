@@ -1,0 +1,17 @@
+{
+  "python": "3.11.16 | packaged by conda-forge | (main, Sep  2 2026, 23:31:17) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "logical_cpus": 20,
+  "ram_bytes": 34163998720,
+  "versions": {
+    "numpy": "2.4.6",
+    "polars": "2.0.0",
+    "matplotlib": "3.11.2",
+    "psutil": "7.2.2"
+  },
+  "seconds": 39.08689370000502,
+  "ratings_per_second_end_to_end": 818693.8649024204,
+  "process_rss_bytes_at_end": 2639089664,
+  "rss_note": "point-in-time RSS, not peak memory"
+}

@@ -1,0 +1,28 @@
+{
+  "directory": "01_data_baseline",
+  "title": "阶段一 数据检查与基线构建",
+  "status": "completed",
+  "goal": "完整32M四表检查、分布统计、80/10/10时间划分、固定候选集、热门基线与指标复算；教师脚本一致性待核验。",
+  "acceptance_files": [
+    "config.json",
+    "scripts/prepare.py",
+    "scripts/evaluate.py",
+    "scripts/verify.py",
+    "logs/data_quality.json",
+    "logs/descriptive_statistics.json",
+    "logs/split_report.json",
+    "logs/candidate_report.json",
+    "logs/baseline_metrics.json",
+    "logs/verification.json",
+    "curves/data_distributions.png",
+    "curves/baseline_metrics.png",
+    "data/raw_manifest.json",
+    "data/processed_manifest.json",
+    "data/processed/baseline_top10.csv.gz",
+    "logs/metadata_cleanup.json",
+    "logs/publisher_checksums.json",
+    "logs/experiment_2026-10-14.md",
+    "logs/data_quality_report.md"
+  ],
+  "teacher_alignment": "pending: teacher scripts not provided"
+}

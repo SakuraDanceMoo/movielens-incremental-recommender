@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+.cache/
+.temp/
+**/data/raw/*
+!**/data/raw/README.md
+!**/data/raw/.gitkeep
+**/data/processed/*.parquet
+**/data/processed/*.npz
+**/data/processed/*.npy
+**/data/processed/split_boundaries.csv
+**/data/processed/repeat_*.gz

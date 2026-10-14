@@ -1,0 +1,60 @@
+{
+  "files": [
+    {
+      "path": "data/processed/candidates.npz",
+      "bytes": 60297202,
+      "sha256": "7663bc94e5a1ce7eaaa14489c2d00b42818205bf10becc724ad8e86e5253066a"
+    },
+    {
+      "path": "data/processed/links_checked.parquet",
+      "bytes": 780646,
+      "sha256": "b1f0d6af0e0ceed63e5e54eba37e0cff7d062d80dc2e8cb2fad5356d88b5cd54"
+    },
+    {
+      "path": "data/processed/movie_heat.csv",
+      "bytes": 808991,
+      "sha256": "cc17856eeb6aca74c8cfd8380c89673e314f26039618f22d185c1259bbb43307"
+    },
+    {
+      "path": "data/processed/popularity.csv",
+      "bytes": 420007,
+      "sha256": "d242956363723719efa97519fddde0245a5a84c257db4fb3dbf5d156fef66217"
+    },
+    {
+      "path": "data/processed/split_boundaries.csv",
+      "bytes": 12238313,
+      "sha256": "646bbeb894e2730046ba7024f693fc436ecacd0bdf5819c4ead7b955eaedb10c"
+    },
+    {
+      "path": "data/processed/tags_clean.parquet",
+      "bytes": 12181107,
+      "sha256": "74180f4e90afc5525870519584dd11e3f8761532b03aea748dcc8c667fe98261"
+    },
+    {
+      "path": "data/processed/test.parquet",
+      "bytes": 26392519,
+      "sha256": "139e05e859f6b23ee1b79bab05e978f8cb5b38d5fe753b2b6d70253a0e6508a7"
+    },
+    {
+      "path": "data/processed/train.parquet",
+      "bytes": 169677381,
+      "sha256": "0832e4aee9c7156a0fad9d720001bdf005c29188eef7f614a77f87731f1d50d9"
+    },
+    {
+      "path": "data/processed/train_positive_events.parquet",
+      "bytes": 43018229,
+      "sha256": "0adf36e66d6a0098c374f4b550d07612210a285fcc9eb0a315be282562d75355"
+    },
+    {
+      "path": "data/processed/user_activity.csv",
+      "bytes": 1982683,
+      "sha256": "16594d733fdfc7179df15bb888a9f032d216547c6aee743ba1c0b0dc563494c0"
+    },
+    {
+      "path": "data/processed/validation.parquet",
+      "bytes": 25165900,
+      "sha256": "98aa4c5bf9628f6c862e2da436fd47f3d84b419b731a52296d1a993c4f05c16a"
+    }
+  ],
+  "generated_from_raw_manifest": "data/raw_manifest.json"
+}

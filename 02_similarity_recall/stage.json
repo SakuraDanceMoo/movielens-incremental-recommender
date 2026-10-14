@@ -1,0 +1,6 @@
+{
+  "directory": "02_similarity_recall",
+  "title": "阶段二 相似度计算与召回策略",
+  "status": "planned",
+  "goal": "实现精确余弦或Jaccard与LSH；报告召回精度和延迟；路线目标为至少90%精度、延迟降低一个数量级。"
+}

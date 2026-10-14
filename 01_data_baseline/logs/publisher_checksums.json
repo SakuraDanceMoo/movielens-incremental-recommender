@@ -1,0 +1,30 @@
+{
+  "source": "official archive README.txt",
+  "all_passed": true,
+  "checks": [
+    {
+      "file": "links.csv",
+      "publisher_md5": "8f033867bcb4e6be8792b21468b4fa6e",
+      "actual_md5": "8f033867bcb4e6be8792b21468b4fa6e",
+      "matches": true
+    },
+    {
+      "file": "movies.csv",
+      "publisher_md5": "0df90835c19151f9d819d0822e190797",
+      "actual_md5": "0df90835c19151f9d819d0822e190797",
+      "matches": true
+    },
+    {
+      "file": "ratings.csv",
+      "publisher_md5": "cf12b74f9ad4b94a011f079e26d4270a",
+      "actual_md5": "cf12b74f9ad4b94a011f079e26d4270a",
+      "matches": true
+    },
+    {
+      "file": "tags.csv",
+      "publisher_md5": "963bf4fa4de6b8901868fddd3eb54567",
+      "actual_md5": "963bf4fa4de6b8901868fddd3eb54567",
+      "matches": true
+    }
+  ]
+}

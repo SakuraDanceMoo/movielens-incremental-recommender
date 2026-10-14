@@ -1,0 +1,32 @@
+Command: python -X utf8 01_data_baseline/scripts/download.py 
+range 16777216-25165823 attempt 1: ConnectTimeout: _ssl.c:999: The handshake operation timed out
+range 16777216-25165823 attempt 2: ConnectTimeout: _ssl.c:999: The handshake operation timed out
+range 16777216-25165823 attempt 3: ConnectTimeout: _ssl.c:999: The handshake operation timed out
+downloaded 24.0/227.9 MiB
+downloaded 32.0/227.9 MiB
+downloaded 40.0/227.9 MiB
+downloaded 48.0/227.9 MiB
+downloaded 56.0/227.9 MiB
+downloaded 64.0/227.9 MiB
+downloaded 72.0/227.9 MiB
+downloaded 80.0/227.9 MiB
+downloaded 88.0/227.9 MiB
+downloaded 96.0/227.9 MiB
+downloaded 104.0/227.9 MiB
+downloaded 112.0/227.9 MiB
+downloaded 120.0/227.9 MiB
+downloaded 128.0/227.9 MiB
+downloaded 136.0/227.9 MiB
+downloaded 144.0/227.9 MiB
+downloaded 152.0/227.9 MiB
+downloaded 160.0/227.9 MiB
+downloaded 168.0/227.9 MiB
+downloaded 176.0/227.9 MiB
+downloaded 184.0/227.9 MiB
+downloaded 192.0/227.9 MiB
+downloaded 200.0/227.9 MiB
+downloaded 208.0/227.9 MiB
+downloaded 216.0/227.9 MiB
+downloaded 224.0/227.9 MiB
+downloaded 227.9/227.9 MiB
+{"download_and_extract_seconds": 200.22486099999514, "files": [{"path": "data/raw/links.csv", "bytes": 1950748, "sha256": "ef17da7710be76f7d510d5768d1b61826e3af4bf57812b9ca377e4c912123b22", "encoding": "UTF-8"}, {"path": "data/raw/ml-32m.zip", "bytes": 238950008, "sha256": "e4a68655d7386b8f95f2f2424b2ff975dfdd15ffd59e0d864a14dca43e99d6ee", "encoding": "binary ZIP"}, {"path": "data/raw/movies.csv", "bytes": 4242926, "sha256": "b37ca1abc7798de741138ed252b62f69f7e37c84b8a8fab1b82d409b4c6c5cc2", "encoding": "UTF-8"}, {"path": "data/raw/ratings.csv", "bytes": 877076222, "sha256": "91159850e41ee59c86231165a688709647e2726cab2e7ba9faf04001bd5261ee", "encoding": "UTF-8"}, {"path": "data/raw/README.txt", "bytes": 9227, "sha256": "aadef501245798f04f085b1edc024bad41343e0f065b5e4682eff38d54e1cb32", "encoding": "UTF-8"}, {"path": "data/raw/tags.csv", "bytes": 72353890, "sha256": "c52e458a89b9deee410f50813e7a64491fbe92a6f07b5c4b58e64c0b3cc95b89", "encoding": "UTF-8"}]}

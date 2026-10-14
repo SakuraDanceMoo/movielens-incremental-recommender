@@ -1,0 +1,27 @@
+Command: python -X utf8 01_data_baseline/scripts/evaluate.py --output-prefix repeat
+{
+  "model": "most-popular-temporal-train-v1",
+  "generated_at": "2026-10-14T11:22:13.756912+08:00",
+  "dataset": "MovieLens 32M",
+  "ndcg_at_10": 0.8661862529099003,
+  "recall_at_10": 0.8451591927297544,
+  "evaluated_users": 191007,
+  "users_with_no_positive_recommendation": 733,
+  "users_with_all_zero_candidate_scores": 55,
+  "seconds_load_and_evaluate": 5.5928654999879654,
+  "users_per_second_load_and_evaluate": 34151.90299148281,
+  "temporal_count_update_seconds": 0.8747061027388554,
+  "ranking_latency_ms": {
+    "mean": 0.018707695027244918,
+    "p50": 0.013599987141788006,
+    "p95": 0.03850000211969018,
+    "p99": 0.06289998418651521
+  },
+  "latency_scope": "in-process candidate scoring, sorting and metric computation; excludes I/O and temporal count updates; not service latency",
+  "candidate_sha256": "7663bc94e5a1ce7eaaa14489c2d00b42818205bf10becc724ad8e86e5253066a",
+  "scientific_output_sha256": "9687e2964413159f07bb020a3a250aaf4678704e3bc40f72abd762961fc570d8",
+  "top10_file": "data/processed/repeat_top10.csv.gz",
+  "top10_sha256": "92e08579c5b73f54ea015a77c706f45a642d68227c7af380d19553eac5c98485",
+  "fit_policy": "count of positive TRAIN events strictly before each user's first test timestamp",
+  "teacher_alignment": "pending: teacher scripts not supplied"
+}

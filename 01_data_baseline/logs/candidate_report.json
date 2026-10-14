@@ -1,0 +1,12 @@
+{
+  "seed": 20260907,
+  "rng": "numpy PCG64 default_rng; rejection sample, ordered first occurrences",
+  "evaluated_users": 191007,
+  "excluded_no_test_positive_users": 9941,
+  "positive_items": 1559731,
+  "negatives_per_user": 100,
+  "positive_definition": "test rating >=4",
+  "negative_exclusion": "all rated movies, regardless of rating or split",
+  "recommendation_cutoff": "first timestamp of user's test block, including nonpositive rows",
+  "candidate_sha256": "7663bc94e5a1ce7eaaa14489c2d00b42818205bf10becc724ad8e86e5253066a"
+}

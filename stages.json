@@ -1,0 +1,60 @@
+[
+  {
+    "directory": "01_data_baseline",
+    "title": "阶段一 数据检查与基线构建",
+    "status": "completed",
+    "goal": "完整32M四表检查、分布统计、80/10/10时间划分、固定候选集、热门基线与指标复算；教师脚本一致性待核验。",
+    "acceptance_files": [
+      "config.json",
+      "scripts/prepare.py",
+      "scripts/evaluate.py",
+      "scripts/verify.py",
+      "logs/data_quality.json",
+      "logs/descriptive_statistics.json",
+      "logs/split_report.json",
+      "logs/candidate_report.json",
+      "logs/baseline_metrics.json",
+      "logs/verification.json",
+      "curves/data_distributions.png",
+      "curves/baseline_metrics.png",
+      "data/raw_manifest.json",
+      "data/processed_manifest.json",
+      "data/processed/baseline_top10.csv.gz",
+      "logs/metadata_cleanup.json",
+      "logs/publisher_checksums.json",
+      "logs/experiment_2026-10-14.md",
+      "logs/data_quality_report.md"
+    ],
+    "teacher_alignment": "pending: teacher scripts not provided"
+  },
+  {
+    "directory": "02_similarity_recall",
+    "title": "阶段二 相似度计算与召回策略",
+    "status": "planned",
+    "goal": "实现精确余弦或Jaccard与LSH；报告召回精度和延迟；路线目标为至少90%精度、延迟降低一个数量级。"
+  },
+  {
+    "directory": "03_distributed_recommendation",
+    "title": "阶段三 分布式推荐算法实现",
+    "status": "planned",
+    "goal": "Spark分布式ALS及协同过滤；运行稳定、超过基线并进行规模或节点吞吐对比。"
+  },
+  {
+    "directory": "04_streaming_incremental",
+    "title": "阶段四 流式增量处理机制",
+    "status": "planned",
+    "goal": "时间回放、窗口统计、增量画像与状态验证；路线目标为单条评分处理小于100ms且效果不下降。"
+  },
+  {
+    "directory": "05_graph_recommendation",
+    "title": "阶段五 图推荐模型探索",
+    "status": "planned",
+    "goal": "用户电影二部图、PPR或随机游走、图特征融合与消融；报告真实提升或合理负结果。"
+  },
+  {
+    "directory": "06_integration_ablation",
+    "title": "阶段六 系统集成与消融实验",
+    "status": "planned",
+    "goal": "集成召回与排序并做消融；最终NDCG@10较基线提升至少10%，报告吞吐与P99服务延迟。"
+  }
+]

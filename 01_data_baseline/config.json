@@ -1,0 +1,15 @@
+{
+  "dataset": "MovieLens 32M",
+  "source_url": "https://files.grouplens.org/datasets/movielens/ml-32m.zip",
+  "seed": 20260907,
+  "positive_threshold": 4.0,
+  "train_fraction": 0.8,
+  "validation_end_fraction": 0.9,
+  "negatives_per_user": 100,
+  "k": 10,
+  "popularity": "count of positive TRAIN events strictly before each user's first test timestamp",
+  "ties": "timestamp then original CSV row index; ranking score descending then movieId ascending",
+  "negatives": "uniform from catalog movies not rated by this user in any split",
+  "metrics": "macro over users with at least one test positive; binary relevance",
+  "teacher_script_alignment": "pending: teacher scripts not supplied"
+}

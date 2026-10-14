@@ -1,0 +1,6 @@
+{
+  "directory": "06_integration_ablation",
+  "title": "阶段六 系统集成与消融实验",
+  "status": "planned",
+  "goal": "集成召回与排序并做消融；最终NDCG@10较基线提升至少10%，报告吞吐与P99服务延迟。"
+}

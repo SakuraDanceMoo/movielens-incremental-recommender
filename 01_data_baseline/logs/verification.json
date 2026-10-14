@@ -1,0 +1,31 @@
+{
+  "checks": {
+    "raw_hashes": true,
+    "processed_hashes": true,
+    "partition_no_loss_or_overlap": true,
+    "exact_per_user_floor_80_90_boundaries": true,
+    "chronological_order": true,
+    "candidate_user_population": true,
+    "exact_test_positives": true,
+    "first_test_cutoffs": true,
+    "negative_shape": true,
+    "unique_negatives": true,
+    "negative_catalog_membership": true,
+    "negative_excludes_all_user_ratings": true,
+    "seeded_sampling_replay": true,
+    "top10_user_population": true,
+    "top10_ranks": true,
+    "unique_top10_items": true,
+    "top10_from_frozen_candidates": true,
+    "independent_metrics": true,
+    "independent_temporal_scores_seven_cutoffs": true,
+    "independent_ranking_seven_cutoffs": true,
+    "repeat_scientific_output_identical": true
+  },
+  "all_passed": true,
+  "independent_ndcg_at_10": 0.8661862529099001,
+  "independent_recall_at_10": 0.8451591927297544,
+  "verification_seconds": 40.38057049998315,
+  "teacher_alignment": "unverified; teacher scripts not provided",
+  "reproducibility_scope": "full negative sampling replay plus second full evaluation; timing and generated_at excluded"
+}

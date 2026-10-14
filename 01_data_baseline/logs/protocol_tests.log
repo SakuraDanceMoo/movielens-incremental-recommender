@@ -1,0 +1,12 @@
+Command: python -X utf8 01_data_baseline/scripts/test_protocol.py 
+test_deterministic_rank_ties (__main__.ProtocolTests.test_deterministic_rank_ties) ... ok
+test_fit_counts_positive_train_only (__main__.ProtocolTests.test_fit_counts_positive_train_only) ... ok
+test_fixed_negatives_and_disjointness (__main__.ProtocolTests.test_fixed_negatives_and_disjointness) ... ok
+test_future_and_equal_time_events_excluded (__main__.ProtocolTests.test_future_and_equal_time_events_excluded) ... ok
+test_ndcg_hand_calculation (__main__.ProtocolTests.test_ndcg_hand_calculation) ... ok
+test_split_residual_and_ties (__main__.ProtocolTests.test_split_residual_and_ties) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.031s
+
+OK

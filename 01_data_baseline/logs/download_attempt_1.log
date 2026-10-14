@@ -1,0 +1,55 @@
+Command: python -X utf8 01_data_baseline/scripts/download.py 
+range 16777216-25165823 attempt 1: URLError: <urlopen error _ssl.c:999: The handshake operation timed out>
+range 16777216-25165823 attempt 2: URLError: <urlopen error _ssl.c:999: The handshake operation timed out>
+range 16777216-25165823 attempt 3: URLError: <urlopen error _ssl.c:999: The handshake operation timed out>
+Traceback (most recent call last):
+  File "D:\ProgramData\miniconda3\envs\python11\Lib\urllib\request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "D:\ProgramData\miniconda3\envs\python11\Lib\http\client.py", line 1351, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "D:\ProgramData\miniconda3\envs\python11\Lib\http\client.py", line 1397, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "D:\ProgramData\miniconda3\envs\python11\Lib\http\client.py", line 1346, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "D:\ProgramData\miniconda3\envs\python11\Lib\http\client.py", line 1106, in _send_output
+    self.send(msg)
+  File "D:\ProgramData\miniconda3\envs\python11\Lib\http\client.py", line 1044, in send
+    self.connect()
+  File "D:\ProgramData\miniconda3\envs\python11\Lib\http\client.py", line 1523, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProgramData\miniconda3\envs\python11\Lib\ssl.py", line 517, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProgramData\miniconda3\envs\python11\Lib\ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "D:\ProgramData\miniconda3\envs\python11\Lib\ssl.py", line 1382, in do_handshake
+    self._sslobj.do_handshake()
+TimeoutError: _ssl.c:999: The handshake operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\AgentProject2026\movielens-incremental-recommender\01_data_baseline\scripts\download.py", line 87, in <module>
+    main()
+  File "D:\AgentProject2026\movielens-incremental-recommender\01_data_baseline\scripts\download.py", line 39, in main
+    with urllib.request.urlopen(request, timeout=30) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProgramData\miniconda3\envs\python11\Lib\urllib\request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProgramData\miniconda3\envs\python11\Lib\urllib\request.py", line 519, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProgramData\miniconda3\envs\python11\Lib\urllib\request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProgramData\miniconda3\envs\python11\Lib\urllib\request.py", line 496, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "D:\ProgramData\miniconda3\envs\python11\Lib\urllib\request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProgramData\miniconda3\envs\python11\Lib\urllib\request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error _ssl.c:999: The handshake operation timed out>

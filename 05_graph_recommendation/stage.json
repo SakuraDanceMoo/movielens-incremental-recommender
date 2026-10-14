@@ -1,0 +1,6 @@
+{
+  "directory": "05_graph_recommendation",
+  "title": "阶段五 图推荐模型探索",
+  "status": "planned",
+  "goal": "用户电影二部图、PPR或随机游走、图特征融合与消融；报告真实提升或合理负结果。"
+}

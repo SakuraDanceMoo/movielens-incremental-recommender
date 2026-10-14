@@ -1,0 +1,16 @@
+Command: python -X utf8 01_data_baseline/scripts/clean_metadata.py 
+{
+  "raw_tags": 2000072,
+  "clean_tags": 2000066,
+  "removed_blank_tag_events": 6,
+  "trimmed_tag_events": 6392,
+  "raw_links": 87585,
+  "missing_optional_tmdb_ids_retained": 124,
+  "raw_files_modified": false,
+  "baseline_uses_tags_or_links": false,
+  "warning": "Tag events span all times. Future stages must filter timestamp < recommendation cutoff before feature construction.",
+  "input_sha256": {
+    "tags.csv": "c52e458a89b9deee410f50813e7a64491fbe92a6f07b5c4b58e64c0b3cc95b89",
+    "links.csv": "ef17da7710be76f7d510d5768d1b61826e3af4bf57812b9ca377e4c912123b22"
+  }
+}

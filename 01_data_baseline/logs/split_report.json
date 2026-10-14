@@ -1,0 +1,16 @@
+{
+  "counts": {
+    "train": 25520897,
+    "validation": 3188339,
+    "test": 3290968
+  },
+  "policy": "floor(0.8*n), floor(0.9*n), residual test",
+  "users": 200948,
+  "all_rows_partitioned_once": true,
+  "train_after_validation": 0,
+  "validation_after_test": 0,
+  "train_validation_equal_timestamp_users": 35119,
+  "validation_test_equal_timestamp_users": 32555,
+  "train_positive_events": 12905652,
+  "teacher_alignment": "pending; teacher scripts not supplied"
+}
