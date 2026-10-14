@@ -36,7 +36,8 @@ def metrics(relevance, total_positives, k=10):
         raise ValueError("No-positive users are excluded from metric denominator")
     discount = 1.0 / np.log2(np.arange(2, len(relevance) + 2))
     ideal = np.sum(1.0 / np.log2(np.arange(2, min(k, total_positives) + 2)))
-    return float(np.dot(relevance, discount) / ideal), float(relevance.sum() / total_positives)
+    # Clamp only floating-point roundoff; the mathematical range is [0, 1].
+    return float(np.clip(np.dot(relevance, discount) / ideal, 0.0, 1.0)), float(np.clip(relevance.sum() / total_positives, 0.0, 1.0))
 
 
 def temporal_scores(train_items, train_times, query_items, cutoff):

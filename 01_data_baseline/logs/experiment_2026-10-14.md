@@ -57,4 +57,4 @@ ratings必需字段无null、无重复用户电影对、无非法评分；movies
 - [指标](baseline_metrics.json) · [独立验收](verification.json) · [测试](protocol_tests.log)
 - [Top10](../data/processed/baseline_top10.csv.gz) · [逐用户指标](../data/processed/baseline_per_user.csv.gz)
 - [数据分布图](../curves/data_distributions.png) · [基线图](../curves/baseline_metrics.png)
-- [环境](preparation_environment.json) · [AI记录](../../docs/AI_USE.md)
+- [环境](preparation_environment.json)

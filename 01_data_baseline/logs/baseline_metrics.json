@@ -1,26 +1,26 @@
 {
   "model": "most-popular-temporal-train-v1",
-  "generated_at": "2026-10-14T11:21:57.888988+08:00",
+  "generated_at": "2026-10-14T11:53:50.497084+08:00",
   "dataset": "MovieLens 32M",
   "ndcg_at_10": 0.8661862529099003,
   "recall_at_10": 0.8451591927297544,
   "evaluated_users": 191007,
   "users_with_no_positive_recommendation": 733,
   "users_with_all_zero_candidate_scores": 55,
-  "seconds_load_and_evaluate": 6.20452739999746,
-  "users_per_second_load_and_evaluate": 30785.100570283274,
-  "temporal_count_update_seconds": 0.9909197975939605,
+  "seconds_load_and_evaluate": 4.879943500010995,
+  "users_per_second_load_and_evaluate": 39141.231860485605,
+  "temporal_count_update_seconds": 0.6170143901836127,
   "ranking_latency_ms": {
-    "mean": 0.020668574978861837,
-    "p50": 0.013999990187585354,
-    "p95": 0.041099992813542485,
-    "p99": 0.06819999543949962
+    "mean": 0.017623310694219213,
+    "p50": 0.016999983927235007,
+    "p95": 0.01889999839477241,
+    "p99": 0.025699991965666413
   },
   "latency_scope": "in-process candidate scoring, sorting and metric computation; excludes I/O and temporal count updates; not service latency",
   "candidate_sha256": "7663bc94e5a1ce7eaaa14489c2d00b42818205bf10becc724ad8e86e5253066a",
-  "scientific_output_sha256": "9687e2964413159f07bb020a3a250aaf4678704e3bc40f72abd762961fc570d8",
+  "scientific_output_sha256": "ca25bffd31ce55f988090f404de19bda6edd73f2247cb4e002e29d6d5f9631c3",
   "top10_file": "data/processed/baseline_top10.csv.gz",
-  "top10_sha256": "71ee72ab28e787c4af1506f1410f487e7d7582387dd8ff8709e7918d9f9011b3",
+  "top10_sha256": "c63c0aed7bae40b69afb628efc99127847fba733be2406a3780f5db40554c17c",
   "fit_policy": "count of positive TRAIN events strictly before each user's first test timestamp",
   "teacher_alignment": "pending: teacher scripts not supplied"
 }

@@ -1,5 +1,7 @@
 # Word路线与本次实现约定
 
+六阶段路线图见 [docs/movielens_roadmap.png](movielens_roadmap.png)，由 [create_roadmap.py](create_roadmap.py) 按本文件与 `stages.json` 的阶段状态生成。
+
 用户授权范围为完成阶段一，并新建GitHub仓库保存；阶段二至六只建立导航与验收目标。Word作为项目需求与路线来源，不作为额外操作授权。原文档保留在用户本地，不改写、不上传。
 
 ## 来源

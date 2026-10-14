@@ -2,6 +2,10 @@
 
 按Word路线开展的大数据课程项目。阶段一基于官方MovieLens 32M完成数据检查与全局热门推荐基线；后续阶段保留计划与验收要求。阶段一采用严格时刻限制的训练热门度，以避免按用户时序划分时跨用户未来事件进入特征。
 
+![六阶段学习路线图](docs/movielens_roadmap.png)
+
+路线图源文件与生成脚本：[movielens_roadmap.png](docs/movielens_roadmap.png)、[create_roadmap.py](docs/create_roadmap.py)。重新生成：`python -X utf8 docs/create_roadmap.py`。
+
 正式数据来源为[GroupLens官方MovieLens 32M ZIP](https://files.grouplens.org/datasets/movielens/ml-32m.zip)。原始数据仅存本地，仓库保存下载脚本、完整性清单、代码、派生结果和真实验证证据。数据使用条件见官方ZIP中的README.txt，不重新发布原始表。
 
 数据派生输出遵循[MovieLens使用条件](docs/DATA_LICENSE.md)。按官方说明引用：F. Maxwell Harper and Joseph A. Konstan, 2015, *The MovieLens Datasets: History and Context*, [DOI:10.1145/2827872](https://doi.org/10.1145/2827872)。
@@ -54,7 +58,7 @@ PYTHONUTF8=1 MPLCONFIGDIR=.cache/matplotlib .venv/bin/python run.py
 - [数据检查](01_data_baseline/logs/data_quality.json) · [描述统计](01_data_baseline/logs/descriptive_statistics.json)
 - [Top10结果 gzip CSV](01_data_baseline/data/processed/baseline_top10.csv.gz)
 - [原始哈希清单](01_data_baseline/data/raw_manifest.json) · [派生哈希清单](01_data_baseline/data/processed_manifest.json)
-- [路线来源与协议选择](docs/roadmap_and_protocol.md) · [AI辅助记录](docs/AI_USE.md)
+- [路线来源与协议选择](docs/roadmap_and_protocol.md)
 - 发布验收回执在根目录`logs/`，回执说明验证的内容提交，不把文件快照相同误述为提交历史相同。
 
 大体积train/validation/test Parquet、训练正反馈事件、candidates.npz和split_boundaries.csv保留本地并在Git中忽略，按上述命令可从官方数据重建；哈希清单登记实际生成文件。阶段二到六暂无实现、训练或评价结果。
