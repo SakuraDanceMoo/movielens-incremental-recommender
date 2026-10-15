@@ -1,0 +1,19 @@
+{
+  "model": "usercf_exact",
+  "ndcg_at_10": 0.8710072191414092,
+  "recall_at_10": 0.8077537158391322,
+  "evaluated_users": 5000,
+  "candidate_mean": 108.1698,
+  "query_seconds": 2.2289477000012994,
+  "users_per_second": 2243.2110004183073,
+  "query_latency_ms": {
+    "mean": 0.4174295401782729,
+    "p50": 0.34710002364590764,
+    "p95": 0.8675049699377272,
+    "p99": 1.7213889519916867
+  },
+  "benchmark_users": 5000,
+  "positive_train_interactions": 331435,
+  "stage_one_candidates_sha256": "7663bc94e5a1ce7eaaa14489c2d00b42818205bf10becc724ad8e86e5253066a",
+  "selection_note": "first 5000 user IDs in frozen stage-one candidate file, ascending"
+}

@@ -1,6 +1,6 @@
 # MovieLens分布式增量电影推荐系统
 
-按Word路线开展的大数据课程项目。阶段一基于官方MovieLens 32M完成数据检查与全局热门推荐基线；后续阶段保留计划与验收要求。阶段一采用严格时刻限制的训练热门度，以避免按用户时序划分时跨用户未来事件进入特征。
+按Word路线开展的大数据课程项目。阶段一完成数据检查与全局热门推荐基线，阶段二完成相似度召回工作集实验；后续阶段保留计划与验收要求。阶段一采用严格时刻限制的训练热门度，以避免按用户时序划分时跨用户未来事件进入特征。
 
 ![六阶段学习路线图](docs/movielens_roadmap.png)
 
@@ -13,7 +13,7 @@
 | 阶段 | 内容 | 状态 |
 | --- | --- | --- |
 | [阶段一](01_data_baseline/README.md) | 四表检查、统计、80/10/10划分、100负样本、Most Popular、NDCG@10 | completed，本地验收通过；教师脚本对齐待核验 |
-| [阶段二](02_similarity_recall/README.md) | 精确相似度与LSH召回 | planned |
+| [阶段二](02_similarity_recall/README.md) | ItemCF、UserCF、LSH相似度与召回 | completed，本地工作集验收通过；LSH目标未达标，教师全量协议待核验 |
 | [阶段三](03_distributed_recommendation/README.md) | Spark分布式推荐 | planned |
 | [阶段四](04_streaming_incremental/README.md) | 流式回放与增量更新 | planned |
 | [阶段五](05_graph_recommendation/README.md) | 图推荐与特征融合 | planned |
@@ -61,6 +61,13 @@ PYTHONUTF8=1 MPLCONFIGDIR=.cache/matplotlib .venv/bin/python run.py
 - [路线来源与协议选择](docs/roadmap_and_protocol.md)
 - 发布验收回执在根目录`logs/`，回执说明验证的内容提交，不把文件快照相同误述为提交历史相同。
 
-大体积train/validation/test Parquet、训练正反馈事件、candidates.npz和split_boundaries.csv保留本地并在Git中忽略，按上述命令可从官方数据重建；哈希清单登记实际生成文件。阶段二到六暂无实现、训练或评价结果。
+大体积train/validation/test Parquet、训练正反馈事件、candidates.npz和split_boundaries.csv保留本地并在Git中忽略，按上述命令可从官方数据重建；哈希清单登记实际生成文件。阶段二的相似度矩阵不作为大体积模型提交，仓库保存脚本、指标、压缩 Top-10 结果和曲线。
 
-教师统一脚本尚未提供。本地正确性与可复现性验收不能替代教师程序一致性验收；边界舍入、时间戳并列、采样和热门度时刻定义的差异见协议文档。未来10%提升必须在同一候选与评价协议上比较。
+教师统一脚本尚未提供。本地正确性与可复现性验收不能替代教师程序一致性验收；边界舍入、时间戳并列、采样和热门度时刻定义的差异见协议文档。阶段二使用5000用户确定性工作集，不能将结果外推为Word要求的191007用户全量结果。未来10%提升必须在同一候选与评价协议上比较。
+阶段二一键复现：
+
+```powershell
+.venv/Scripts/python.exe -X utf8 run_phase2.py
+```
+
+该入口在阶段一派生产物存在时运行 ItemCF、UserCF、LSH 和四组 LSH 参数网格，输出阶段二日志和指标。

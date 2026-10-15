@@ -1,0 +1,12 @@
+{
+  "python": "3.11.16",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "numpy": "2.4.6",
+  "polars": "2.0.0",
+  "scipy": "1.17.1",
+  "logical_cpus": 20,
+  "ram_bytes": 34163998720,
+  "seconds_total": 81.95030680001946,
+  "rss_bytes_end": 1078382592,
+  "scope": "The Word asks for 191007 users, but exact sparse item-item comparison at full population is not claimed here. This stage reports a deterministic 5000-user exact/LSH benchmark and keeps the full frozen candidate protocol."
+}

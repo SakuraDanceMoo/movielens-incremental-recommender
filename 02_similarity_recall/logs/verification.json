@@ -1,0 +1,12 @@
+{
+  "exact_similarity_sparse": true,
+  "user_similarity_sparse": true,
+  "lsh_similarity_sparse": true,
+  "all_top10_rows_exact": true,
+  "all_top10_rows_usercf": true,
+  "all_top10_rows_lsh": true,
+  "same_candidate_user_population": true,
+  "no_test_labels_in_fit": true,
+  "raw_data_unchanged": true,
+  "teacher_script_alignment": "unverified; teacher scripts not supplied"
+}

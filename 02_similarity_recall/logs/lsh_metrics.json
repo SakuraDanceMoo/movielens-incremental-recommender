@@ -1,0 +1,19 @@
+{
+  "model": "itemcf_lsh",
+  "ndcg_at_10": 0.8222774607970765,
+  "recall_at_10": 0.7802815545913855,
+  "evaluated_users": 5000,
+  "candidate_mean": 108.1698,
+  "query_seconds": 0.8198882000287995,
+  "users_per_second": 6098.392439145202,
+  "query_latency_ms": {
+    "mean": 0.12496819921070709,
+    "p50": 0.1154000055976212,
+    "p95": 0.17469999147579074,
+    "p99": 0.27503399818670077
+  },
+  "benchmark_users": 5000,
+  "positive_train_interactions": 331435,
+  "stage_one_candidates_sha256": "7663bc94e5a1ce7eaaa14489c2d00b42818205bf10becc724ad8e86e5253066a",
+  "selection_note": "first 5000 user IDs in frozen stage-one candidate file, ascending"
+}

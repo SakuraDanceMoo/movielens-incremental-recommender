@@ -30,8 +30,10 @@
   {
     "directory": "02_similarity_recall",
     "title": "阶段二 相似度计算与召回策略",
-    "status": "planned",
-    "goal": "实现精确余弦或Jaccard与LSH；报告召回精度和延迟；路线目标为至少90%精度、延迟降低一个数量级。"
+    "status": "completed",
+    "goal": "在可复现的5000用户稀疏工作集上实现精确ItemCF、UserCF余弦相似度与Random Projection LSH，比较召回精度、NDCG、延迟与候选规模；教师全量协议仍待核验。",
+    "scope": "5000-user exact/LSH benchmark; 191007-user frozen candidate population remains stage-one reference",
+    "acceptance_files": ["config.json", "scripts/phase2_experiment.py", "scripts/test_phase2.py", "logs/experiment_2026-10-15.md", "logs/itemcf_metrics.json", "logs/usercf_metrics.json", "logs/lsh_metrics.json", "logs/similarity_recall_metrics.json", "logs/verification.json", "curves/phase2_metrics.png", "curves/lsh_precision_efficiency.png", "data/processed/itemcf_exact_top10.csv.gz", "data/processed/usercf_exact_top10.csv.gz", "data/processed/itemcf_lsh_top10.csv.gz"]
   },
   {
     "directory": "03_distributed_recommendation",

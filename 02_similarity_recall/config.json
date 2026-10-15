@@ -1,0 +1,19 @@
+{
+  "stage": "02_similarity_recall",
+  "dataset": "MovieLens 32M",
+  "interaction": "positive training ratings >= 4.0; binary user-item incidence; validation/test labels never enter similarity fit",
+  "benchmark_users": 5000,
+  "benchmark_user_selection": "first 5000 user IDs in frozen stage-one candidate file, ascending",
+  "similarity": "exact cosine from sparse X.T @ X; co-occurrence divided by sqrt(item positive-user counts)",
+  "neighbor_k": 50,
+  "candidate_k": 100,
+  "k": 10,
+  "models": ["itemcf_exact", "usercf_exact", "itemcf_lsh"],
+  "stage_one_baseline_ndcg_at_10": 0.8661862529099003,
+  "stage_one_baseline_recall_at_10": 0.845159,
+  "lsh": {"family": "random projection cosine LSH", "tables": 32, "planes": 10, "seed": 20260907, "score": "exact cosine among same-bucket candidates", "selection": "highest target-normalized precision-efficiency score in lsh_grid"},
+  "lsh_grid": [[4, 16], [8, 16], [16, 12], [32, 10]],
+  "evaluation": "same frozen stage-one positive test items plus 100 fixed negatives; macro NDCG@10 and Recall@10 over benchmark users with test positives",
+  "full_population_note": "The Word asks for 191007 users, but exact sparse item-item comparison at full population is not claimed here. This stage reports a deterministic 5000-user exact/LSH benchmark and keeps the full frozen candidate protocol.",
+  "teacher_script_alignment": "pending: teacher scripts not supplied"
+}
