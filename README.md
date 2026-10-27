@@ -14,35 +14,34 @@
 | --- | --- | --- |
 | [阶段一](01_data_baseline/README.md) | 四表检查、统计、80/10/10划分、100负样本、Most Popular、NDCG@10 | completed，本地验收通过；教师脚本对齐待核验 |
 | [阶段二](02_similarity_recall/README.md) | ItemCF、UserCF、LSH相似度与召回 | completed，本地工作集验收通过；LSH目标未达标，教师全量协议待核验 |
-| [阶段三](03_distributed_recommendation/README.md) | Spark分布式推荐 | planned |
+| [阶段三](03_distributed_recommendation/README.md) | Spark分布式推荐 | completed，本机单节点实验通过；多节点集群未验证 |
 | [阶段四](04_streaming_incremental/README.md) | 流式回放与增量更新 | planned |
 | [阶段五](05_graph_recommendation/README.md) | 图推荐与特征融合 | planned |
 | [阶段六](06_integration_ablation/README.md) | 集成与消融，争取超过基线10% | planned |
 
 ## 安装与一键复现
 
-使用Python 3.11，建议至少16GB内存，32GB更稳妥；本次运行环境为32GB Windows主机。为原始数据和派生文件预留至少6GB磁盘空间。所有数据路径由脚本位置解析，不依赖本机绝对路径。
+使用Python 3.11，建议至少16GB内存，32GB更稳妥；本次运行环境为32GB Windows主机。为原始数据和派生文件预留至少6GB磁盘空间。所有数据路径由脚本位置解析，不依赖本机绝对路径。项目共享依赖环境位于仓库上一级的`.venv`，避免在仓库内重复安装环境。
 
 Windows PowerShell：
 
 ```powershell
-python -m venv .venv
+uv venv --python 3.11 ..\\.venv
 $env:PYTHONUTF8 = '1'
-$env:PIP_CACHE_DIR = Join-Path (Get-Location) '.cache/pip'
 $env:TEMP = Join-Path (Get-Location) '.temp'
 $env:TMP = $env:TEMP
 $env:MPLCONFIGDIR = Join-Path (Get-Location) '.cache/matplotlib'
-New-Item -ItemType Directory -Force $env:TEMP,$env:PIP_CACHE_DIR,$env:MPLCONFIGDIR | Out-Null
-& .venv/Scripts/python.exe -m pip install -r requirements.lock.txt
-& .venv/Scripts/python.exe -X utf8 run.py
+New-Item -ItemType Directory -Force $env:TEMP,$env:MPLCONFIGDIR | Out-Null
+uv pip sync --python ..\\.venv/Scripts/python.exe requirements.lock.txt
+& ..\\.venv/Scripts/python.exe -X utf8 run.py
 ```
 
 Linux/macOS：
 
 ```bash
-python3.11 -m venv .venv
-.venv/bin/python -m pip install -r requirements.lock.txt
-PYTHONUTF8=1 MPLCONFIGDIR=.cache/matplotlib .venv/bin/python run.py
+uv venv --python 3.11 ../.venv
+uv pip sync --python ../.venv/bin/python requirements.lock.txt
+PYTHONUTF8=1 MPLCONFIGDIR=.cache/matplotlib ../.venv/bin/python run.py
 ```
 
 下载器读取系统现有HTTPS代理配置，验证TLS证书，使用HTTP Range断点续传并核对响应字节范围。已完成的raw文件不会覆盖；与既有清单不一致立即停止。准备、评估和复现验证都针对全量数据，不是抽样运行。
@@ -67,7 +66,9 @@ PYTHONUTF8=1 MPLCONFIGDIR=.cache/matplotlib .venv/bin/python run.py
 阶段二一键复现：
 
 ```powershell
-.venv/Scripts/python.exe -X utf8 run_phase2.py
+..\\.venv/Scripts/python.exe -X utf8 run_phase2.py
 ```
 
 该入口在阶段一派生产物存在时运行 ItemCF、UserCF、LSH 和四组 LSH 参数网格，输出阶段二日志和指标。
+
+阶段三复现与 Java 17 配置见[阶段三说明](03_distributed_recommendation/README.md)。

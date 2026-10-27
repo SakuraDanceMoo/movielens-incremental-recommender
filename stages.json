@@ -38,8 +38,9 @@
   {
     "directory": "03_distributed_recommendation",
     "title": "阶段三 分布式推荐算法实现",
-    "status": "planned",
-    "goal": "Spark分布式ALS及协同过滤；运行稳定、超过基线并进行规模或节点吞吐对比。"
+    "status": "completed",
+    "goal": "Spark ALS及ItemCF固定候选评估、不同训练规模吞吐对比；本机实验完成，多节点集群未验证。",
+    "acceptance_files": ["config.json", "scripts/phase3_experiment.py", "scripts/verify_phase3.py", "logs/experiment_2026-10-27.md", "logs/environment.json", "logs/spark_metrics.json", "logs/verification.json", "curves/als_scalability.png", "data/processed/als_top10.csv.gz", "data/processed/itemcf_spark_top10.csv.gz"]
   },
   {
     "directory": "04_streaming_incremental",

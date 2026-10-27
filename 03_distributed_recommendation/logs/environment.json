@@ -1,0 +1,13 @@
+{
+  "python": "3.11.16",
+  "uv": "0.12.16",
+  "spark": "3.5.8",
+  "java": "11.0.32.1",
+  "platform": "Windows single host; local[*] Spark",
+  "cpu_count": 20,
+  "driver_memory": "8g",
+  "shuffle_partitions": 40,
+  "python_environment": "D:/AgentProject2026/.venv",
+  "dependency_lock": "requirements.lock.txt",
+  "multi_node_cluster": false
+}

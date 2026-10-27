@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "candidate_sha256": "7663bc94e5a1ce7eaaa14489c2d00b42818205bf10becc724ad8e86e5253066a",
+  "als_per_user_scale_checks": [
+    {
+      "scale": 0.25,
+      "users": 47778,
+      "per_user_ndcg_recomputes": true,
+      "per_user_recall_recomputes": true
+    },
+    {
+      "scale": 0.5,
+      "users": 95589,
+      "per_user_ndcg_recomputes": true,
+      "per_user_recall_recomputes": true
+    },
+    {
+      "scale": 1.0,
+      "users": 191007,
+      "per_user_ndcg_recomputes": true,
+      "per_user_recall_recomputes": true
+    }
+  ],
+  "als_full_top10_recomputation": {
+    "users": 191007,
+    "rows": 1910070,
+    "ndcg_at_10": 0.906464827622346,
+    "recall_at_10": 0.8407516815585255
+  },
+  "itemcf_workset_top10_recomputation": {
+    "users": 5000,
+    "rows": 50000,
+    "ndcg_at_10": 0.8392679440163185,
+    "recall_at_10": 0.781935556992957
+  },
+  "checks": [
+    "candidate hash",
+    "scale user populations",
+    "per-user macro metrics",
+    "top-10 candidate membership",
+    "unique items",
+    "rank sequence",
+    "sort order",
+    "independent NDCG@10",
+    "independent Recall@10"
+  ]
+}

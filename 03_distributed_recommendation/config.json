@@ -1,0 +1,33 @@
+{
+  "dataset": "MovieLens 32M",
+  "spark_version": "3.5.8",
+  "master": "local[*]",
+  "driver_memory": "8g",
+  "shuffle_partitions": "max(32, min(256, 2 * CPU count))",
+  "training": {
+    "source": "01_data_baseline/data/processed/train.parquet",
+    "positive_threshold": 4.0,
+    "feedback": "implicit binary positive",
+    "seed": 20260907,
+    "als_rank": 32,
+    "iterations": 8,
+    "regularization": 0.1,
+    "alpha": 1.0,
+    "blocks": 10,
+    "scales": [0.25, 0.5, 1.0],
+    "scale_partition": "userId modulo 100 less than 25, 50, or 100"
+  },
+  "itemcf": {
+    "users": 5000,
+    "neighbors": 50,
+    "similarity": "co-occurrence / sqrt(source positive-user count * destination positive-user count)"
+  },
+  "evaluation": {
+    "candidate_source": "frozen stage-one candidates.npz",
+    "metrics": ["NDCG@10", "Recall@10"],
+    "macro_population": "same users as each model scale",
+    "tie_break": "movieId ascending",
+    "cold_start": "zero score, retain candidates"
+  },
+  "deployment_scope": "single Windows host; local Spark execution; not a multi-node cluster"
+}

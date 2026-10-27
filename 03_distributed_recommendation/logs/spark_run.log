@@ -1,0 +1,292 @@
+26/10/27 09:25:42 WARN Shell: Did not find winutils.exe: java.io.FileNotFoundException: java.io.FileNotFoundException: HADOOP_HOME and hadoop.home.dir are unset. -see https://wiki.apache.org/hadoop/WindowsProblems
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/10/27 09:25:42 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+[Stage 1:>                                                        (0 + 20) / 40]
+
+[Stage 1:===============>                                        (11 + 20) / 40]
+
+[Stage 1:==========================>                             (19 + 20) / 40]
+
+[Stage 1:================================================>        (34 + 6) / 40]
+
+
+
+[Stage 10:==================================>                    (25 + 15) / 40]
+
+
+26/10/27 09:25:51 WARN InstanceBuilder: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+26/10/27 09:25:51 WARN InstanceBuilder: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
+{"scale_result": {"scale": 0.25, "evaluated_users": 47778, "ndcg_at_10": 0.9057123475243838, "recall_at_10": 0.8392370444784645, "matching_user_baseline_ndcg_at_10": 0.8649496671346938, "ndcg_relative_change_vs_matching_baseline": 0.04712722825216398, "candidate_scoring_seconds": 1.4124046000652015, "candidate_scoring_users_per_second": 33827.41743958806, "per_user_file": "data/processed/als_025_per_user.csv.gz", "scientific_output_sha256": "33d0b2b9c4895bb52bfc756a5234948084334444913c6be10fe1d695ca90e873", "top10_file": null, "training_rows": 3235903, "training_rows_per_second": 326961.1418588988, "als_fit_seconds": 9.896903899963945, "rank": 32, "iterations": 8, "regularization": 0.1, "alpha": 1.0, "overall_stage_one_baseline_ndcg_at_10": 0.8661862529099003}}
+
+[Stage 653:=========================>                            (19 + 20) / 40]
+
+
+
+[Stage 742:==================================================>     (9 + 1) / 10]
+
+
+
+[Stage 771:==================================================>     (9 + 1) / 10]
+
+
+{"scale_result": {"scale": 0.5, "evaluated_users": 95589, "ndcg_at_10": 0.9071138436502145, "recall_at_10": 0.839997695032046, "matching_user_baseline_ndcg_at_10": 0.8666767827344583, "ndcg_relative_change_vs_matching_baseline": 0.04665760260494456, "candidate_scoring_seconds": 2.7749067000113428, "candidate_scoring_users_per_second": 34447.6446720206, "per_user_file": "data/processed/als_050_per_user.csv.gz", "scientific_output_sha256": "639aed4160d97631fab37aeed15f928ed1a100b9d0df7d4fc729de2dc3768374", "top10_file": null, "training_rows": 6477402, "training_rows_per_second": 532732.5581789312, "als_fit_seconds": 12.158825100050308, "rank": 32, "iterations": 8, "regularization": 0.1, "alpha": 1.0, "overall_stage_one_baseline_ndcg_at_10": 0.8661862529099003}}
+
+[Stage 1291:=================================================>    (37 + 3) / 40]
+
+
+
+[Stage 1296:=======================>                             (18 + 20) / 40]
+
+[Stage 1296:=============================================>        (34 + 6) / 40]
+
+
+
+[Stage 1301:=====>                                                 (1 + 9) / 10]
+
+
+
+[Stage 1309:>                                                     (0 + 10) / 10]
+
+[Stage 1309:=====>                                                 (1 + 9) / 10]
+
+
+
+[Stage 1315:>                                                     (0 + 10) / 10]
+
+[Stage 1315:=====>                                                 (1 + 9) / 10]
+
+
+
+[Stage 1322:>                                                     (0 + 10) / 10]
+
+[Stage 1322:================>                                      (3 + 7) / 10]
+
+
+
+[Stage 1330:>                                                     (0 + 10) / 10]
+
+[Stage 1330:=====>                                                 (1 + 9) / 10]
+
+
+
+[Stage 1339:>                                                     (0 + 10) / 10]
+
+[Stage 1339:===========>                                           (2 + 8) / 10]
+
+
+
+[Stage 1349:>                                                     (0 + 10) / 10]
+
+
+
+[Stage 1360:>                                                     (0 + 10) / 10]
+
+[Stage 1360:=====>                                                 (1 + 9) / 10]
+
+[Stage 1360:=================================================>     (9 + 1) / 10]
+
+
+
+[Stage 1372:>                                                     (0 + 10) / 10]
+
+
+
+[Stage 1385:>                                                     (0 + 10) / 10]
+
+[Stage 1385:============================================>          (8 + 2) / 10]
+
+
+
+[Stage 1399:>                                                     (0 + 10) / 10]
+
+[Stage 1399:======================>                                (4 + 6) / 10]
+
+
+
+[Stage 1414:>                                                     (0 + 10) / 10]
+
+[Stage 1414:===========================>                           (5 + 5) / 10]
+
+
+
+[Stage 1430:>                                                     (0 + 10) / 10]
+
+
+
+[Stage 1447:>                                                     (0 + 10) / 10]
+
+[Stage 1447:=====>                                                 (1 + 9) / 10]
+
+
+
+[Stage 1465:>                                                     (0 + 10) / 10]
+
+
+
+[Stage 1484:>                                                     (0 + 10) / 10]
+
+[Stage 1484:============================================>          (8 + 2) / 10]
+
+
+
+[Stage 1504:>                                                     (0 + 10) / 10]
+
+[Stage 1504:=================================>                     (6 + 4) / 10]
+
+
+{"scale_result": {"scale": 1.0, "evaluated_users": 191007, "ndcg_at_10": 0.906464827622346, "recall_at_10": 0.8407516815585255, "matching_user_baseline_ndcg_at_10": 0.8661862529099003, "ndcg_relative_change_vs_matching_baseline": 0.04650105514504799, "candidate_scoring_seconds": 6.857712599914521, "candidate_scoring_users_per_second": 27852.87327473899, "per_user_file": "data/processed/als_100_per_user.csv.gz", "scientific_output_sha256": "a081de6d72e04580a0cf196a999eda56464137bb199b44860031069d942ab003", "top10_file": "data/processed/als_top10.csv.gz", "training_rows": 12905652, "training_rows_per_second": 605267.0117909682, "als_fit_seconds": 21.322245799936354, "rank": 32, "iterations": 8, "regularization": 0.1, "alpha": 1.0, "overall_stage_one_baseline_ndcg_at_10": 0.8661862529099003}}
+
+[Stage 1945:===========>  (32 + 8) / 40][Stage 1946:>             (0 + 12) / 40]
+
+[Stage 1946:=>            (5 + 20) / 40][Stage 1947:>              (0 + 0) / 40]
+
+[Stage 1946:======>      (21 + 19) / 40][Stage 1947:>              (0 + 1) / 40]
+
+[Stage 1947:>                                                     (0 + 20) / 40]
+
+[Stage 1947:>             (0 + 20) / 40][Stage 1949:>               (0 + 0) / 1]
+
+[Stage 1947:(0 + 20) / 40][Stage 1949:> (0 + 0) / 1][Stage 1951:> (0 + 0) / 1]
+
+[Stage 1947:(1 + 20) / 40][Stage 1949:> (0 + 0) / 1][Stage 1951:> (0 + 0) / 1]
+
+[Stage 1947:(14 + 20) / 40][Stage 1949:> (0 + 0) / 1][Stage 1951:> (0 + 0) / 1]
+
+[Stage 1947:(20 + 20) / 40][Stage 1949:> (0 + 0) / 1][Stage 1951:> (0 + 0) / 1]
+
+[Stage 1947:(24 + 16) / 40][Stage 1949:> (0 + 1) / 1][Stage 1951:> (0 + 1) / 1]
+
+
+
+[Stage 1947:================================================>     (36 + 4) / 40]
+
+[Stage 1954:>                                                     (0 + 20) / 40]
+
+[Stage 1954:=>                                                    (1 + 20) / 40]
+
+[Stage 1954:===============>                                     (12 + 20) / 40]
+
+[Stage 1954:==========================>                          (20 + 20) / 40]
+
+[Stage 1954:==============================>                      (23 + 17) / 40]
+
+[Stage 1954:===========================================>          (32 + 8) / 40]
+
+[Stage 1958:=======================================>             (30 + 10) / 40]
+
+
+
+[Stage 1960:======>                                               (5 + 20) / 40]
+
+[Stage 1960:=============================>                       (22 + 18) / 40]
+
+
+{
+  "experiment": "phase3-spark-als-itemcf-v1",
+  "generated_at_utc": "2026-10-27T01:27:23.612809+00:00",
+  "dataset": "MovieLens 32M",
+  "training_input": "01_data_baseline/data/processed/train.parquet; rows with rating >= 4.0 become implicit positive interactions",
+  "training_rows_in_parquet": 25520897,
+  "candidate_protocol": "frozen stage-one positives plus 100 fixed negatives; seed 20260907; same user/item ID order; macro user metrics",
+  "candidate_sha256": "7663bc94e5a1ce7eaaa14489c2d00b42818205bf10becc724ad8e86e5253066a",
+  "baseline_ndcg_at_10": 0.8661862529099003,
+  "runtime": {
+    "spark_version": "3.5.8",
+    "java_version": "11.0.32.1",
+    "master": "local[*]",
+    "deployment_scope": "single Windows host, local Spark mode; no remote worker nodes",
+    "python": "3.11.16",
+    "cpu_count": 20,
+    "available_memory_gib_at_start": 13.8,
+    "driver_memory": "8g",
+    "shuffle_partitions": 40,
+    "elapsed_seconds_including_spark_startup": 100.42386610002723
+  },
+  "als_scale_results": [
+    {
+      "scale": 0.25,
+      "evaluated_users": 47778,
+      "ndcg_at_10": 0.9057123475243838,
+      "recall_at_10": 0.8392370444784645,
+      "matching_user_baseline_ndcg_at_10": 0.8649496671346938,
+      "ndcg_relative_change_vs_matching_baseline": 0.04712722825216398,
+      "candidate_scoring_seconds": 1.4124046000652015,
+      "candidate_scoring_users_per_second": 33827.41743958806,
+      "per_user_file": "data/processed/als_025_per_user.csv.gz",
+      "scientific_output_sha256": "33d0b2b9c4895bb52bfc756a5234948084334444913c6be10fe1d695ca90e873",
+      "top10_file": null,
+      "training_rows": 3235903,
+      "training_rows_per_second": 326961.1418588988,
+      "als_fit_seconds": 9.896903899963945,
+      "rank": 32,
+      "iterations": 8,
+      "regularization": 0.1,
+      "alpha": 1.0,
+      "overall_stage_one_baseline_ndcg_at_10": 0.8661862529099003
+    },
+    {
+      "scale": 0.5,
+      "evaluated_users": 95589,
+      "ndcg_at_10": 0.9071138436502145,
+      "recall_at_10": 0.839997695032046,
+      "matching_user_baseline_ndcg_at_10": 0.8666767827344583,
+      "ndcg_relative_change_vs_matching_baseline": 0.04665760260494456,
+      "candidate_scoring_seconds": 2.7749067000113428,
+      "candidate_scoring_users_per_second": 34447.6446720206,
+      "per_user_file": "data/processed/als_050_per_user.csv.gz",
+      "scientific_output_sha256": "639aed4160d97631fab37aeed15f928ed1a100b9d0df7d4fc729de2dc3768374",
+      "top10_file": null,
+      "training_rows": 6477402,
+      "training_rows_per_second": 532732.5581789312,
+      "als_fit_seconds": 12.158825100050308,
+      "rank": 32,
+      "iterations": 8,
+      "regularization": 0.1,
+      "alpha": 1.0,
+      "overall_stage_one_baseline_ndcg_at_10": 0.8661862529099003
+    },
+    {
+      "scale": 1.0,
+      "evaluated_users": 191007,
+      "ndcg_at_10": 0.906464827622346,
+      "recall_at_10": 0.8407516815585255,
+      "matching_user_baseline_ndcg_at_10": 0.8661862529099003,
+      "ndcg_relative_change_vs_matching_baseline": 0.04650105514504799,
+      "candidate_scoring_seconds": 6.857712599914521,
+      "candidate_scoring_users_per_second": 27852.87327473899,
+      "per_user_file": "data/processed/als_100_per_user.csv.gz",
+      "scientific_output_sha256": "a081de6d72e04580a0cf196a999eda56464137bb199b44860031069d942ab003",
+      "top10_file": "data/processed/als_top10.csv.gz",
+      "training_rows": 12905652,
+      "training_rows_per_second": 605267.0117909682,
+      "als_fit_seconds": 21.322245799936354,
+      "rank": 32,
+      "iterations": 8,
+      "regularization": 0.1,
+      "alpha": 1.0,
+      "overall_stage_one_baseline_ndcg_at_10": 0.8661862529099003
+    }
+  ],
+  "distributed_itemcf": {
+    "algorithm": "distributed item-item cosine co-occurrence",
+    "workset_users": 5000,
+    "positive_train_interactions": 331435,
+    "item_pairs_scored": 638897,
+    "neighbors_per_item": 50,
+    "neighbor_build_seconds": 11.34563049999997,
+    "ndcg_at_10": 0.8392679440163185,
+    "recall_at_10": 0.781935556992957,
+    "matching_user_baseline_ndcg_at_10": 0.8665790108678295,
+    "top10_file": "data/processed/itemcf_spark_top10.csv.gz"
+  },
+  "acceptance": {
+    "als_ndcg_above_matching_user_baseline": true,
+    "full_population_ndcg_above_baseline": true,
+    "multi_node_cluster_verified": false
+  }
+}
+SUCCESS: The process with PID 6416 (child process of PID 3448) has been terminated.
+SUCCESS: The process with PID 3448 (child process of PID 28740) has been terminated.
+SUCCESS: The process with PID 28740 (child process of PID 36584) has been terminated.
