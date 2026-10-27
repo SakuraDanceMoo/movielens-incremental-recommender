@@ -1,0 +1,154 @@
+{
+  "experiment": "phase4-event-time-incremental-replay-v1",
+  "generated_at_utc": "2026-10-27T01:53:41.451284+00:00",
+  "dataset": "MovieLens 32M",
+  "input": "01_data_baseline/data/processed/train.parquet positive training events; stable rowId is source offset",
+  "candidate_protocol": "frozen stage-one test positives plus 100 fixed negatives; score before each user's first test timestamp",
+  "candidate_sha256": "7663bc94e5a1ce7eaaa14489c2d00b42818205bf10becc724ad8e86e5253066a",
+  "source_positive_event_count": 12905652,
+  "processed_positive_event_count": 12905652,
+  "users_evaluated": 191007,
+  "state": {
+    "window_days": 30,
+    "late_event_policy": "drop events older than the event-time watermark; ordered replay has no late events",
+    "late_events_dropped": 0,
+    "duplicate_policy": "in-memory monotonic source cursor; consumed offsets are idempotent within the active replay; durable checkpoint recovery is out of scope",
+    "replayed_source_offset_idempotent": true,
+    "final_source_offset": 12905652,
+    "final_state_sha256": "a77c446096f1ad2ce0ccb89af20bb7a2c049d0df942c38bb3e9ea2cb74fd6dfb",
+    "user_profile_genres": [
+      "Action",
+      "Adventure",
+      "Animation",
+      "Children",
+      "Comedy",
+      "Crime",
+      "Documentary",
+      "Drama",
+      "Fantasy",
+      "Film-Noir",
+      "Horror",
+      "IMAX",
+      "Musical",
+      "Mystery",
+      "Romance",
+      "Sci-Fi",
+      "Thriller",
+      "War",
+      "Western"
+    ],
+    "active_window_positive_items": 5424,
+    "profiled_users": 200571,
+    "checkpoints": [
+      {
+        "userId": 190719,
+        "cutoff": 823264621,
+        "source_offset": 98,
+        "watermark": 823264621,
+        "window_start_offset": 2,
+        "window_positive_events": 96,
+        "active_window_items": 48,
+        "profiled_users": 10,
+        "state_sha256": "0d93f4c3a1e3c2a36f98e600014116743c49e1f277dde189730c8142a9b64406"
+      },
+      {
+        "userId": 121551,
+        "cutoff": 973783553,
+        "source_offset": 2315091,
+        "watermark": 973783553,
+        "window_start_offset": 2278342,
+        "window_positive_events": 36749,
+        "active_window_items": 2722,
+        "profiled_users": 54055,
+        "state_sha256": "c6389f9417d2b8794ccef5e58cf4ab3dfade83513cb1699eded45cb2d7190741"
+      },
+      {
+        "userId": 21724,
+        "cutoff": 1232269281,
+        "source_offset": 6184558,
+        "watermark": 1232269281,
+        "window_start_offset": 6145160,
+        "window_positive_events": 39398,
+        "active_window_items": 4356,
+        "profiled_users": 105569,
+        "state_sha256": "18f61312258bb003ebf914500e1ece41094eee0cb74bec6b0a28a9cc871ecc1f"
+      },
+      {
+        "userId": 181306,
+        "cutoff": 1484814629,
+        "source_offset": 9382623,
+        "watermark": 1484814629,
+        "window_start_offset": 9321383,
+        "window_positive_events": 61240,
+        "active_window_items": 6487,
+        "profiled_users": 156647,
+        "state_sha256": "1259e567437410696fbc00f9c7c3588c8007e280b2c52f9dcb3d856d003c3713"
+      },
+      {
+        "userId": 183103,
+        "cutoff": 1697158906,
+        "source_offset": 12905652,
+        "watermark": 1697158906,
+        "window_start_offset": 12877577,
+        "window_positive_events": 28075,
+        "active_window_items": 5424,
+        "profiled_users": 200571,
+        "state_sha256": "a77c446096f1ad2ce0ccb89af20bb7a2c049d0df942c38bb3e9ea2cb74fd6dfb"
+      }
+    ]
+  },
+  "ranking": {
+    "model": "cumulative positive count + window_score_weight * 30-day positive count + genre_affinity_weight * mean genre count / user genre-event count",
+    "window_score_weight": 0.1,
+    "genre_affinity_weight": 0.2,
+    "tie_break": "score descending then movieId ascending",
+    "ndcg_at_10": 0.8640003471908295,
+    "recall_at_10": 0.8412866145634803,
+    "matching_user_stage_one_baseline_ndcg_at_10": 0.8661862529099003,
+    "matching_user_stage_one_baseline_recall_at_10": 0.8451591927297544,
+    "ndcg_relative_change_vs_baseline": -0.0025235977963484757,
+    "recall_relative_change_vs_baseline": -0.004582069507835684,
+    "ndcg_no_degradation_met": false,
+    "recall_no_degradation_met": false
+  },
+  "performance": {
+    "replay_and_candidate_evaluation_seconds": 55.90579559991602,
+    "input_load_and_total_elapsed_seconds": 67.08086579991505,
+    "events_per_second_excluding_input_load": 230846.4062001362,
+    "event_update_latency_ms": {
+      "mean": 0.0033197043589893796,
+      "p50": 0.0029,
+      "p95": 0.0045,
+      "p99": 0.0101,
+      "max": 9.9818
+    },
+    "candidate_scoring_latency_ms": {
+      "mean": 0.04487059060662699,
+      "p50": 0.0414,
+      "p95": 0.0581,
+      "p99": 0.1063,
+      "max": 0.9907
+    },
+    "watermark_window_maintenance_latency_ms": {
+      "mean": 0.0017499866497039376,
+      "p50": 0.0005,
+      "p95": 0.0062,
+      "p99": 0.0199,
+      "max": 1.4911
+    },
+    "target_event_processing_p99_ms": 100,
+    "event_update_p99_below_target": true,
+    "scope": "single-process in-memory state update; excludes storage, network, broker and checkpoint I/O",
+    "python": "3.11.16",
+    "polars": "2.0.0",
+    "cpu_count": 20,
+    "available_memory_gib_at_start": 17.97
+  },
+  "outputs": {
+    "per_user_metrics": "data/processed/stream_per_user.csv.gz",
+    "top10": "data/processed/stream_top10.csv.gz",
+    "latency_curve": "curves/streaming_latency.png",
+    "per_user_metrics_sha256": "8b8b562696e5e5791742e0a5435bc39664e3ecc7ef23d10b1b343fbbd0e25d61",
+    "top10_sha256": "9e55e393f44ed8b6934ceab785fabc2e5d32ad6ebd0d373d1d15dbe309dc00a4"
+  }
+}

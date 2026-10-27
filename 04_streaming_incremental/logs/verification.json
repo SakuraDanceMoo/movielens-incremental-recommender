@@ -1,0 +1,61 @@
+{
+  "status": "passed",
+  "users": 191007,
+  "top10_rows": 1910070,
+  "ndcg_at_10": 0.8640003471908257,
+  "recall_at_10": 0.8412866145634946,
+  "ndcg_no_degradation_met": false,
+  "recall_no_degradation_met": false,
+  "candidate_membership_and_order": true,
+  "event_time_checkpoints": [
+    {
+      "cutoff": 823264621,
+      "source_offset": 98,
+      "rolling_window_events": 96,
+      "state_summary_recomputes": true
+    },
+    {
+      "cutoff": 973783553,
+      "source_offset": 2315091,
+      "rolling_window_events": 36749,
+      "state_summary_recomputes": true
+    },
+    {
+      "cutoff": 1232269281,
+      "source_offset": 6184558,
+      "rolling_window_events": 39398,
+      "state_summary_recomputes": true
+    },
+    {
+      "cutoff": 1484814629,
+      "source_offset": 9382623,
+      "rolling_window_events": 61240,
+      "state_summary_recomputes": true
+    },
+    {
+      "cutoff": 1697158906,
+      "source_offset": 12905652,
+      "rolling_window_events": 28075,
+      "state_summary_recomputes": true
+    }
+  ],
+  "source_cursor_idempotency": true,
+  "late_events_dropped": 0,
+  "event_update_p99_below_100ms": true,
+  "checks": [
+    "candidate population",
+    "per-user macro metrics",
+    "top-10 ranks",
+    "unique recommendations",
+    "frozen candidate membership",
+    "score ordering",
+    "independent NDCG@10",
+    "independent Recall@10",
+    "event-time source offsets",
+    "watermarks",
+    "sliding-window boundaries",
+    "state summaries",
+    "replay cursor idempotency",
+    "event update p99"
+  ]
+}

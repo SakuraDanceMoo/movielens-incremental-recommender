@@ -1,6 +1,6 @@
 # MovieLens分布式增量电影推荐系统
 
-按Word路线开展的大数据课程项目。阶段一完成数据检查与全局热门推荐基线，阶段二完成相似度召回工作集实验；后续阶段保留计划与验收要求。阶段一采用严格时刻限制的训练热门度，以避免按用户时序划分时跨用户未来事件进入特征。
+按Word路线开展的大数据课程项目。阶段一完成数据检查与全局热门推荐基线，阶段二完成相似度召回工作集实验，阶段三和阶段四的本机实验与复算记录已归档。阶段一采用严格时刻限制的训练热门度，以避免按用户时序划分时跨用户未来事件进入特征。
 
 ![六阶段学习路线图](docs/movielens_roadmap.png)
 
@@ -15,7 +15,7 @@
 | [阶段一](01_data_baseline/README.md) | 四表检查、统计、80/10/10划分、100负样本、Most Popular、NDCG@10 | completed，本地验收通过；教师脚本对齐待核验 |
 | [阶段二](02_similarity_recall/README.md) | ItemCF、UserCF、LSH相似度与召回 | completed，本地工作集验收通过；LSH目标未达标，教师全量协议待核验 |
 | [阶段三](03_distributed_recommendation/README.md) | Spark分布式推荐 | completed，本机单节点实验通过；多节点集群未验证 |
-| [阶段四](04_streaming_incremental/README.md) | 流式回放与增量更新 | planned |
+| [阶段四](04_streaming_incremental/README.md) | 流式回放与增量更新 | 单机实验完成；事件P99达标，效果无下降目标未达 |
 | [阶段五](05_graph_recommendation/README.md) | 图推荐与特征融合 | planned |
 | [阶段六](06_integration_ablation/README.md) | 集成与消融，争取超过基线10% | planned |
 
@@ -72,3 +72,5 @@ PYTHONUTF8=1 MPLCONFIGDIR=.cache/matplotlib ../.venv/bin/python run.py
 该入口在阶段一派生产物存在时运行 ItemCF、UserCF、LSH 和四组 LSH 参数网格，输出阶段二日志和指标。
 
 阶段三复现与 Java 17 配置见[阶段三说明](03_distributed_recommendation/README.md)。
+
+阶段四事件时间流式回放复现见[阶段四说明](04_streaming_incremental/README.md)，环境继续使用项目上一级 `.venv` 与 `uv`。

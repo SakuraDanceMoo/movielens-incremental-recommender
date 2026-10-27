@@ -1,0 +1,14 @@
+{
+  "dataset": "MovieLens 32M",
+  "positive_threshold": 4.0,
+  "window_days": 30,
+  "genre_affinity_weight": 0.2,
+  "late_event_policy": "drop events older than the event-time watermark; ordered replay has no late events",
+  "duplicate_policy": "in-memory monotonic source cursor; consumed offsets are idempotent within the active replay; durable checkpoint recovery is out of scope",
+  "candidate_protocol": "frozen stage-one test positives plus 100 fixed negatives; evaluate before each user's first test timestamp",
+  "window_score_weight": 0.1,
+  "ranking": "cumulative item positive count plus weighted 30-day item positive count and weighted mean user genre affinity; score descending, movieId ascending",
+  "candidate_seed": 20260907,
+  "k": 10,
+  "target_event_processing_p99_ms": 100
+}

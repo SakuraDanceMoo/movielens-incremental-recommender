@@ -45,8 +45,9 @@
   {
     "directory": "04_streaming_incremental",
     "title": "阶段四 流式增量处理机制",
-    "status": "planned",
-    "goal": "时间回放、窗口统计、增量画像与状态验证；路线目标为单条评分处理小于100ms且效果不下降。"
+    "status": "completed",
+    "goal": "事件时间回放、窗口热度、增量画像、幂等游标与状态复算；本机事件P99目标达成，推荐效果无下降目标未达。",
+    "acceptance_files": ["config.json", "scripts/phase4_replay.py", "scripts/verify_phase4.py", "logs/experiment_2026-10-27.md", "logs/environment.json", "logs/stream_metrics.json", "logs/verification.json", "curves/streaming_latency.png", "data/processed/stream_per_user.csv.gz", "data/processed/stream_top10.csv.gz"]
   },
   {
     "directory": "05_graph_recommendation",

@@ -1,6 +1,15 @@
 {
   "directory": "04_streaming_incremental",
   "title": "阶段四 流式增量处理机制",
-  "status": "planned",
-  "goal": "时间回放、窗口统计、增量画像与状态验证；路线目标为单条评分处理小于100ms且效果不下降。"
+  "status": "completed",
+  "goal": "事件时间回放、30天滑动窗口统计、增量用户画像、幂等游标和状态复算；记录单机事件更新P99及固定候选效果。",
+  "runtime": "Python in-memory replay on one Windows host; no broker or multi-node service",
+  "dataset": "MovieLens 32M training positive ratings and frozen stage-one candidate set",
+  "acceptance": {
+    "event_update_p99_below_100ms": true,
+    "ranking_quality_no_degradation": false,
+    "durable_checkpoint_recovery": false,
+    "multi_node_stream_runtime": false
+  },
+  "acceptance_files": ["config.json", "scripts/phase4_replay.py", "scripts/verify_phase4.py", "logs/experiment_2026-10-27.md", "logs/environment.json", "logs/stream_metrics.json", "logs/verification.json", "curves/streaming_latency.png", "data/processed/stream_per_user.csv.gz", "data/processed/stream_top10.csv.gz"]
 }

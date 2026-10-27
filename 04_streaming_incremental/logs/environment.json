@@ -1,0 +1,13 @@
+{
+  "python": "3.11.16",
+  "polars": "2.0.0",
+  "numpy": "2.4.6",
+  "matplotlib": "3.11.2",
+  "platform": "Windows single host, in-memory replay",
+  "logical_cpu_count": 20,
+  "available_memory_gib_at_start": 17.96,
+  "python_environment": "D:/AgentProject2026/.venv",
+  "uv": "0.12.16",
+  "external_broker": false,
+  "durable_checkpoint_store": false
+}
