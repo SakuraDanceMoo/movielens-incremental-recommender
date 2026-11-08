@@ -1,10 +1,11 @@
 {
   "directory": "04_streaming_incremental",
   "title": "阶段四 流式增量处理机制",
-  "status": "completed",
+  "status": "hybrid_rating_model_pending",
   "goal": "事件时间回放、30天滑动窗口统计、增量用户画像、幂等游标和状态复算；记录单机事件更新P99及固定候选效果。",
   "runtime": "Python in-memory replay on one Windows host; no broker or multi-node service",
   "dataset": "MovieLens 32M training positive ratings and frozen stage-one candidate set",
+  "target_dataset": "hybrid-half-half-latest100k-v1; incremental explicit-rating prediction evaluated by RMSE",
   "acceptance": {
     "event_update_p99_below_100ms": true,
     "ranking_quality_no_degradation": false,

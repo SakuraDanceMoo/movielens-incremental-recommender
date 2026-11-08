@@ -1,9 +1,11 @@
 {
   "directory": "02_similarity_recall",
   "title": "阶段二 相似度计算与召回策略",
-  "status": "completed",
+  "status": "hybrid_rating_model_pending",
   "goal": "实现精确余弦相似度、UserCF 与 Random Projection LSH；在统一候选协议下报告召回精度、邻居重合度、候选规模与延迟。",
   "scope": "5000-user deterministic exact/LSH benchmark; 191007-user frozen candidate population remains stage-one reference",
+  "historical_dataset": "MovieLens 32M",
+  "target_dataset": "hybrid-half-half-latest100k-v1; explicit rating prediction evaluated by RMSE",
   "acceptance": {
     "itemcf_exact": "completed",
     "usercf_exact": "completed",

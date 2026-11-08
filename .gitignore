@@ -14,4 +14,5 @@ __pycache__/
 **/data/processed/*.npy
 **/data/processed/split_boundaries.csv
 **/data/processed/repeat_*.gz
+06_integration_ablation/logs/rating_prediction_run.log
 07_rating_prediction/logs/rating_run.log

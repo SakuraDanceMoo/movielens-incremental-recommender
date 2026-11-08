@@ -1,10 +1,11 @@
 {
   "directory": "05_graph_recommendation",
   "title": "阶段五 图推荐模型探索",
-  "status": "completed",
+  "status": "hybrid_rating_model_pending",
   "goal": "在5000用户训练正反馈二部图上实现PPR，保存画像和电影类型节点属性，与ALS排序融合并报告固定候选效果；PPR低于ALS，融合增益未达全项目10%目标。",
   "runtime": "SciPy sparse Personalized PageRank on one Windows host",
   "dataset": "MovieLens 32M; first 5000 stage-one candidate users",
+  "target_dataset": "hybrid-half-half-latest100k-v1; graph-based explicit-rating prediction evaluated by RMSE",
   "acceptance": {
     "ppr_converged_to_l1_tolerance": true,
     "ppr_ndcg_above_stage3_als": false,

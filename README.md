@@ -1,6 +1,6 @@
 # MovieLens分布式增量电影推荐系统
 
-按Word路线开展的大数据课程项目。阶段一至六的实现、实验或负结果分析均已归档；阶段五六只在共同的5,000用户工作集进行离线验证，最终全量NDCG提升10%的目标尚未达到。阶段一采用严格时刻限制的训练热门度，以避免按用户时序划分时跨用户未来事件进入特征。
+按Word路线开展的大数据课程项目。当前最终任务已调整为使用用户提供的 MovieLens/合成混合评分数据，预测 `test_pairs.csv` 的评分并用 RMSE 评价。阶段一至六早期归档的推荐排序实验使用官方纯 MovieLens 32M 数据，属于历史结果；不可当作混合数据上的阶段一至六重新实验结果。
 
 ![六阶段学习路线图](docs/movielens_roadmap.png)
 
@@ -12,14 +12,16 @@
 
 | 阶段 | 内容 | 状态 |
 | --- | --- | --- |
-| [阶段一](01_data_baseline/README.md) | 四表检查、统计、80/10/10划分、100负样本、Most Popular、NDCG@10 | completed，本地验收通过；教师脚本对齐待核验 |
-| [阶段二](02_similarity_recall/README.md) | ItemCF、UserCF、LSH相似度与召回 | completed，本地工作集验收通过；LSH目标未达标，教师全量协议待核验 |
-| [阶段三](03_distributed_recommendation/README.md) | Spark分布式推荐 | completed，本机单节点实验通过；多节点集群未验证 |
-| [阶段四](04_streaming_incremental/README.md) | 流式回放与增量更新 | 单机实验完成；事件P99达标，效果无下降目标未达 |
-| [阶段五](05_graph_recommendation/README.md) | 图推荐与特征融合 | 5,000用户本机实验完成；PPR低于ALS，融合增益5.56% |
-| [阶段六](06_integration_ablation/README.md) | 集成与消融，争取超过基线10% | 消融完成；共同工作集增益4.62%，10%目标未达 |
+| [阶段一](01_data_baseline/README.md) | 混合数据检查与评分 RMSE 基线 | 混合数据审计完成；旧官方 MovieLens 排序结果作为历史归档 |
+| [阶段二](02_similarity_recall/README.md) | 相似度评分预测 | 混合评分回归模型待实现；旧 ItemCF/UserCF/LSH 是 MovieLens 排序实验 |
+| [阶段三](03_distributed_recommendation/README.md) | 分布式显式评分预测 | 混合数据 Spark ALS 已验证；单机执行，多节点未验证 |
+| [阶段四](04_streaming_incremental/README.md) | 流式增量评分更新 | 混合数据评分回归待实现；旧结果是 MovieLens 排序回放 |
+| [阶段五](05_graph_recommendation/README.md) | 图评分模型探索 | 混合数据评分回归待实现；旧 PPR 是 MovieLens 排序实验 |
+| [阶段六](06_integration_ablation/README.md) | 集成、消融与最终评分预测 | 混合数据 ALS 留出 RMSE=0.897475；生成100,000条预测；真实 test RMSE 无标签无法计算 |
 
-## 安装与一键复现
+## 历史 MovieLens 排序实验环境
+
+以下依赖说明和 `run.py` 一键流程用于复现此前官方 MovieLens 32M 排序实验，不会运行当前混合数据 RMSE 任务。混合数据预测入口和命令见[阶段六](06_integration_ablation/README.md)。
 
 使用Python 3.11，建议至少16GB内存，32GB更稳妥；本次运行环境为32GB Windows主机。为原始数据和派生文件预留至少6GB磁盘空间。所有数据路径由脚本位置解析，不依赖本机绝对路径。项目共享依赖环境位于仓库上一级的`.venv`，避免在仓库内重复安装环境。
 
@@ -75,8 +77,4 @@ PYTHONUTF8=1 MPLCONFIGDIR=.cache/matplotlib ../.venv/bin/python run.py
 
 阶段四事件时间流式回放复现见[阶段四说明](04_streaming_incremental/README.md)，环境继续使用项目上一级 `.venv` 与 `uv`。
 
-## 评分预测拓展
-
-六阶段路线之外，新增了混合 MovieLens/合成评分数据的显式评分预测实验。使用 Spark ALS 在 386,982 条逐用户时间留出评分上比较 rank=16/32，选出的 rank=16 RMSE 为 **0.897475**，全局均值基线为1.067599。完整训练后对100,000条 `test_pairs` 生成预测；预测文件保存在用户提供的数据目录，不上传数据或预测表。
-
-`test_pairs.csv` 不含真实评分，不能据此计算测试集 RMSE。当前 RMSE 是训练评分中的时间留出验证结果，详细方法和复现命令见[评分预测说明](07_rating_prediction/README.md)与[实验记录](07_rating_prediction/logs/experiment_2026-11-08.md)。
+当前混合数据预测方法、验证 RMSE、复现命令和评价边界见[阶段六说明](06_integration_ablation/README.md)及[实验记录](06_integration_ablation/logs/rating_prediction_experiment_2026-11-08.md)。预测文件由脚本写入用户提供的数据目录；仓库不含数据或预测文件。`test_pairs.csv` 不含真实评分，无法计算真实测试集 RMSE。

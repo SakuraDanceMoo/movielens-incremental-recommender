@@ -1,6 +1,15 @@
 # 阶段一 数据检查与基线构建
 
-状态：完整32M本地完成，教师脚本一致性待核验。数据为32,000,204条评分、200,948用户、87,585电影。
+状态：当前混合数据检查和 RMSE 均值基线已完成。下文旧版官方 MovieLens 检查及排序结果仅作为历史归档。
+
+混合数据审计脚本：`scripts/audit_hybrid_dataset.py`。使用 `D:\AgentProject2026\.venv` 执行：
+
+```powershell
+..\.venv\Scripts\python.exe -X utf8 01_data_baseline/scripts/audit_hybrid_dataset.py `
+  --data-dir 'C:\path\to\训练数据集'
+```
+
+审计结果见 [混合数据检查与 RMSE 基线](logs/hybrid_data_audit.json)及[实验记录](logs/experiment_hybrid_2026-11-08.md)。评分验证集 RMSE 采用阶段六相同的每用户时间留出协议；`test_pairs.csv` 没有标签，不能计算其真实 RMSE。
 
 四表检查、统计、时间划分、seed=20260907的100负样本和全局热门基线均已执行。191,007位有测试正样本用户上NDCG@10=0.866186，Recall@10=0.845159；9,941位无正样本用户不进入宏平均。热门度只来自严格早于用户推荐时刻的训练正反馈。
 

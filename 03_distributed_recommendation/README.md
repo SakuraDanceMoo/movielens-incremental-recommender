@@ -1,6 +1,8 @@
 # 阶段三 分布式推荐算法实现
 
-状态：已完成本机 Spark 实验；多节点集群验收未完成。
+状态：旧版官方 MovieLens 隐式反馈 Spark 实验已完成，多节点集群未验证。当前混合数据上的显式评分 Spark ALS 已在[阶段六](../06_integration_ablation/README.md)运行并用于最终预测；本页历史 NDCG 指标不属于混合数据。
+
+混合数据显式 ALS 使用 31,900,204 条评分训练，在每位用户最新评分留出集上比较 rank=16/32，按 RMSE 选择 rank=16（RMSE=0.897475）。实现和复现入口位于[阶段六评分预测脚本](../06_integration_ablation/scripts/rating_prediction.py)，结果位于[评分预测指标](../06_integration_ablation/logs/rating_prediction_metrics.json)。
 
 实现包括 Spark MLlib 隐式反馈 ALS 和基于 Spark SQL 自连接、余弦相似度聚合的 ItemCF。ALS 用 MovieLens 32M 训练划分中评分不低于 4 的交互，使用 25%、50%、100% 嵌套用户规模做扩展性实验；统一在阶段一冻结的测试正样本与100个负样本上计算 NDCG@10、Recall@10。ItemCF 使用冻结候选用户前5000人的训练正反馈工作集。测试标签不进入拟合。
 

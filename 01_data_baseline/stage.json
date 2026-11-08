@@ -1,9 +1,13 @@
 {
   "directory": "01_data_baseline",
   "title": "阶段一 数据检查与基线构建",
-  "status": "completed",
-  "goal": "完整32M四表检查、分布统计、80/10/10时间划分、固定候选集、热门基线与指标复算；教师脚本一致性待核验。",
+  "status": "hybrid_data_audit_and_rmse_baseline_completed",
+  "goal": "检查用户提供的混合评分数据、test_pairs模式与评分区间，记录训练均值RMSE基线；旧官方MovieLens排序报告仅作为历史记录。",
+  "hybrid_dataset": "hybrid-half-half-latest100k-v1",
   "acceptance_files": [
+    "scripts/audit_hybrid_dataset.py",
+    "logs/hybrid_data_audit.json",
+    "logs/experiment_hybrid_2026-11-08.md",
     "config.json",
     "scripts/prepare.py",
     "scripts/evaluate.py",

@@ -1,8 +1,8 @@
 {
   "directory": "03_distributed_recommendation",
   "title": "阶段三 分布式推荐算法实现",
-  "status": "completed",
-  "goal": "Spark分布式ALS及ItemCF；沿用固定候选协议评估，并比较不同训练数据规模的吞吐量。",
+  "status": "legacy_completed_hybrid_rating_model_verified",
+  "goal": "旧隐式反馈排序实验保留为历史；混合数据显式评分 ALS 在阶段六 RMSE 协议下实测并用于预测。",
   "runtime": "Apache Spark local[*] on one Windows host; not a multi-node cluster",
-  "dataset": "MovieLens 32M; full train parquet for ALS; first 5000 frozen candidate users for ItemCF"
+  "dataset": "hybrid-half-half-latest100k-v1 explicit ratings for current ALS; legacy implicit ranking artifacts use MovieLens 32M"
 }

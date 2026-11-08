@@ -1,0 +1,49 @@
+{
+  "dataset": "hybrid-half-half-latest100k-v1",
+  "source": "user-supplied local training folder; raw data is not copied to Git",
+  "source_composition": "approximately half MovieLens 32M-derived ratings and half synthetic ratings",
+  "ratings": {
+    "rows": 31900204,
+    "users": 396060,
+    "movies": 142609,
+    "min_rating": 0.5,
+    "max_rating": 5.0,
+    "mean_rating": 3.5403594970703125,
+    "min_timestamp": 789652004,
+    "max_timestamp": 1697158815,
+    "movielens32m_rows": 15950149,
+    "synthetic_rows": 15950055
+  },
+  "ratings_sha256": "b1e1b5e22a177ee32a207e058fa22a3f3601cd77f68b4a091625237a43b96815",
+  "test_pairs": {
+    "rows": 100000,
+    "columns": [
+      "userId",
+      "movieId",
+      "timestamp"
+    ],
+    "contains_rating_label": false,
+    "movielens32m_rows": 49953,
+    "synthetic_rows": 50047,
+    "cold_start_rows": 0
+  },
+  "rating_range": [
+    0.5,
+    5.0
+  ],
+  "baseline": {
+    "model": "training-mean-on-per-user-temporal-holdout",
+    "validation_rows": 386982,
+    "rmse": 1.0675994768057624,
+    "metric_source": "independently generated stage-six explicit-ALS validation run"
+  },
+  "checks": [
+    "dataset identifier",
+    "rating row count",
+    "rating scale",
+    "test row count",
+    "test schema",
+    "test labels absent",
+    "no cold-start pairs"
+  ]
+}

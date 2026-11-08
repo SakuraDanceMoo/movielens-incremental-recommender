@@ -1,6 +1,24 @@
-# 阶段六 系统集成与消融实验
+# 阶段六 系统集成、消融与最终评分预测
 
-状态：本机离线候选融合和三项消融已完成；相对基线提升10%的课程目标未达到，端到端服务P99尚未验证。
+本项目已切换为使用用户提供的 MovieLens/合成混合评分数据，最终任务是预测 `test_pairs.csv` 的评分并按 RMSE 评价。旧六阶段中的 NDCG、召回和 Top10 结果仍是此前官方 MovieLens 32M 实验，属于历史记录，不能作为混合数据上的结果。
+
+## 最终评分预测
+
+使用 Spark MLlib 显式评分 ALS 在混合数据上训练。完整方法、RMSE 验证、输出字段与限制见[评分预测实验记录](logs/rating_prediction_experiment_2026-11-08.md)、[评分预测指标](logs/rating_prediction_metrics.json)及[预测脚本](scripts/rating_prediction.py)。
+
+运行时传入用户数据目录，预测 CSV 会写在该目录，不会复制或上传数据：
+
+```powershell
+$env:JAVA_HOME = 'D:\AgentProject2026\.venv\jdk11'
+$env:PATH = "$env:JAVA_HOME\bin;$env:PATH"
+$dataDir = 'C:\path\to\训练数据集'
+..\.venv\Scripts\python.exe -X utf8 06_integration_ablation/scripts/rating_prediction.py `
+  --data-dir $dataDir
+```
+
+时间留出验证 RMSE 为0.897475，优于全局均值基线1.067599；验证选择 rank=16 后在全部31,900,204条训练评分上重训，并输出100,000条预测。`test_pairs.csv` 不含真实评分，因此真实测试集 RMSE 无法由当前文件计算。
+
+## 历史排序融合实验
 
 本阶段使用阶段二 LSH Top10、阶段三 ALS Top10、阶段五 PPR Top10 与阶段四流式混合 Top10 构造去重候选并集，再用等权 reciprocal-rank sum 重排。评估沿用阶段一前5,000位候选用户的测试正样本和100个固定负样本。各组件都是离线Top10列表，结果衡量共同工作集列表融合。
 
