@@ -15,4 +15,7 @@ __pycache__/
 **/data/processed/split_boundaries.csv
 **/data/processed/repeat_*.gz
 06_integration_ablation/logs/rating_prediction_run.log
-07_rating_prediction/logs/rating_run.log
+02_similarity_recall/logs/hybrid_rating_run.log
+04_streaming_incremental/logs/hybrid_rating_run.log
+05_graph_recommendation/logs/hybrid_rating_run.log
+07_rating_prediction/

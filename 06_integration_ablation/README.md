@@ -18,6 +18,20 @@ $dataDir = 'C:\path\to\训练数据集'
 
 时间留出验证 RMSE 为0.897475，优于全局均值基线1.067599；验证选择 rank=16 后在全部31,900,204条训练评分上重训，并输出100,000条预测。`test_pairs.csv` 不含真实评分，因此真实测试集 RMSE 无法由当前文件计算。
 
+## 阶段二、四、五与阶段六 RMSE 对比
+
+以下结果使用同一份混合数据和同一套386,982条逐用户时间留出评分。阶段六 ALS rank=16 在当前对比中最优，最终 `test_pairs_predictions.csv` 采用该模型的全量重训结果。
+
+| 模型 | 验证 RMSE |
+| --- | ---: |
+| 全局均值基线 | 1.067599 |
+| 阶段二相似度 | 1.047323 |
+| 阶段四流式增量 | 1.005831 |
+| 阶段五图传播 | 1.063098 |
+| 阶段六 ALS rank=16 | **0.897475** |
+
+可复核的逐阶段指标见[阶段二](../02_similarity_recall/logs/hybrid_rating_metrics.json)、[阶段四](../04_streaming_incremental/logs/hybrid_rating_metrics.json)、[阶段五](../05_graph_recommendation/logs/hybrid_rating_metrics.json)和[对比 CSV](logs/hybrid_rating_comparison.csv)。
+
 ## 历史排序融合实验
 
 本阶段使用阶段二 LSH Top10、阶段三 ALS Top10、阶段五 PPR Top10 与阶段四流式混合 Top10 构造去重候选并集，再用等权 reciprocal-rank sum 重排。评估沿用阶段一前5,000位候选用户的测试正样本和100个固定负样本。各组件都是离线Top10列表，结果衡量共同工作集列表融合。

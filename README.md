@@ -1,6 +1,6 @@
 # MovieLens分布式增量电影推荐系统
 
-按Word路线开展的大数据课程项目。当前最终任务已调整为使用用户提供的 MovieLens/合成混合评分数据，预测 `test_pairs.csv` 的评分并用 RMSE 评价。阶段一至六早期归档的推荐排序实验使用官方纯 MovieLens 32M 数据，属于历史结果；不可当作混合数据上的阶段一至六重新实验结果。
+按Word路线开展的大数据课程项目。当前最终任务已调整为使用用户提供的 MovieLens/合成混合评分数据，预测 `test_pairs.csv` 的评分并用 RMSE 评价。阶段一至六早期归档的推荐排序实验使用官方纯 MovieLens 32M 数据，属于历史结果；阶段二、四、五已补做混合数据评分回归，阶段六负责统一选模和最终输出。
 
 ![六阶段学习路线图](docs/movielens_roadmap.png)
 
@@ -13,10 +13,10 @@
 | 阶段 | 内容 | 状态 |
 | --- | --- | --- |
 | [阶段一](01_data_baseline/README.md) | 混合数据检查与评分 RMSE 基线 | 混合数据审计完成；旧官方 MovieLens 排序结果作为历史归档 |
-| [阶段二](02_similarity_recall/README.md) | 相似度评分预测 | 混合评分回归模型待实现；旧 ItemCF/UserCF/LSH 是 MovieLens 排序实验 |
+| [阶段二](02_similarity_recall/README.md) | 相似度评分预测 | 混合数据评分回归已完成，留出 RMSE=1.047323；旧 ItemCF/UserCF/LSH 是 MovieLens 排序实验 |
 | [阶段三](03_distributed_recommendation/README.md) | 分布式显式评分预测 | 混合数据 Spark ALS 已验证；单机执行，多节点未验证 |
-| [阶段四](04_streaming_incremental/README.md) | 流式增量评分更新 | 混合数据评分回归待实现；旧结果是 MovieLens 排序回放 |
-| [阶段五](05_graph_recommendation/README.md) | 图评分模型探索 | 混合数据评分回归待实现；旧 PPR 是 MovieLens 排序实验 |
+| [阶段四](04_streaming_incremental/README.md) | 流式增量评分更新 | 混合数据评分回归已完成，留出 RMSE=1.005831；旧结果是 MovieLens 排序回放 |
+| [阶段五](05_graph_recommendation/README.md) | 图评分模型探索 | 混合数据评分回归已完成，留出 RMSE=1.063098；旧 PPR 是 MovieLens 排序实验 |
 | [阶段六](06_integration_ablation/README.md) | 集成、消融与最终评分预测 | 混合数据 ALS 留出 RMSE=0.897475；生成100,000条预测；真实 test RMSE 无标签无法计算 |
 
 ## 历史 MovieLens 排序实验环境
@@ -77,4 +77,4 @@ PYTHONUTF8=1 MPLCONFIGDIR=.cache/matplotlib ../.venv/bin/python run.py
 
 阶段四事件时间流式回放复现见[阶段四说明](04_streaming_incremental/README.md)，环境继续使用项目上一级 `.venv` 与 `uv`。
 
-当前混合数据预测方法、验证 RMSE、复现命令和评价边界见[阶段六说明](06_integration_ablation/README.md)及[实验记录](06_integration_ablation/logs/rating_prediction_experiment_2026-11-08.md)。预测文件由脚本写入用户提供的数据目录；仓库不含数据或预测文件。`test_pairs.csv` 不含真实评分，无法计算真实测试集 RMSE。
+当前混合数据预测方法、阶段二至六验证 RMSE 对比、复现命令和评价边界见[阶段六说明](06_integration_ablation/README.md)及[实验记录](06_integration_ablation/logs/rating_prediction_experiment_2026-11-08.md)。预测文件由脚本写入用户提供的数据目录；仓库不含数据或预测文件。`test_pairs.csv` 不含真实评分，无法计算真实测试集 RMSE。

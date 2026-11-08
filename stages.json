@@ -33,10 +33,10 @@
   {
     "directory": "02_similarity_recall",
     "title": "阶段二 相似度计算与召回策略",
-    "status": "hybrid_rating_model_pending",
-    "goal": "旧版MovieLens ItemCF/UserCF/LSH排序实验已归档；混合数据版本需实现相似评分估计并以RMSE验证。",
+    "status": "completed",
+    "goal": "旧版MovieLens ItemCF/UserCF/LSH排序实验已归档；混合数据相似度评分回归已完成并以RMSE验证。",
     "scope": "5000-user exact/LSH benchmark; 191007-user frozen candidate population remains stage-one reference",
-    "acceptance_files": ["config.json", "scripts/phase2_experiment.py", "scripts/test_phase2.py", "logs/experiment_2026-10-15.md", "logs/itemcf_metrics.json", "logs/usercf_metrics.json", "logs/lsh_metrics.json", "logs/similarity_recall_metrics.json", "logs/verification.json", "curves/phase2_metrics.png", "curves/lsh_precision_efficiency.png", "data/processed/itemcf_exact_top10.csv.gz", "data/processed/usercf_exact_top10.csv.gz", "data/processed/itemcf_lsh_top10.csv.gz"]
+    "acceptance_files": ["config.json", "scripts/phase2_experiment.py", "scripts/test_phase2.py", "scripts/hybrid_rating_regression.py", "logs/experiment_2026-10-15.md", "logs/experiment_hybrid_2026-11-08.md", "logs/itemcf_metrics.json", "logs/usercf_metrics.json", "logs/lsh_metrics.json", "logs/similarity_recall_metrics.json", "logs/hybrid_rating_metrics.json", "logs/verification.json", "curves/phase2_metrics.png", "curves/lsh_precision_efficiency.png", "data/processed/itemcf_exact_top10.csv.gz", "data/processed/usercf_exact_top10.csv.gz", "data/processed/itemcf_lsh_top10.csv.gz"]
   },
   {
     "directory": "03_distributed_recommendation",
@@ -48,22 +48,22 @@
   {
     "directory": "04_streaming_incremental",
     "title": "阶段四 流式增量处理机制",
-    "status": "hybrid_rating_model_pending",
-    "goal": "旧版MovieLens排序流处理实验已归档；混合数据评分回归版本需改为增量评分统计并以RMSE验证。",
-    "acceptance_files": ["config.json", "scripts/phase4_replay.py", "scripts/verify_phase4.py", "logs/experiment_2026-10-27.md", "logs/environment.json", "logs/stream_metrics.json", "logs/verification.json", "curves/streaming_latency.png", "data/processed/stream_per_user.csv.gz", "data/processed/stream_top10.csv.gz"]
+    "status": "completed",
+    "goal": "旧版MovieLens排序流处理实验已归档；混合数据评分回归已改为增量评分统计并以RMSE验证。",
+    "acceptance_files": ["config.json", "scripts/phase4_replay.py", "scripts/verify_phase4.py", "scripts/hybrid_rating_regression.py", "logs/experiment_2026-10-27.md", "logs/experiment_hybrid_2026-11-08.md", "logs/environment.json", "logs/stream_metrics.json", "logs/hybrid_rating_metrics.json", "logs/verification.json", "curves/streaming_latency.png", "data/processed/stream_per_user.csv.gz", "data/processed/stream_top10.csv.gz"]
   },
   {
     "directory": "05_graph_recommendation",
     "title": "阶段五 图推荐模型探索",
-    "status": "hybrid_rating_model_pending",
-    "goal": "旧版MovieLens图排序实验已归档；混合数据图评分模型及RMSE验证尚待重跑。",
-    "acceptance_files": ["config.json", "scripts/graph_experiment.py", "scripts/verify_graph.py", "logs/experiment_2026-11-08.md", "logs/environment.json", "logs/graph_metrics.json", "logs/verification.json", "curves/graph_model_comparison.png", "data/processed/graph_ppr_top10.csv.gz", "data/processed/graph_als_fused_top10.csv.gz", "data/processed/graph_node_attributes.csv.gz"]
+    "status": "completed",
+    "goal": "旧版MovieLens图排序实验已归档；混合数据图评分模型及RMSE验证已完成。",
+    "acceptance_files": ["config.json", "scripts/graph_experiment.py", "scripts/verify_graph.py", "scripts/hybrid_rating_regression.py", "logs/experiment_2026-11-08.md", "logs/experiment_hybrid_2026-11-08.md", "logs/environment.json", "logs/graph_metrics.json", "logs/hybrid_rating_metrics.json", "logs/verification.json", "curves/graph_model_comparison.png", "data/processed/graph_ppr_top10.csv.gz", "data/processed/graph_als_fused_top10.csv.gz", "data/processed/graph_node_attributes.csv.gz"]
   },
   {
     "directory": "06_integration_ablation",
     "title": "阶段六 系统集成、消融与最终评分预测",
     "status": "completed",
     "goal": "混合数据时间留出RMSE选模、全量训练并输出test_pairs评分预测；test_pairs无真实评分，故真实测试RMSE不可计算。旧排序消融保留为MovieLens历史记录。",
-    "acceptance_files": ["config.json", "rating_prediction_config.json", "scripts/integrated_experiment.py", "scripts/verify_integration.py", "scripts/rating_prediction.py", "logs/rating_prediction_experiment_2026-11-08.md", "logs/rating_prediction_metrics.json", "logs/integration_metrics.json", "logs/ablation_metrics.csv", "logs/verification.json", "curves/integration_ablation.png", "data/processed/integrated_top10.csv.gz", "data/processed/ablation_per_user.csv.gz", "data/processed/ablation_top10.csv.gz"]
+    "acceptance_files": ["config.json", "rating_prediction_config.json", "scripts/integrated_experiment.py", "scripts/verify_integration.py", "scripts/rating_prediction.py", "logs/rating_prediction_experiment_2026-11-08.md", "logs/rating_prediction_metrics.json", "logs/hybrid_rating_comparison.csv", "logs/integration_metrics.json", "logs/ablation_metrics.csv", "logs/verification.json", "curves/integration_ablation.png", "data/processed/integrated_top10.csv.gz", "data/processed/ablation_per_user.csv.gz", "data/processed/ablation_top10.csv.gz"]
   }
 ]

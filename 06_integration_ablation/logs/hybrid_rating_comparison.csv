@@ -1,0 +1,6 @@
+model,validation_rmse,validation_rows,test_rmse_available
+global_mean,1.0675994768057624,386982,false
+stage2_similarity,1.0473233484558542,386982,false
+stage4_streaming,1.0058308529922668,386982,false
+stage5_graph,1.0630981509111395,386982,false
+stage6_als_rank16,0.8974749137472182,386982,false

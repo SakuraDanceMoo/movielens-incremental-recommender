@@ -1,8 +1,8 @@
 {
   "directory": "02_similarity_recall",
   "title": "阶段二 相似度计算与召回策略",
-  "status": "hybrid_rating_model_pending",
-  "goal": "实现精确余弦相似度、UserCF 与 Random Projection LSH；在统一候选协议下报告召回精度、邻居重合度、候选规模与延迟。",
+  "status": "completed",
+  "goal": "实现精确余弦相似度、UserCF 与 Random Projection LSH；在统一候选协议下报告召回精度、邻居重合度、候选规模与延迟，并用混合评分数据完成相似度评分回归。",
   "scope": "5000-user deterministic exact/LSH benchmark; 191007-user frozen candidate population remains stage-one reference",
   "historical_dataset": "MovieLens 32M",
   "target_dataset": "hybrid-half-half-latest100k-v1; explicit rating prediction evaluated by RMSE",
@@ -10,6 +10,16 @@
     "itemcf_exact": "completed",
     "usercf_exact": "completed",
     "itemcf_lsh": "completed_with_negative_result",
-    "teacher_script_alignment": "pending: teacher scripts not provided"
-  }
+    "teacher_script_alignment": "pending: teacher scripts not provided",
+    "hybrid_rating_rmse_reported": true,
+    "prediction_rows_100k": true,
+    "test_rmse_unavailable_documented": true
+  },
+  "rating_regression": {
+    "validation_rows": 386982,
+    "validation_rmse": 1.0473233484558542,
+    "prediction_rows": 100000,
+    "test_rmse_available": false
+  },
+  "acceptance_files": ["config.json", "scripts/phase2_experiment.py", "scripts/test_phase2.py", "scripts/hybrid_rating_regression.py", "logs/experiment_2026-10-15.md", "logs/experiment_hybrid_2026-11-08.md", "logs/itemcf_metrics.json", "logs/usercf_metrics.json", "logs/lsh_metrics.json", "logs/similarity_recall_metrics.json", "logs/hybrid_rating_metrics.json", "logs/verification.json", "curves/phase2_metrics.png", "curves/lsh_precision_efficiency.png", "data/processed/itemcf_exact_top10.csv.gz", "data/processed/usercf_exact_top10.csv.gz", "data/processed/itemcf_lsh_top10.csv.gz"]
 }

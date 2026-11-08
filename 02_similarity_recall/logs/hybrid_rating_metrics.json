@@ -1,0 +1,39 @@
+{
+  "experiment": "genre_item_similarity_rating_v1",
+  "generated_at_utc": "2026-11-08T13:42:11.189226+00:00",
+  "dataset": "hybrid-half-half-latest100k-v1",
+  "training_rows": 31513222,
+  "validation": {
+    "rows": 386982,
+    "rmse": 1.0473233484558542,
+    "fallback_rows": 0,
+    "movielens32m": {
+      "rows": 200415,
+      "rmse": 0.9917536890047728
+    },
+    "synthetic": {
+      "rows": 186567,
+      "rmse": 1.1039055880259419
+    }
+  },
+  "global_mean": 3.5391497099217593,
+  "test_predictions": {
+    "rows": 100000,
+    "output": "test_pairs_predictions_stage2.csv",
+    "output_sha256": "c1dbf4fe95ca2b4b3f3ac597ea65bf7c1b4259f00696e7725ac3d62c44358bb0",
+    "test_rmse": null,
+    "test_rmse_note": "test_pairs.csv has no rating labels"
+  },
+  "model": {
+    "algorithm": "genre similarity",
+    "fallback": "item mean then global mean",
+    "data_scope": "all hybrid ratings except per-user temporal holdout"
+  },
+  "runtime": {
+    "python": "3.11.16",
+    "spark": "3.5.8",
+    "master": "local[*]",
+    "elapsed_seconds": 87.88698439998552,
+    "partitions": 80
+  }
+}

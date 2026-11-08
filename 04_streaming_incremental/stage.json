@@ -1,8 +1,8 @@
 {
   "directory": "04_streaming_incremental",
   "title": "阶段四 流式增量处理机制",
-  "status": "hybrid_rating_model_pending",
-  "goal": "事件时间回放、30天滑动窗口统计、增量用户画像、幂等游标和状态复算；记录单机事件更新P99及固定候选效果。",
+  "status": "completed",
+  "goal": "事件时间回放、30天滑动窗口统计、增量用户画像、幂等游标和状态复算；记录单机事件更新P99及固定候选效果，并用混合评分数据完成增量评分回归。",
   "runtime": "Python in-memory replay on one Windows host; no broker or multi-node service",
   "dataset": "MovieLens 32M training positive ratings and frozen stage-one candidate set",
   "target_dataset": "hybrid-half-half-latest100k-v1; incremental explicit-rating prediction evaluated by RMSE",
@@ -10,7 +10,16 @@
     "event_update_p99_below_100ms": true,
     "ranking_quality_no_degradation": false,
     "durable_checkpoint_recovery": false,
-    "multi_node_stream_runtime": false
+    "multi_node_stream_runtime": false,
+    "hybrid_rating_rmse_reported": true,
+    "prediction_rows_100k": true,
+    "test_rmse_unavailable_documented": true
   },
-  "acceptance_files": ["config.json", "scripts/phase4_replay.py", "scripts/verify_phase4.py", "logs/experiment_2026-10-27.md", "logs/environment.json", "logs/stream_metrics.json", "logs/verification.json", "curves/streaming_latency.png", "data/processed/stream_per_user.csv.gz", "data/processed/stream_top10.csv.gz"]
+  "rating_regression": {
+    "validation_rows": 386982,
+    "validation_rmse": 1.0058308529922668,
+    "prediction_rows": 100000,
+    "test_rmse_available": false
+  },
+  "acceptance_files": ["config.json", "scripts/phase4_replay.py", "scripts/verify_phase4.py", "scripts/hybrid_rating_regression.py", "logs/experiment_2026-10-27.md", "logs/experiment_hybrid_2026-11-08.md", "logs/environment.json", "logs/stream_metrics.json", "logs/hybrid_rating_metrics.json", "logs/verification.json", "curves/streaming_latency.png", "data/processed/stream_per_user.csv.gz", "data/processed/stream_top10.csv.gz"]
 }

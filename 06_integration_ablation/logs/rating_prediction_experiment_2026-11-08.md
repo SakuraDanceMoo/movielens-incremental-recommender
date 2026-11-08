@@ -21,3 +21,7 @@
 ## 评价范围
 
 留出 RMSE 使用 `ratings.csv` 中真实评分计算。`test_pairs.csv` 只有用户、电影和时间戳，不含评分标签，所以真实测试 RMSE 未报告；预测文件只包含模型输出，不能将验证 RMSE 表述为测试 RMSE。源数据没有复制到仓库。
+
+## 阶段二、四、五对比
+
+同一时间留出协议下，阶段二相似度回归 RMSE=1.047323，阶段四事件时间回归 RMSE=1.005831，阶段五图传播回归 RMSE=1.063098；阶段六 ALS rank=16 RMSE=0.897475，为当前选用模型。完整对比见 [`hybrid_rating_comparison.csv`](hybrid_rating_comparison.csv)。

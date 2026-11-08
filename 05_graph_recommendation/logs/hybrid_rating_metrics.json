@@ -1,0 +1,39 @@
+{
+  "experiment": "degree_normalized_graph_propagation_rating_v1",
+  "generated_at_utc": "2026-11-08T13:45:10.347141+00:00",
+  "dataset": "hybrid-half-half-latest100k-v1",
+  "training_rows": 31513222,
+  "validation": {
+    "rows": 386982,
+    "rmse": 1.0630981509111395,
+    "fallback_rows": 0,
+    "movielens32m": {
+      "rows": 200415,
+      "rmse": 1.0051835112963607
+    },
+    "synthetic": {
+      "rows": 186567,
+      "rmse": 1.1219859439937172
+    }
+  },
+  "global_mean": 3.5391497099217593,
+  "test_predictions": {
+    "rows": 100000,
+    "output": "test_pairs_predictions_stage5.csv",
+    "output_sha256": "bbd05a06e61ed539bbd2cf9d39db1211ad919d5f3c780d7d559fbc4b69221b25",
+    "test_rmse": null,
+    "test_rmse_note": "test_pairs.csv has no rating labels"
+  },
+  "model": {
+    "algorithm": "degree-normalized two-hop user-movie graph propagation",
+    "fallback": "item mean then global mean",
+    "data_scope": "all hybrid ratings except per-user temporal holdout"
+  },
+  "runtime": {
+    "python": "3.11.16",
+    "spark": "3.5.8",
+    "master": "local[*]",
+    "elapsed_seconds": 158.20433029998094,
+    "partitions": 80
+  }
+}

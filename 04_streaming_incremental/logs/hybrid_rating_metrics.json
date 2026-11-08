@@ -1,0 +1,24 @@
+{
+  "experiment": "hybrid-event-time-rating-regression-v1",
+  "generated_at_utc": "2026-11-08T13:15:09.737811+00:00",
+  "dataset": "hybrid-half-half-latest100k-v1",
+  "training_rows": 31513222,
+  "validation": {
+    "rows": 386982,
+    "rmse": 1.0058308529922668,
+    "algorithm": "event-time cumulative global/user/item mean weighted 0.5/0.25/0.25",
+    "strictly_before_query_timestamp": true
+  },
+  "test_predictions": {
+    "rows": 100000,
+    "output": "test_pairs_predictions_stage4.csv",
+    "output_sha256": "b01535c72d928578e4fd0248518d1a57b73c0a752a3172493c6041819fc06ca8",
+    "test_rmse": null,
+    "test_rmse_note": "test_pairs.csv has no rating labels"
+  },
+  "runtime": {
+    "elapsed_seconds": 54.41096409992315,
+    "event_order": "timestamp ascending; equal timestamps retain source order",
+    "source_data_copied_into_repository": false
+  }
+}

@@ -1,12 +1,26 @@
 # 阶段二 相似度计算与召回策略
 
-状态：官方 MovieLens 32M 上的5000用户排序实验完成；混合数据 RMSE 版本尚待重跑。本页旧 NDCG/LSH 指标不属于用户提供的数据。
+状态：官方 MovieLens 32M 上的5000用户排序实验完成；混合数据评分回归已完成。本页旧 NDCG/LSH 指标不属于用户提供的数据。
 
 本阶段沿用阶段一的时间划分、固定候选集和 `seed=20260907`。训练只使用评分 `>=4.0` 的正反馈，测试正样本和固定负样本不会进入相似度拟合。由于在单机上直接构建全量 `87585 × 87585` 项目相似度矩阵不适合当前资源，本阶段选择阶段一候选用户中 ID 最小的 5000 人，保留完整候选协议并明确标注为工作集实验。
 
 实现了三种可复现基线：稀疏二值 ItemCF 精确余弦相似度、稀疏二值 UserCF 精确余弦相似度，以及 Random Projection LSH 的 ItemCF 近似召回。LSH 在同桶候选中重新计算精确余弦并取 Top-50 邻居；参数网格为 4×16、8×16、16×12 和 32×10（tables×planes）。
 
-## 运行
+## 混合数据评分回归（已完成）
+
+脚本 [`scripts/hybrid_rating_regression.py`](scripts/hybrid_rating_regression.py) 调用阶段六的类型相似度评分实现。时间留出验证集为386,982条，训练集为31,513,222条，验证 RMSE=**1.047323**。模型按用户历史评分和目标电影类型聚合，缺失类型依次回退到电影均值和全局均值。
+
+```powershell
+& D:/AgentProject2026/.venv/Scripts/python.exe -X utf8 02_similarity_recall/scripts/hybrid_rating_regression.py `
+  --mode similarity `
+  --data-dir 'C:/path/to/训练数据集' `
+  --output 'C:/path/to/训练数据集/test_pairs_predictions_stage2.csv' `
+  --metrics 02_similarity_recall/logs/hybrid_rating_metrics.json
+```
+
+已生成100,000条 `test_pairs` 预测，SHA-256 为 `c1dbf4fe95ca2b4b3f3ac597ea65bf7c1b4259f00696e7725ac3d62c44358bb0`。测试表没有评分标签，真实测试 RMSE 不可计算。详情见[混合数据实验记录](logs/experiment_hybrid_2026-11-08.md)和[混合数据指标](logs/hybrid_rating_metrics.json)。预测 CSV 保留在用户数据目录，不上传仓库。
+
+## 历史排序实验运行
 
 ```powershell
 $env:PYTHONUTF8 = '1'
