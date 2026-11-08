@@ -1,0 +1,23 @@
+{
+  "published": true,
+  "repository": "SakuraDanceMoo/movielens-incremental-recommender",
+  "url": "https://github.com/SakuraDanceMoo/movielens-incremental-recommender",
+  "private": false,
+  "branch": "main",
+  "verified_commit": "84228f59945598e3b130e17e93ec054af32e97bd",
+  "remote_tree": "dcab15837a2617e2574e8f659c22bb11b4dcd910",
+  "local_head": "aadcd9f8efdc1073cb6f0e4a5fab558ff05c80e5",
+  "local_tree": "98bdc77575da28094305989230cc7782b115fcbf",
+  "verified_snapshot_files": 190,
+  "all_snapshot_blobs_match": true,
+  "remote_additional_paths": [
+    "07_rating_prediction/README.md",
+    "07_rating_prediction/config.json",
+    "07_rating_prediction/logs/experiment_2026-11-08.md",
+    "07_rating_prediction/logs/rating_metrics.json",
+    "07_rating_prediction/scripts/rating_prediction.py"
+  ],
+  "local_head_equals_remote_head": false,
+  "local_refs_modified": false,
+  "note": "Committed HEAD snapshot verified; local Git ancestry was not rewritten or automatically synchronized."
+}

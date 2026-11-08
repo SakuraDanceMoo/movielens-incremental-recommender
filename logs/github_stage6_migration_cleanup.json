@@ -1,0 +1,18 @@
+{
+  "repository": "SakuraDanceMoo/movielens-incremental-recommender",
+  "branch": "main",
+  "operation": "remove obsolete rating-prediction files after migration into stage six",
+  "prior_snapshot_commit": "84228f59945598e3b130e17e93ec054af32e97bd",
+  "cleanup_commit": "4b60766554464ee9253358e36e60e091f8310807",
+  "remote_tree_after_cleanup": "98bdc77575da28094305989230cc7782b115fcbf",
+  "deleted_path_count": 5,
+  "remaining_obsolete_paths": 0,
+  "deleted_paths": [
+    "07_rating_prediction/README.md",
+    "07_rating_prediction/config.json",
+    "07_rating_prediction/logs/experiment_2026-11-08.md",
+    "07_rating_prediction/logs/rating_metrics.json",
+    "07_rating_prediction/scripts/rating_prediction.py"
+  ],
+  "verified": true
+}
