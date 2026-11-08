@@ -1,0 +1,23 @@
+{
+  "dataset": "MovieLens 32M",
+  "users": 5000,
+  "user_selection": "first 5000 user IDs in frozen stage-one candidate file, ascending",
+  "candidate_sources": {
+    "lsh": "stage-two LSH Top10 shortlist",
+    "als": "stage-three ALS Top10",
+    "graph": "stage-five PPR Top10",
+    "incremental": "stage-four streaming hybrid Top10"
+  },
+  "candidate_pool": "union of active module Top10 outputs, deduplicated by movieId",
+  "ranker": "equal reciprocal-rank sum over active source rankings; score descending then movieId ascending",
+  "ablations": [
+    "full: lsh + als + graph + incremental",
+    "without_incremental: lsh + als + graph",
+    "without_graph: lsh + als + incremental",
+    "without_lsh: als + graph + incremental",
+    "als_only: als"
+  ],
+  "evaluation": "same frozen stage-one test positives plus 100 fixed negatives; macro NDCG@10 and Recall@10",
+  "target_ndcg_relative_gain": 0.10,
+  "random_seed": 20260907
+}

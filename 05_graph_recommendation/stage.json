@@ -1,6 +1,16 @@
 {
   "directory": "05_graph_recommendation",
   "title": "阶段五 图推荐模型探索",
-  "status": "planned",
-  "goal": "用户电影二部图、PPR或随机游走、图特征融合与消融；报告真实提升或合理负结果。"
+  "status": "completed",
+  "goal": "在5000用户训练正反馈二部图上实现PPR，保存画像和电影类型节点属性，与ALS排序融合并报告固定候选效果；PPR低于ALS，融合增益未达全项目10%目标。",
+  "runtime": "SciPy sparse Personalized PageRank on one Windows host",
+  "dataset": "MovieLens 32M; first 5000 stage-one candidate users",
+  "acceptance": {
+    "ppr_converged_to_l1_tolerance": true,
+    "ppr_ndcg_above_stage3_als": false,
+    "als_ppr_fusion_improves_over_popular_baseline": true,
+    "fusion_reaches_final_10_percent_target": false,
+    "multi_node_graph_runtime": false
+  },
+  "acceptance_files": ["config.json", "scripts/graph_experiment.py", "scripts/verify_graph.py", "logs/experiment_2026-11-08.md", "logs/environment.json", "logs/graph_metrics.json", "logs/verification.json", "curves/graph_model_comparison.png", "data/processed/graph_ppr_top10.csv.gz", "data/processed/graph_als_fused_top10.csv.gz", "data/processed/graph_node_attributes.csv.gz"]
 }

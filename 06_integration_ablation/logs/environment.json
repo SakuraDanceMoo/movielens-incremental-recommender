@@ -1,0 +1,9 @@
+{
+  "python": "3.11.16",
+  "numpy": "2.4.6",
+  "platform": "Windows single host",
+  "python_environment": "D:/AgentProject2026/.venv",
+  "integration_scope": "offline reciprocal-rank fusion of precomputed component Top10 lists",
+  "external_services": false,
+  "end_to_end_service_p99": false
+}

@@ -1,0 +1,9 @@
+{
+  "python": "3.11.16",
+  "numpy": "2.4.6",
+  "scipy": "1.17.1",
+  "platform": "Windows single host",
+  "python_environment": "D:/AgentProject2026/.venv",
+  "graph_backend": "SciPy sparse CSR matrix; single-process",
+  "multi_node_runtime": false
+}

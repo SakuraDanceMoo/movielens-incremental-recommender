@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "variants": {
+    "without_incremental": {
+      "users": 5000,
+      "ndcg_at_10": 0.9087252897611583,
+      "recall_at_10": 0.8648428790258664,
+      "candidate_pool_mean": 15.2488,
+      "candidate_positive_recall": 0.9144638694785739
+    },
+    "als_only": {
+      "users": 5000,
+      "ndcg_at_10": 0.9072411200268427,
+      "recall_at_10": 0.8402548688818271,
+      "candidate_pool_mean": 10.0,
+      "candidate_positive_recall": 0.8402548688818271
+    },
+    "without_graph": {
+      "users": 5000,
+      "ndcg_at_10": 0.9006985967111141,
+      "recall_at_10": 0.8589651310782163,
+      "candidate_pool_mean": 15.721,
+      "candidate_positive_recall": 0.9174786337801576
+    },
+    "full": {
+      "users": 5000,
+      "ndcg_at_10": 0.9066464450964139,
+      "recall_at_10": 0.8654081786860954,
+      "candidate_pool_mean": 16.6402,
+      "candidate_positive_recall": 0.921885087174745
+    },
+    "without_lsh": {
+      "users": 5000,
+      "ndcg_at_10": 0.9071224696896306,
+      "recall_at_10": 0.8662207201600737,
+      "candidate_pool_mean": 14.9388,
+      "candidate_positive_recall": 0.9112532458431908
+    }
+  },
+  "integrated_top10_rows": 50000,
+  "full_ndcg_gain_at_least_10_percent": false,
+  "end_to_end_service_p99_verified": false,
+  "checks": [
+    "five ablation populations",
+    "independent per-user macro metrics",
+    "candidate-pool summaries",
+    "Top10 candidate membership",
+    "unique Top10 items",
+    "ranking order",
+    "independent Top10 NDCG@10 and Recall@10",
+    "integrated Top10 user/rank uniqueness"
+  ]
+}

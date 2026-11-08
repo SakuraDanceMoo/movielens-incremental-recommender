@@ -1,6 +1,15 @@
 {
   "directory": "06_integration_ablation",
   "title": "阶段六 系统集成与消融实验",
-  "status": "planned",
-  "goal": "集成召回与排序并做消融；最终NDCG@10较基线提升至少10%，报告吞吐与P99服务延迟。"
+  "status": "completed",
+  "goal": "整合LSH候选、ALS、PPR图排序与流式增量Top10，执行三项模块消融并报告固定测试集指标与重排P99；共同工作集增益未达10%。",
+  "runtime": "Offline shared 5000-user candidate-list fusion on one Windows host; no live serving stack",
+  "dataset": "MovieLens 32M; first 5000 stage-one candidate users",
+  "acceptance": {
+    "three_component_ablations_measured": true,
+    "full_ndcg_gain_at_least_10_percent": false,
+    "end_to_end_service_p99": false,
+    "full_population_verified": false
+  },
+  "acceptance_files": ["config.json", "scripts/integrated_experiment.py", "scripts/verify_integration.py", "logs/experiment_2026-11-08.md", "logs/environment.json", "logs/integration_metrics.json", "logs/ablation_metrics.csv", "logs/verification.json", "curves/integration_ablation.png", "data/processed/integrated_top10.csv.gz", "data/processed/ablation_per_user.csv.gz", "data/processed/ablation_top10.csv.gz"]
 }

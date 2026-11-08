@@ -1,0 +1,72 @@
+{"users_completed": 500, "total": 5000}
+{"users_completed": 1000, "total": 5000}
+{"users_completed": 1500, "total": 5000}
+{"users_completed": 2000, "total": 5000}
+{"users_completed": 2500, "total": 5000}
+{"users_completed": 3000, "total": 5000}
+{"users_completed": 3500, "total": 5000}
+{"users_completed": 4000, "total": 5000}
+{"users_completed": 4500, "total": 5000}
+{"users_completed": 5000, "total": 5000}
+{
+  "experiment": "phase5-bipartite-ppr-v1",
+  "generated_at_utc": "2026-11-08T09:24:42Z",
+  "dataset": "MovieLens 32M",
+  "input_candidate_sha256": "7663bc94e5a1ce7eaaa14489c2d00b42818205bf10becc724ad8e86e5253066a",
+  "graph": {
+    "users": 5000,
+    "movie_nodes": 12961,
+    "nodes": 17961,
+    "unique_positive_edges": 331435,
+    "directed_adjacency_nnz": 662870,
+    "degree_max": 2157,
+    "degree_median": 7.0,
+    "user_profile_attribute_dimension": 19,
+    "movie_genre_attribute_rows": 12961,
+    "node_attributes_file": "data/processed/graph_node_attributes.csv.gz"
+  },
+  "ppr": {
+    "restart_probability": 0.15,
+    "max_iterations": 100,
+    "l1_tolerance": 1e-06,
+    "iterations_mean": 89.9472,
+    "iterations_p95": 90.0,
+    "final_l1_delta_max": 8.886552488672468e-07,
+    "query_seconds": 162.4637232000241,
+    "users_per_second": 30.776101282894015,
+    "ndcg_at_10": 0.8902482059338362,
+    "recall_at_10": 0.8580470531630418,
+    "matching_user_baseline_ndcg_at_10": 0.8665790108678295,
+    "same_workset_stage3_als_ndcg_at_10": 0.9072411200268427,
+    "same_workset_stage3_als_recall_at_10": 0.8402548688818271,
+    "relative_ndcg_change_vs_matching_baseline": 0.02731337220169161,
+    "relative_ndcg_change_vs_stage3_als": -0.01873031735213193,
+    "top10_file": "data/processed/graph_ppr_top10.csv.gz"
+  },
+  "graph_als_rank_fusion": {
+    "fusion": "equal reciprocal rank sum of graph PPR and stage-three ALS Top10",
+    "ndcg_at_10": 0.9148018279317425,
+    "recall_at_10": 0.8685665934469453,
+    "relative_ndcg_change_vs_matching_baseline": 0.055647340241509635,
+    "top10_file": "data/processed/graph_als_fused_top10.csv.gz"
+  },
+  "runtime": {
+    "deployment_scope": "single Windows host, scipy sparse matrix PPR; no distributed graph engine",
+    "graph_build_seconds_included_in_total": true,
+    "elapsed_seconds": 167.84841880004387,
+    "python": "3.11.16",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1"
+  },
+  "acceptance": {
+    "reasonable_negative_result_documented": true,
+    "ndcg_above_stage3_als_on_same_workset": false,
+    "ppr_residual_within_tolerance": true,
+    "multi_node_graph_runtime_verified": false
+  },
+  "outputs": {
+    "graph_top10_sha256": "a1996e54c4880b5e764dd96e1d727e31f2566119eef2a44ded7a6009a0a98b49",
+    "fused_top10_sha256": "03f8a68713dd4a2a7826686c4edc2d73fa31e397dbc0ce79a02be54fcce2b953",
+    "node_attributes_sha256": "9c76c3fcf9c0ba34b22c8d6fc2a265ddef886e91d65483d34970ae83c97bafe3"
+  }
+}

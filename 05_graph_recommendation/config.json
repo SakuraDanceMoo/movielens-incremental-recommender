@@ -1,0 +1,17 @@
+{
+  "dataset": "MovieLens 32M",
+  "users": 5000,
+  "user_selection": "first 5000 user IDs in frozen stage-one candidate file, ascending",
+  "edges": "unique train user-movie pairs with rating >= 4.0; undirected unweighted bipartite graph",
+  "ppr": {
+    "restart_probability": 0.15,
+    "max_iterations": 100,
+    "l1_tolerance": 1e-6,
+    "seed": "query user node",
+    "score": "converged PPR probability at candidate movie node"
+  },
+  "fusion": "equal reciprocal rank sum of graph PPR and stage-three ALS Top10",
+  "candidate_protocol": "stage-one frozen test positives plus 100 fixed negatives; ranking cutoff before each user's first test timestamp",
+  "k": 10,
+  "random_seed": 20260907
+}

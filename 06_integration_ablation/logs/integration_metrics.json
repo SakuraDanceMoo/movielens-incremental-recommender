@@ -1,0 +1,160 @@
+{
+  "experiment": "phase6-integrated-rank-fusion-ablation-v1",
+  "generated_at_utc": "2026-11-08T09:28:51Z",
+  "dataset": "MovieLens 32M",
+  "candidate_sha256": "7663bc94e5a1ce7eaaa14489c2d00b42818205bf10becc724ad8e86e5253066a",
+  "workset_users": 5000,
+  "matching_user_baseline": {
+    "ndcg_at_10": 0.8665790108678295,
+    "recall_at_10": 0.8458014947631182
+  },
+  "candidate_and_ranker": {
+    "sources": {
+      "lsh": "02_similarity_recall/data/processed/itemcf_lsh_top10.csv.gz",
+      "als": "03_distributed_recommendation/data/processed/als_top10.csv.gz",
+      "graph": "05_graph_recommendation/data/processed/graph_ppr_top10.csv.gz",
+      "incremental": "04_streaming_incremental/data/processed/stream_top10.csv.gz"
+    },
+    "method": "union of active module Top10 outputs, deduplicated by movieId; equal reciprocal-rank sum over active source rankings; score descending then movieId ascending",
+    "note": "Module outputs are fixed Top10 lists. Candidate union is reranked; this offline experiment does not measure model-serving retrieval latency."
+  },
+  "variants": {
+    "full": {
+      "active_sources": [
+        "lsh",
+        "als",
+        "graph",
+        "incremental"
+      ],
+      "evaluated_users": 5000,
+      "candidate_pool_mean": 16.6402,
+      "candidate_pool_p95": 23.0,
+      "candidate_positive_recall": 0.921885087174745,
+      "ndcg_at_10": 0.9066464450964139,
+      "recall_at_10": 0.8654081786860954,
+      "ndcg_relative_change_vs_matching_baseline": 0.0462363312820826,
+      "recall_relative_change_vs_matching_baseline": 0.02318118854645501,
+      "rerank_latency_ms": {
+        "mean": 0.02069268,
+        "p50": 0.0175,
+        "p95": 0.0221,
+        "p99": 0.03820500000000011,
+        "max": 10.6728
+      },
+      "rerank_users_per_second": 48326.26803294682
+    },
+    "without_incremental": {
+      "active_sources": [
+        "lsh",
+        "als",
+        "graph"
+      ],
+      "evaluated_users": 5000,
+      "candidate_pool_mean": 15.2488,
+      "candidate_pool_p95": 19.0,
+      "candidate_positive_recall": 0.9144638694785739,
+      "ndcg_at_10": 0.9087252897611583,
+      "recall_at_10": 0.8648428790258664,
+      "ndcg_relative_change_vs_matching_baseline": 0.04863524083178716,
+      "recall_relative_change_vs_matching_baseline": 0.022512828814615915,
+      "rerank_latency_ms": {
+        "mean": 0.01382634,
+        "p50": 0.0132,
+        "p95": 0.0157,
+        "p99": 0.02931100000000024,
+        "max": 0.4009
+      },
+      "rerank_users_per_second": 72325.72032801145
+    },
+    "without_graph": {
+      "active_sources": [
+        "lsh",
+        "als",
+        "incremental"
+      ],
+      "evaluated_users": 5000,
+      "candidate_pool_mean": 15.721,
+      "candidate_pool_p95": 21.0,
+      "candidate_positive_recall": 0.9174786337801576,
+      "ndcg_at_10": 0.9006985967111141,
+      "recall_at_10": 0.8589651310782163,
+      "ndcg_relative_change_vs_matching_baseline": 0.03937273510596073,
+      "recall_relative_change_vs_matching_baseline": 0.015563505617573803,
+      "rerank_latency_ms": {
+        "mean": 0.014134780000000001,
+        "p50": 0.0132,
+        "p95": 0.0162,
+        "p99": 0.0312,
+        "max": 0.3637
+      },
+      "rerank_users_per_second": 70747.47537634106
+    },
+    "without_lsh": {
+      "active_sources": [
+        "als",
+        "graph",
+        "incremental"
+      ],
+      "evaluated_users": 5000,
+      "candidate_pool_mean": 14.9388,
+      "candidate_pool_p95": 21.0,
+      "candidate_positive_recall": 0.9112532458431908,
+      "ndcg_at_10": 0.9071224696896306,
+      "recall_at_10": 0.8662207201600737,
+      "ndcg_relative_change_vs_matching_baseline": 0.046785645986508584,
+      "recall_relative_change_vs_matching_baseline": 0.024141864874185792,
+      "rerank_latency_ms": {
+        "mean": 0.013582639999999998,
+        "p50": 0.0128,
+        "p95": 0.0162,
+        "p99": 0.0299,
+        "max": 0.1803
+      },
+      "rerank_users_per_second": 73623.38985646391
+    },
+    "als_only": {
+      "active_sources": [
+        "als"
+      ],
+      "evaluated_users": 5000,
+      "candidate_pool_mean": 10.0,
+      "candidate_pool_p95": 10.0,
+      "candidate_positive_recall": 0.8402548688818271,
+      "ndcg_at_10": 0.9072411200268427,
+      "recall_at_10": 0.8402548688818271,
+      "ndcg_relative_change_vs_matching_baseline": 0.0469225640698272,
+      "recall_relative_change_vs_matching_baseline": -0.006557834096574289,
+      "rerank_latency_ms": {
+        "mean": 0.0050452399999999994,
+        "p50": 0.0046,
+        "p95": 0.0055,
+        "p99": 0.012501000000000023,
+        "max": 0.3288
+      },
+      "rerank_users_per_second": 198206.6264439389
+    }
+  },
+  "acceptance": {
+    "full_ndcg_gain_at_least_10_percent": false,
+    "ablation_variants_measured": true,
+    "end_to_end_service_p99_verified": false,
+    "full_dataset_scope_verified": false
+  },
+  "runtime": {
+    "python": "3.11.16",
+    "numpy": "2.4.6",
+    "elapsed_seconds_including_component_file_reads": 8.301076200092211,
+    "full_rerank_p99_ms": 0.03820500000000011,
+    "full_candidate_pool_mean": 16.6402,
+    "full_candidate_positive_recall": 0.921885087174745,
+    "latency_scope": "online reciprocal-rank aggregation and sort over already-produced Top10 lists; excludes ALS, PPR, LSH, stream source query and network/storage"
+  },
+  "outputs": {
+    "integrated_top10": "data/processed/integrated_top10.csv.gz",
+    "ablation_per_user": "data/processed/ablation_per_user.csv.gz",
+    "ablation_top10": "data/processed/ablation_top10.csv.gz",
+    "integrated_top10_sha256": "812eebe151a799b33334d378ab8bcd4b16a05e21155fa73dbd42308a854e842d",
+    "ablation_per_user_sha256": "952edbadbd7285763d97f4d5c7e50db90d456036ce85631b937319114e803ea4",
+    "ablation_top10_sha256": "9ad58e98de23fae3847074cf57393c738c5a68ed894eba8ffe4263074ad4aac6"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "graph_ppr": {
+    "users": 5000,
+    "rows": 50000,
+    "ndcg_at_10": 0.8902482059338362,
+    "recall_at_10": 0.8580470531630418
+  },
+  "graph_als_fusion": {
+    "users": 5000,
+    "rows": 50000,
+    "ndcg_at_10": 0.9148018279317425,
+    "recall_at_10": 0.8685665934469453
+  },
+  "ppr_residual_within_tolerance": true,
+  "checks": [
+    "candidate user population",
+    "rank sequence",
+    "unique Top10 items",
+    "score ordering",
+    "independent NDCG@10",
+    "independent Recall@10",
+    "PPR residual"
+  ]
+}
