@@ -1,0 +1,18 @@
+{
+  "dataset": "hybrid-half-half-latest100k-v1",
+  "task": "explicit user-movie rating regression",
+  "validation": {
+    "method": "hold out each eligible user's latest timestamped rating; require at least six ratings for the user",
+    "metrics": ["RMSE"],
+    "prediction_clip": [0.5, 5.0]
+  },
+  "model_selection": {
+    "algorithm": "Spark MLlib explicit-feedback ALS",
+    "rank_candidates": [16, 32],
+    "iterations": 8,
+    "reg_param": 0.1,
+    "seed": 20261108
+  },
+  "test_output_columns": ["userId", "movieId", "timestamp", "predicted_rating"],
+  "test_pairs_contains_labels": false
+}

@@ -74,3 +74,9 @@ PYTHONUTF8=1 MPLCONFIGDIR=.cache/matplotlib ../.venv/bin/python run.py
 阶段三复现与 Java 17 配置见[阶段三说明](03_distributed_recommendation/README.md)。
 
 阶段四事件时间流式回放复现见[阶段四说明](04_streaming_incremental/README.md)，环境继续使用项目上一级 `.venv` 与 `uv`。
+
+## 评分预测拓展
+
+六阶段路线之外，新增了混合 MovieLens/合成评分数据的显式评分预测实验。使用 Spark ALS 在 386,982 条逐用户时间留出评分上比较 rank=16/32，选出的 rank=16 RMSE 为 **0.897475**，全局均值基线为1.067599。完整训练后对100,000条 `test_pairs` 生成预测；预测文件保存在用户提供的数据目录，不上传数据或预测表。
+
+`test_pairs.csv` 不含真实评分，不能据此计算测试集 RMSE。当前 RMSE 是训练评分中的时间留出验证结果，详细方法和复现命令见[评分预测说明](07_rating_prediction/README.md)与[实验记录](07_rating_prediction/logs/experiment_2026-11-08.md)。
