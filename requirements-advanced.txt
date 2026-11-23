@@ -1,0 +1,3 @@
+# Run uv only with --python D:/AgentProject2026/.venv/Scripts/python.exe.
+-r requirements-transformer.txt
+catboost==1.2.8

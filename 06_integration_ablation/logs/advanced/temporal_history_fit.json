@@ -1,0 +1,22 @@
+{
+  "fit": {
+    "rows": 31513222,
+    "tokens": 16,
+    "nonpadding_tokens": 450429448,
+    "checked_tokens": 504211552,
+    "strict_timestamp_assertions_passed": true,
+    "average_history": 14.293347979460812
+  },
+  "valid": {
+    "rows": 386982,
+    "tokens": 16,
+    "nonpadding_tokens": 5848903,
+    "checked_tokens": 6191712,
+    "strict_timestamp_assertions_passed": true,
+    "average_history": 15.114147428045749
+  },
+  "elapsed_seconds": 16.579879000084475,
+  "protocol": "last16 fitting ratings strictly earlier than query timestamp; same-timestamp events excluded; no query labels in history",
+  "fit_rows": 31513222,
+  "query_rows": 386982
+}

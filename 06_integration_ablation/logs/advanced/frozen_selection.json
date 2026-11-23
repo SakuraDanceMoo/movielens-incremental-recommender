@@ -1,0 +1,17 @@
+{
+  "selected": "calibration_v2_d8_no_semantics",
+  "weights": {
+    "calibration_v2_d8_no_semantics": 1.0
+  },
+  "development_candidates": {
+    "calibration_v2_d6": 0.8577794479760773,
+    "calibration_v2_d8": 0.8569890821382193,
+    "calibration_v2_d8_no_semantics": 0.8564282047125238
+  },
+  "development_rows": 309513,
+  "audit_rows": 77469,
+  "rule": "lowest development OOF RMSE; fixed before opening current-round audit",
+  "prediction_sha256": "ad27f8c39c706ef580974b16e8d1bca7d8dfe7da6a10529fdae7cfcee9b909b9",
+  "audit_historical_caveat": "earlier project models used the whole outer validation for tuning; audit is reserved only for the new calibration round, not historically untouched test data",
+  "test_rmse": null
+}

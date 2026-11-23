@@ -2,7 +2,45 @@
 
 本项目已切换为使用用户提供的 MovieLens/合成混合评分数据，最终任务是预测 `test_pairs.csv` 的评分并按 RMSE 评价。旧六阶段中的 NDCG、召回和 Top10 结果仍是此前官方 MovieLens 32M 实验，属于历史记录，不能作为混合数据上的结果。
 
-## 当前方案：冻结 Qwen3 语义、Transformer、MF 与 ALS
+## 本轮方案：候选历史记忆与五折残差校正
+
+本轮预留的77,469位审计用户上，上一轮融合 **0.876419 → 0.854792**，相对降低 **2.468%**；原ALS在相同审计用户上为0.899174。开发OOF为0.856428，外层留出合并OOF/审计为0.856101。后者含第二层开发监督，不能直接当作与旧0.875872完全相同训练协议的独立测试比较。
+
+采用近期候选条件记忆思想的评分回归改编，结合时间MF、截断SVD++、历史统计和CatBoost残差校正。根据开发集选择57特征方案，移除额外语义特征反而更好。没有完整复现工业TransX/LWR，也不宣称全球SOTA。固定方案后才打开本轮审计；旧项目曾用全体外层留出调参，所以仍需全新隐藏测试。
+
+![同一审计用户比较](../docs/reports/assets/advanced/audit_comparison.png)
+
+新预测在本地 `data/raw/hybrid/test_pairs_predictions_advanced.csv`。训练数据、依赖与模型仍在D盘；没有阶段七。[方法与复现边界](../docs/advanced_method.md)、[正式实测与消融](logs/advanced/experiment_2026-11-23.md)、[全部同人群指标](logs/advanced/advanced_comparison.csv)、[独立核验](logs/advanced/verification.json)。测试无标签，没有测试RMSE。
+
+### 本轮复现入口
+
+先完成上一轮数据与基础分支准备。所有命令在仓库根目录执行，先设置D盘缓存环境变量（见下文依赖段），使用共享环境。
+
+```powershell
+uv pip install --python ..\.venv\Scripts\python.exe -r requirements-advanced.txt
+..\.venv\Scripts\python.exe 06_integration_ablation/scripts/prepare_temporal_history.py
+..\.venv\Scripts\python.exe 06_integration_ablation/scripts/prepare_temporal_history.py --full
+..\.venv\Scripts\python.exe run_advanced.py --trials
+..\.venv\Scripts\python.exe 06_integration_ablation/scripts/prepare_rating_features.py
+..\.venv\Scripts\python.exe 06_integration_ablation/scripts/calibrate_advanced.py --name calibration_v2_d6 --depth 6 --iterations 700
+..\.venv\Scripts\python.exe 06_integration_ablation/scripts/calibrate_advanced.py --name calibration_v2_d8 --depth 8 --iterations 1200
+..\.venv\Scripts\python.exe run_advanced.py --calibration-ablations
+```
+
+`freeze_advanced.py`只允许在新实验目录冻结一次，已有冻结结果会拒绝重开，避免按审计调参。新一次复现应先保留原产物、使用新工作副本。
+
+```powershell
+..\.venv\Scripts\python.exe 06_integration_ablation/scripts/freeze_advanced.py --candidates calibration_v2_d6 calibration_v2_d8 calibration_v2_d8_no_semantics --ablations calibration_v2_d8_no_history calibration_v2_d8_no_neural calibration_v2_d8_seed2 mf64_r003 mf64_r03 mf64_r08 mf128_r04 svdpp32_r03 memory32_time_r03 memory32_notime_r03 mf64_time_r03
+..\.venv\Scripts\python.exe run_advanced.py --refit mf64_r003 mf64_r03 mf64_r08 mf128_r04 svdpp32_r03 memory32_time_r03 memory32_notime_r03 mf64_time_r03
+..\.venv\Scripts\python.exe 06_integration_ablation/scripts/prepare_rating_features.py --full
+..\.venv\Scripts\python.exe 06_integration_ablation/scripts/predict_advanced.py
+..\.venv\Scripts\python.exe 06_integration_ablation/scripts/test_advanced.py
+..\.venv\Scripts\python.exe 06_integration_ablation/scripts/verify_advanced.py
+..\.venv\Scripts\python.exe docs/create_advanced_figures.py
+..\.venv\Scripts\python.exe docs/summarize_advanced.py
+```
+
+## 上一轮归档：冻结 Qwen3 语义、Transformer、MF 与 ALS
 
 2026-11-23完成八种结构、两随机种子的16次全量拟合集训练。每次遍历31,513,222条拟合评分4轮，使用相同的386,982条时间留出评分选轮次和融合权重。最终采用随机初始化Qwen3特征Transformer、随机初始化MF与原ALS，权重为0.25、0.55、0.20。
 
@@ -10,7 +48,7 @@
 
 ![Transformer组件对照](../docs/reports/assets/stage6_transformer_ablation.png)
 
-当前预测文件 `data/raw/hybrid/test_pairs_predictions_transformer.csv` 在全量31,900,204条评分上重训后生成，未覆盖旧ALS结果。原始数据、训练缓存与模型权重仅保留本地。核验结果为55项通过，见[`logs/transformer/verification.json`](logs/transformer/verification.json)。
+上一轮预测文件 `data/raw/hybrid/test_pairs_predictions_transformer.csv` 在全量31,900,204条评分上重训后生成，未覆盖旧ALS结果。原始数据、训练缓存与模型权重仅保留本地。核验结果为55项通过，见[`logs/transformer/verification.json`](logs/transformer/verification.json)。
 
 ### 依赖与复现
 

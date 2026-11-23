@@ -20,6 +20,8 @@ __pycache__/
 05_graph_recommendation/logs/hybrid_rating_run.log
 07_rating_prediction/
 **/data/processed/transformer/
+**/data/processed/advanced/
 **/models/*.pt
 **/models/*.pth
 **/models/*.safetensors
+**/models/*.cbm

@@ -1,0 +1,35 @@
+{
+  "config": {
+    "name": "memory32_time_r03",
+    "mode": "attention",
+    "dim": 32,
+    "epochs": 2,
+    "batch": 16384,
+    "lr": 0.002,
+    "reg": 0.03,
+    "seed": 20261123,
+    "refit": true,
+    "temporal": true,
+    "no_ratings": false
+  },
+  "best_epoch": 2,
+  "development_rmse": null,
+  "seconds": 69.66162210004404,
+  "fit_rows": 31900204,
+  "development_rows": 309513,
+  "audit_rows": 77469,
+  "parameters": 26236734,
+  "history": [
+    {
+      "epoch": 1,
+      "train_mse": 0.8051559795667764,
+      "seconds": 35.002888000104576
+    },
+    {
+      "epoch": 2,
+      "train_mse": 0.6724114366165181,
+      "seconds": 34.48388379998505
+    }
+  ],
+  "selection": "development users only; audit values withheld until this round is frozen"
+}

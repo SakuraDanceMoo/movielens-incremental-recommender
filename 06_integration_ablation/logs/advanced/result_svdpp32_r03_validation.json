@@ -1,0 +1,85 @@
+{
+  "config": {
+    "name": "svdpp32_r03",
+    "mode": "svdpp",
+    "dim": 32,
+    "epochs": 8,
+    "batch": 16384,
+    "lr": 0.002,
+    "reg": 0.03,
+    "seed": 20261123,
+    "refit": false,
+    "temporal": false,
+    "no_ratings": false
+  },
+  "best_epoch": 3,
+  "development_rmse": 0.8755689507950523,
+  "seconds": 71.79139500018209,
+  "fit_rows": 31513222,
+  "development_rows": 309513,
+  "audit_rows": 77469,
+  "parameters": 24660113,
+  "history": [
+    {
+      "epoch": 1,
+      "train_mse": 0.8442271628080429,
+      "seconds": 12.353230700129643,
+      "development": {
+        "rmse": 0.9150032843433827,
+        "movielens_rmse": 0.8932616483195659,
+        "synthetic_rmse": 0.9378117644900869
+      }
+    },
+    {
+      "epoch": 2,
+      "train_mse": 0.6739510164971388,
+      "seconds": 11.83330830000341,
+      "development": {
+        "rmse": 0.8810066078918009,
+        "movielens_rmse": 0.8726592480531593,
+        "synthetic_rmse": 0.8898919963895117
+      }
+    },
+    {
+      "epoch": 3,
+      "train_mse": 0.6000060546014622,
+      "seconds": 11.723236199934036,
+      "development": {
+        "rmse": 0.8755689507950523,
+        "movielens_rmse": 0.866541631585669,
+        "synthetic_rmse": 0.8851698897647384
+      }
+    },
+    {
+      "epoch": 4,
+      "train_mse": 0.5505080375469065,
+      "seconds": 11.710775599814951,
+      "development": {
+        "rmse": 0.8776932581993455,
+        "movielens_rmse": 0.8671181598313142,
+        "synthetic_rmse": 0.8889203037698884
+      }
+    },
+    {
+      "epoch": 5,
+      "train_mse": 0.5125425765730969,
+      "seconds": 11.845025399932638,
+      "development": {
+        "rmse": 0.8823029829261678,
+        "movielens_rmse": 0.8697901104408006,
+        "synthetic_rmse": 0.8955583102597182
+      }
+    },
+    {
+      "epoch": 6,
+      "train_mse": 0.4847173672054225,
+      "seconds": 11.783649699995294,
+      "development": {
+        "rmse": 0.8870494038525424,
+        "movielens_rmse": 0.87334044085458,
+        "synthetic_rmse": 0.901552936578053
+      }
+    }
+  ],
+  "selection": "development users only; audit values withheld until this round is frozen"
+}

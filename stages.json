@@ -121,7 +121,7 @@
     "directory": "06_integration_ablation",
     "title": "阶段六 系统集成、消融与最终评分预测",
     "status": "completed",
-    "goal": "混合数据Qwen3语义与Transformer、MF、ALS融合，验证RMSE0.875872；16次组件实验与分支消融完成，全量重训输出100000条评分。测试无标签。",
+    "goal": "混合数据候选历史记忆、时间MF与OOF残差校正；本轮审计RMSE0.854792，外层合并0.856101；消融与100000条预测完成，测试无标签。",
     "acceptance_files": [
       "config.json",
       "rating_prediction_config.json",
@@ -137,7 +137,13 @@
       "curves/integration_ablation.png",
       "data/processed/integrated_top10.csv.gz",
       "data/processed/ablation_per_user.csv.gz",
-      "data/processed/ablation_top10.csv.gz"
+      "data/processed/ablation_top10.csv.gz",
+      "advanced_config.json",
+      "logs/advanced/audit_evaluation.json",
+      "logs/advanced/verification.json",
+      "logs/advanced/prediction_manifest.json",
+      "scripts/advanced_rating.py",
+      "scripts/calibrate_advanced.py"
     ],
     "enhancement": {
       "date": "2026-11-23",
@@ -150,6 +156,15 @@
       "ablation": "logs/transformer/ablation.csv",
       "branch_ablation": "logs/transformer/ensemble_ablation.csv",
       "verification": "logs/transformer/verification.json"
+    },
+    "advanced_enhancement": {
+      "date": "2026-11-23",
+      "config": "advanced_config.json",
+      "audit_rmse": 0.8547923277190692,
+      "overall_oof_audit_rmse": 0.8561009726627214,
+      "selected": "calibration_v2_d8_no_semantics",
+      "method": "../docs/advanced_method.md",
+      "verification": "logs/advanced/verification.json"
     }
   }
 ]

@@ -1,0 +1,85 @@
+{
+  "config": {
+    "name": "memory32_time_r03",
+    "mode": "attention",
+    "dim": 32,
+    "epochs": 6,
+    "batch": 16384,
+    "lr": 0.002,
+    "reg": 0.03,
+    "seed": 20261123,
+    "refit": false,
+    "temporal": true,
+    "no_ratings": false
+  },
+  "best_epoch": 2,
+  "development_rmse": 0.8788190886463784,
+  "seconds": 206.06735839997418,
+  "fit_rows": 31513222,
+  "development_rows": 309513,
+  "audit_rows": 77469,
+  "parameters": 26236734,
+  "history": [
+    {
+      "epoch": 1,
+      "train_mse": 0.804678874156378,
+      "seconds": 34.226897899992764,
+      "development": {
+        "rmse": 0.904545030892895,
+        "movielens_rmse": 0.8741205185283522,
+        "synthetic_rmse": 0.9361467695397117
+      }
+    },
+    {
+      "epoch": 2,
+      "train_mse": 0.6711300418598898,
+      "seconds": 33.64888669992797,
+      "development": {
+        "rmse": 0.8788190886463784,
+        "movielens_rmse": 0.8670001175586993,
+        "synthetic_rmse": 0.8913487297504856
+      }
+    },
+    {
+      "epoch": 3,
+      "train_mse": 0.5947177346702283,
+      "seconds": 34.410482899984345,
+      "development": {
+        "rmse": 0.8860652628676251,
+        "movielens_rmse": 0.8751389111419974,
+        "synthetic_rmse": 0.8976618608412695
+      }
+    },
+    {
+      "epoch": 4,
+      "train_mse": 0.5335546457293386,
+      "seconds": 34.393044899916276,
+      "development": {
+        "rmse": 0.9022716700218023,
+        "movielens_rmse": 0.8896428264797587,
+        "synthetic_rmse": 0.9156523833069946
+      }
+    },
+    {
+      "epoch": 5,
+      "train_mse": 0.48605010937948523,
+      "seconds": 34.26975589990616,
+      "development": {
+        "rmse": 0.9209408368890838,
+        "movielens_rmse": 0.9060833528123156,
+        "synthetic_rmse": 0.9366485867376213
+      }
+    },
+    {
+      "epoch": 6,
+      "train_mse": 0.4530912135864749,
+      "seconds": 34.333341599907726,
+      "development": {
+        "rmse": 0.9400796542974965,
+        "movielens_rmse": 0.9239368795642374,
+        "synthetic_rmse": 0.9571281933739515
+      }
+    }
+  ],
+  "selection": "development users only; audit values withheld until this round is frozen"
+}

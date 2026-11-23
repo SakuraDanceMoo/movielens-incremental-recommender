@@ -1,0 +1,102 @@
+[
+  {
+    "epoch": 1,
+    "train_mse": 0.827543689439309,
+    "seconds": 12.552869600011036,
+    "development": {
+      "rmse": 0.8966602174301357,
+      "movielens_rmse": 0.8968436138901182,
+      "synthetic_rmse": 0.8964630399787675
+    }
+  },
+  {
+    "epoch": 2,
+    "train_mse": 0.6419643792691208,
+    "seconds": 12.621729799779132,
+    "development": {
+      "rmse": 0.8775476927337411,
+      "movielens_rmse": 0.8745432818588753,
+      "synthetic_rmse": 0.8807657503572701
+    }
+  },
+  {
+    "epoch": 3,
+    "train_mse": 0.5798347119186987,
+    "seconds": 12.73419849993661,
+    "development": {
+      "rmse": 0.875290984587079,
+      "movielens_rmse": 0.868279332039321,
+      "synthetic_rmse": 0.8827658105933852
+    }
+  },
+  {
+    "epoch": 4,
+    "train_mse": 0.5226351021802849,
+    "seconds": 12.544477300019935,
+    "development": {
+      "rmse": 0.8774597721895686,
+      "movielens_rmse": 0.8683021545652758,
+      "synthetic_rmse": 0.8871980275476593
+    }
+  },
+  {
+    "epoch": 5,
+    "train_mse": 0.47428203310978484,
+    "seconds": 12.231428399914876,
+    "development": {
+      "rmse": 0.8818061832255333,
+      "movielens_rmse": 0.8709741158358775,
+      "synthetic_rmse": 0.8933032706718583
+    }
+  },
+  {
+    "epoch": 6,
+    "train_mse": 0.4383710113805564,
+    "seconds": 12.198840900091454,
+    "development": {
+      "rmse": 0.8860471701114492,
+      "movielens_rmse": 0.8734529016335859,
+      "synthetic_rmse": 0.8993882878132863
+    }
+  },
+  {
+    "epoch": 7,
+    "train_mse": 0.41298284256684387,
+    "seconds": 12.179402200039476,
+    "development": {
+      "rmse": 0.889850161258615,
+      "movielens_rmse": 0.8762118252391784,
+      "synthetic_rmse": 0.904280858299872
+    }
+  },
+  {
+    "epoch": 8,
+    "train_mse": 0.39476642534362244,
+    "seconds": 12.217184099834412,
+    "development": {
+      "rmse": 0.892589321684472,
+      "movielens_rmse": 0.8777106644515777,
+      "synthetic_rmse": 0.9083108621378649
+    }
+  },
+  {
+    "epoch": 9,
+    "train_mse": 0.38122280863568947,
+    "seconds": 12.299666800070554,
+    "development": {
+      "rmse": 0.8951039081639078,
+      "movielens_rmse": 0.8796207413680268,
+      "synthetic_rmse": 0.9114537323154921
+    }
+  },
+  {
+    "epoch": 10,
+    "train_mse": 0.37092265589345325,
+    "seconds": 12.317906600190327,
+    "development": {
+      "rmse": 0.8968699374735779,
+      "movielens_rmse": 0.8807414367660027,
+      "synthetic_rmse": 0.9138893370619507
+    }
+  }
+]

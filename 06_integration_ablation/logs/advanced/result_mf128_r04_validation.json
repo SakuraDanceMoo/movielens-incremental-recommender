@@ -1,0 +1,95 @@
+{
+  "config": {
+    "name": "mf128_r04",
+    "mode": "mf",
+    "dim": 128,
+    "epochs": 10,
+    "batch": 16384,
+    "lr": 0.002,
+    "reg": 0.04,
+    "seed": 20261123,
+    "refit": false,
+    "temporal": false,
+    "no_ratings": false
+  },
+  "best_epoch": 4,
+  "development_rmse": 0.8767410819788997,
+  "seconds": 156.74587059998885,
+  "fit_rows": 31513222,
+  "development_rows": 309513,
+  "audit_rows": 77469,
+  "parameters": 74441774,
+  "history": [
+    {
+      "epoch": 1,
+      "train_mse": 0.8228699052099465,
+      "seconds": 22.229645800078288,
+      "development": {
+        "rmse": 0.8959993836874963,
+        "movielens_rmse": 0.8952515298637914,
+        "synthetic_rmse": 0.8968025675283152
+      }
+    },
+    {
+      "epoch": 2,
+      "train_mse": 0.6448220369215182,
+      "seconds": 22.08483020006679,
+      "development": {
+        "rmse": 0.8793299330168894,
+        "movielens_rmse": 0.8749528701063014,
+        "synthetic_rmse": 0.8840107353982211
+      }
+    },
+    {
+      "epoch": 3,
+      "train_mse": 0.5847539804086044,
+      "seconds": 22.113525099819526,
+      "development": {
+        "rmse": 0.876951113762146,
+        "movielens_rmse": 0.868580230736801,
+        "synthetic_rmse": 0.8858608953845181
+      }
+    },
+    {
+      "epoch": 4,
+      "train_mse": 0.5239771420389828,
+      "seconds": 22.12349439994432,
+      "development": {
+        "rmse": 0.8767410819788997,
+        "movielens_rmse": 0.866875453513196,
+        "synthetic_rmse": 0.887223464843528
+      }
+    },
+    {
+      "epoch": 5,
+      "train_mse": 0.4692367540202649,
+      "seconds": 22.164826899999753,
+      "development": {
+        "rmse": 0.8782084124048537,
+        "movielens_rmse": 0.8670861785507695,
+        "synthetic_rmse": 0.8900088813498324
+      }
+    },
+    {
+      "epoch": 6,
+      "train_mse": 0.42744236054313967,
+      "seconds": 22.50227009993978,
+      "development": {
+        "rmse": 0.879589590955217,
+        "movielens_rmse": 0.8670856929435266,
+        "synthetic_rmse": 0.8928349573492055
+      }
+    },
+    {
+      "epoch": 7,
+      "train_mse": 0.39773632159859756,
+      "seconds": 22.21683740010485,
+      "development": {
+        "rmse": 0.880963182723932,
+        "movielens_rmse": 0.867409255241168,
+        "synthetic_rmse": 0.8953037068317704
+      }
+    }
+  ],
+  "selection": "development users only; audit values withheld until this round is frozen"
+}

@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "check_count": 14,
+  "checks": [
+    "same-timestamp records excluded",
+    "strictly earlier history in reverse chronological order",
+    "no previous-user leakage; unseen users and empty histories padded",
+    "rating tokens remain aligned with historical items",
+    "history accounting agrees with constructed tokens",
+    "fold0: training/held/audit disjoint",
+    "fold1: training/held/audit disjoint",
+    "fold2: training/held/audit disjoint",
+    "fold3: training/held/audit disjoint",
+    "fold4: training/held/audit disjoint",
+    "each development user predicted out of fold exactly once",
+    "all-padding attention returns finite scores",
+    "no-ratings branch ignores rating token values",
+    "no-ratings branch ignores ratings with nonempty history"
+  ]
+}

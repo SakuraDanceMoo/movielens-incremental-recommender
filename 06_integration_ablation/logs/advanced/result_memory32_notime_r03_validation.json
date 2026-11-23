@@ -1,0 +1,75 @@
+{
+  "config": {
+    "name": "memory32_notime_r03",
+    "mode": "attention",
+    "dim": 32,
+    "epochs": 8,
+    "batch": 16384,
+    "lr": 0.002,
+    "reg": 0.03,
+    "seed": 20261123,
+    "refit": false,
+    "temporal": false,
+    "no_ratings": false
+  },
+  "best_epoch": 2,
+  "development_rmse": 0.8791379388049745,
+  "seconds": 160.82737599988468,
+  "fit_rows": 31513222,
+  "development_rows": 309513,
+  "audit_rows": 77469,
+  "parameters": 24660113,
+  "history": [
+    {
+      "epoch": 1,
+      "train_mse": 0.8074980717617513,
+      "seconds": 32.627968000015244,
+      "development": {
+        "rmse": 0.9063101655642337,
+        "movielens_rmse": 0.8761159206372581,
+        "synthetic_rmse": 0.9376827708297278
+      }
+    },
+    {
+      "epoch": 2,
+      "train_mse": 0.6735097414031482,
+      "seconds": 32.286207099910825,
+      "development": {
+        "rmse": 0.8791379388049745,
+        "movielens_rmse": 0.8685807040516623,
+        "synthetic_rmse": 0.8903464799389886
+      }
+    },
+    {
+      "epoch": 3,
+      "train_mse": 0.5950697773778892,
+      "seconds": 31.591799499932677,
+      "development": {
+        "rmse": 0.8862261846585338,
+        "movielens_rmse": 0.8756026400353591,
+        "synthetic_rmse": 0.8975053716615047
+      }
+    },
+    {
+      "epoch": 4,
+      "train_mse": 0.5343725881155535,
+      "seconds": 31.736970799975097,
+      "development": {
+        "rmse": 0.9018293926284089,
+        "movielens_rmse": 0.8900961221977806,
+        "synthetic_rmse": 0.9142737552519886
+      }
+    },
+    {
+      "epoch": 5,
+      "train_mse": 0.48767301547268,
+      "seconds": 31.887308900011703,
+      "development": {
+        "rmse": 0.9205193217326022,
+        "movielens_rmse": 0.9075321591334977,
+        "synthetic_rmse": 0.9342781150887408
+      }
+    }
+  ],
+  "selection": "development users only; audit values withheld until this round is frozen"
+}

@@ -1,0 +1,40 @@
+{
+  "config": {
+    "name": "svdpp32_r03",
+    "mode": "svdpp",
+    "dim": 32,
+    "epochs": 3,
+    "batch": 16384,
+    "lr": 0.002,
+    "reg": 0.03,
+    "seed": 20261123,
+    "refit": true,
+    "temporal": false,
+    "no_ratings": false
+  },
+  "best_epoch": 3,
+  "development_rmse": null,
+  "seconds": 37.13616830017418,
+  "fit_rows": 31900204,
+  "development_rows": 309513,
+  "audit_rows": 77469,
+  "parameters": 24660113,
+  "history": [
+    {
+      "epoch": 1,
+      "train_mse": 0.8415030825508201,
+      "seconds": 12.587414899840951
+    },
+    {
+      "epoch": 2,
+      "train_mse": 0.6715726958987472,
+      "seconds": 12.261910900007933
+    },
+    {
+      "epoch": 3,
+      "train_mse": 0.6005178524877145,
+      "seconds": 12.13655130006373
+    }
+  ],
+  "selection": "development users only; audit values withheld until this round is frozen"
+}

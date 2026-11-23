@@ -1,0 +1,53 @@
+{
+  "structure_and_raw_hash_checks_passed": true,
+  "stage_count": 6,
+  "ready_to_publish": true,
+  "stages": [
+    {
+      "stage": "01_data_baseline",
+      "status": "completed",
+      "missing_layout": [],
+      "missing_deliverables": []
+    },
+    {
+      "stage": "02_similarity_recall",
+      "status": "completed",
+      "missing_layout": [],
+      "missing_deliverables": []
+    },
+    {
+      "stage": "03_distributed_recommendation",
+      "status": "completed",
+      "missing_layout": [],
+      "missing_deliverables": []
+    },
+    {
+      "stage": "04_streaming_incremental",
+      "status": "completed",
+      "missing_layout": [],
+      "missing_deliverables": []
+    },
+    {
+      "stage": "05_graph_recommendation",
+      "status": "completed",
+      "missing_layout": [],
+      "missing_deliverables": []
+    },
+    {
+      "stage": "06_integration_ablation",
+      "status": "completed",
+      "missing_layout": [],
+      "missing_deliverables": []
+    }
+  ],
+  "raw_checks": [],
+  "git": {
+    "committed_files": 363,
+    "head": "b9127d7685f97f5eef678a19271d14bf1fb1060d",
+    "tree": "d48e67d1edee85176b2c70af28996018ca072c03",
+    "worktree_changes": false,
+    "credential_file_paths": [],
+    "committed_raw_checks": []
+  },
+  "note": "Directory readiness is separate from experiment completion; planned deliverables may be absent."
+}

@@ -1,0 +1,75 @@
+{
+  "config": {
+    "name": "mf64_r08",
+    "mode": "mf",
+    "dim": 64,
+    "epochs": 10,
+    "batch": 16384,
+    "lr": 0.002,
+    "reg": 0.08,
+    "seed": 20261123,
+    "refit": true,
+    "temporal": false,
+    "no_ratings": false
+  },
+  "best_epoch": 10,
+  "development_rmse": null,
+  "seconds": 123.7404054000508,
+  "fit_rows": 31900204,
+  "development_rows": 309513,
+  "audit_rows": 77469,
+  "parameters": 37509422,
+  "history": [
+    {
+      "epoch": 1,
+      "train_mse": 0.8496821525028492,
+      "seconds": 12.670617800205946
+    },
+    {
+      "epoch": 2,
+      "train_mse": 0.6963920356120606,
+      "seconds": 12.347352999961004
+    },
+    {
+      "epoch": 3,
+      "train_mse": 0.6629800862715486,
+      "seconds": 12.335906200110912
+    },
+    {
+      "epoch": 4,
+      "train_mse": 0.6431423447950364,
+      "seconds": 12.361993700033054
+    },
+    {
+      "epoch": 5,
+      "train_mse": 0.6295203002463557,
+      "seconds": 12.308220600010827
+    },
+    {
+      "epoch": 6,
+      "train_mse": 0.6190152890558317,
+      "seconds": 12.271827100077644
+    },
+    {
+      "epoch": 7,
+      "train_mse": 0.6105618007960074,
+      "seconds": 12.17789509985596
+    },
+    {
+      "epoch": 8,
+      "train_mse": 0.6034408431996234,
+      "seconds": 12.252639600075781
+    },
+    {
+      "epoch": 9,
+      "train_mse": 0.5974342985392821,
+      "seconds": 12.293709699995816
+    },
+    {
+      "epoch": 10,
+      "train_mse": 0.5922325763183207,
+      "seconds": 12.489387399982661
+    }
+  ],
+  "selection": "development users only; audit values withheld until this round is frozen"
+}

@@ -2,7 +2,17 @@
 
 按Word路线开展的大数据课程项目。当前最终任务已调整为使用用户提供的 MovieLens/合成混合评分数据，预测 `test_pairs.csv` 的评分并用 RMSE 评价。阶段一至六早期归档的推荐排序实验使用官方纯 MovieLens 32M 数据，属于历史结果；阶段二、四、五已补做混合数据评分回归，阶段六负责统一选模和最终输出。
 
-## 2026-11-23 更新：Qwen3 语义与 Transformer 优化
+## 2026-11-23 继续优化：候选历史记忆与五折残差校正
+
+本轮预留的77,469位审计用户上，上一轮融合 **0.876419 → 0.854792**，相对降低 **2.468%**；原ALS在相同审计用户上为0.899174。开发OOF为0.856428，外层留出合并OOF/审计为0.856101。后者含第二层开发监督，不能直接当作与旧0.875872完全相同训练协议的独立测试比较。
+
+采用近期候选条件记忆思想的评分回归改编，结合时间MF、截断SVD++、历史统计和CatBoost残差校正。根据开发集选择57特征方案，移除额外语义特征反而更好。没有完整复现工业TransX/LWR，也不宣称全球SOTA。固定方案后才打开本轮审计；旧项目曾用全体外层留出调参，所以仍需全新隐藏测试。
+
+![同一审计用户比较](docs/reports/assets/advanced/audit_comparison.png)
+
+新预测在本地 `data/raw/hybrid/test_pairs_predictions_advanced.csv`。训练数据、依赖与模型仍在D盘；没有阶段七。[方法与复现边界](docs/advanced_method.md)、[正式实测与消融](06_integration_ablation/logs/advanced/experiment_2026-11-23.md)、[全部同人群指标](06_integration_ablation/logs/advanced/advanced_comparison.csv)、[独立核验](06_integration_ablation/logs/advanced/verification.json)。测试无标签，没有测试RMSE。
+
+## 2026-11-23 更新：Qwen3 语义与 Transformer 优化（上一轮归档）（上一轮归档）
 
 在相同的386,982条验证评分上，最终Qwen3/Transformer、MF和ALS三分支融合的 **RMSE=0.875872**，原ALS为0.897475，相对下降 **2.407%**。两个随机种子的平均RMSE为 **0.876025 ± 0.000216**（样本标准差）。八种结构共16次训练、最终三分支移除实验和负结果均已归档。
 
@@ -12,7 +22,7 @@
 
 这一结果来自验证选模，不能作为无标签测试集的RMSE。简单MF对照很强，语义组件的独立贡献随种子变号，因此不能把全部收益归因于大模型。方法与边界见[技术说明](docs/transformer_method.md)、[实测记录](06_integration_ablation/logs/transformer/experiment_2026-11-23.md)、[组件消融](06_integration_ablation/logs/transformer/ablation.csv)、[分支消融](06_integration_ablation/logs/transformer/ensemble_ablation.csv)和[独立验收](06_integration_ablation/logs/transformer/verification.json)。
 
-最新预测为本地 `data/raw/hybrid/test_pairs_predictions_transformer.csv`，100,000行、保留测试表顺序、无空值、评分范围0.5至5.0；既有ALS预测文件保留。复现入口与依赖安装命令见[阶段六](06_integration_ablation/README.md)。
+上一轮预测为本地 `data/raw/hybrid/test_pairs_predictions_transformer.csv`，100,000行、保留测试表顺序、无空值、评分范围0.5至5.0；既有ALS预测文件保留。复现入口与依赖安装命令见[阶段六](06_integration_ablation/README.md)。
 
 ![六阶段学习路线图](docs/movielens_roadmap.png)
 
@@ -29,7 +39,7 @@
 | [阶段三](03_distributed_recommendation/README.md) | 分布式显式评分预测 | 混合数据 Spark ALS 已验证；单机执行，多节点未验证 |
 | [阶段四](04_streaming_incremental/README.md) | 流式增量评分更新 | 混合数据评分回归已完成，留出 RMSE=1.005831；旧结果是 MovieLens 排序回放 |
 | [阶段五](05_graph_recommendation/README.md) | 图评分模型探索 | 混合数据评分回归已完成，留出 RMSE=1.063098；旧 PPR 是 MovieLens 排序实验 |
-| [阶段六](06_integration_ablation/README.md) | 集成、消融与最终评分预测 | Qwen3/Transformer+MF+ALS 验证 RMSE=0.875872，16次组件实验与融合消融完成；生成100,000条预测 |
+| [阶段六](06_integration_ablation/README.md) | 集成、消融与最终评分预测 | 本轮审计RMSE=0.854792，外层合并OOF/审计=0.856101；匹配消融与100,000条预测完成 |
 
 ## 历史 MovieLens 排序实验环境
 

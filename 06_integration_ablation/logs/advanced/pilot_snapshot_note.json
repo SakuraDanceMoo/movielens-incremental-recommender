@@ -1,0 +1,5 @@
+{
+  "status": "exploratory pilot, not final model comparison",
+  "feature_matrix_sha256": "34bc2c2800a9a2497fa382267e2e739009857a74a8d449115917a58b0000c7ef",
+  "note": "Initial snapshot was built while mf64_time_r03 trial was completing. Final features rebuilt after all neural checkpoints are frozen and each column is checked against its source prediction."
+}

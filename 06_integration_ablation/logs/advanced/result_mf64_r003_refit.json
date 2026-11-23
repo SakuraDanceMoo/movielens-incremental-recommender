@@ -1,0 +1,35 @@
+{
+  "config": {
+    "name": "mf64_r003",
+    "mode": "mf",
+    "dim": 64,
+    "epochs": 2,
+    "batch": 16384,
+    "lr": 0.002,
+    "reg": 0.003,
+    "seed": 20261123,
+    "refit": true,
+    "temporal": false,
+    "no_ratings": false
+  },
+  "best_epoch": 2,
+  "development_rmse": null,
+  "seconds": 25.36005389993079,
+  "fit_rows": 31900204,
+  "development_rows": 309513,
+  "audit_rows": 77469,
+  "parameters": 37509422,
+  "history": [
+    {
+      "epoch": 1,
+      "train_mse": 0.8202511808388435,
+      "seconds": 12.701136400224641
+    },
+    {
+      "epoch": 2,
+      "train_mse": 0.5935050446699338,
+      "seconds": 12.427376799983904
+    }
+  ],
+  "selection": "development users only; audit values withheld until this round is frozen"
+}

@@ -1,0 +1,158 @@
+{
+  "selected": "calibration_v2_d8_no_semantics",
+  "rows": [
+    {
+      "name": "original_als",
+      "development_rmse": 0.8970491547172567,
+      "audit_rmse": 0.8991739452837014,
+      "overall_rmse": 0.8974749141752105,
+      "audit_movielens_rmse": 0.8953714593804375,
+      "audit_synthetic_rmse": 0.9032304466840713
+    },
+    {
+      "name": "previous_transformer_ensemble",
+      "development_rmse": 0.8757354818691432,
+      "audit_rmse": 0.8764194424496857,
+      "overall_rmse": 0.8758724450580279,
+      "audit_movielens_rmse": 0.8714141030146174,
+      "audit_synthetic_rmse": 0.8817510040631895
+    },
+    {
+      "name": "calibration_v2_d6",
+      "development_rmse": 0.8577794479760773,
+      "audit_rmse": 0.856529176208526,
+      "overall_rmse": 0.8575293049981301,
+      "audit_movielens_rmse": 0.8414559664146808,
+      "audit_synthetic_rmse": 0.8723907600408524
+    },
+    {
+      "name": "calibration_v2_d8",
+      "development_rmse": 0.8569890821382193,
+      "audit_rmse": 0.8553379442659287,
+      "overall_rmse": 0.8566587995744666,
+      "audit_movielens_rmse": 0.8397362132349027,
+      "audit_synthetic_rmse": 0.8717449791948776
+    },
+    {
+      "name": "calibration_v2_d8_no_semantics",
+      "development_rmse": 0.8564282047125238,
+      "audit_rmse": 0.8547923277190692,
+      "overall_rmse": 0.8561009726627214,
+      "audit_movielens_rmse": 0.8387616786906936,
+      "audit_synthetic_rmse": 0.8716416326308777
+    },
+    {
+      "name": "calibration_v2_d8_no_history",
+      "development_rmse": 0.8620613809215256,
+      "audit_rmse": 0.8603651493092892,
+      "overall_rmse": 0.8617220836761853,
+      "audit_movielens_rmse": 0.8495000621937964,
+      "audit_synthetic_rmse": 0.8718565618211139
+    },
+    {
+      "name": "calibration_v2_d8_no_neural",
+      "development_rmse": 0.8615189474368161,
+      "audit_rmse": 0.8598355201292247,
+      "overall_rmse": 0.8611822095993266,
+      "audit_movielens_rmse": 0.8471749222450204,
+      "audit_synthetic_rmse": 0.8731973334757018
+    },
+    {
+      "name": "calibration_v2_d8_seed2",
+      "development_rmse": 0.856919630537233,
+      "audit_rmse": 0.8552719588276774,
+      "overall_rmse": 0.8565900408081164,
+      "audit_movielens_rmse": 0.8396034062124426,
+      "audit_synthetic_rmse": 0.8717479333274385
+    },
+    {
+      "name": "mf64_r003",
+      "development_rmse": 0.8840779889726936,
+      "audit_rmse": 0.8835363877352845,
+      "overall_rmse": 0.8839695936832302,
+      "audit_movielens_rmse": 0.8766607758036999,
+      "audit_synthetic_rmse": 0.8908445404826419
+    },
+    {
+      "name": "mf64_r03",
+      "development_rmse": 0.875290984587079,
+      "audit_rmse": 0.8752709993923634,
+      "overall_rmse": 0.8752869838353319,
+      "audit_movielens_rmse": 0.8668249586218957,
+      "audit_synthetic_rmse": 0.8842311897962314
+    },
+    {
+      "name": "mf64_r08",
+      "development_rmse": 0.8773778522142672,
+      "audit_rmse": 0.8779812273850686,
+      "overall_rmse": 0.8774986736591984,
+      "audit_movielens_rmse": 0.8670118872857085,
+      "audit_synthetic_rmse": 0.8895844988002313
+    },
+    {
+      "name": "mf128_r04",
+      "development_rmse": 0.8767410819788997,
+      "audit_rmse": 0.8761241162985236,
+      "overall_rmse": 0.8766176078587841,
+      "audit_movielens_rmse": 0.8636574078337814,
+      "audit_synthetic_rmse": 0.8892879452961587
+    },
+    {
+      "name": "svdpp32_r03",
+      "development_rmse": 0.8755689507950523,
+      "audit_rmse": 0.875069370875718,
+      "overall_rmse": 0.8754689639097508,
+      "audit_movielens_rmse": 0.8645716549652881,
+      "audit_synthetic_rmse": 0.8861794091443884
+    },
+    {
+      "name": "memory32_time_r03",
+      "development_rmse": 0.8788190886463784,
+      "audit_rmse": 0.878711286238503,
+      "overall_rmse": 0.878797508999142,
+      "audit_movielens_rmse": 0.8666617445739375,
+      "audit_synthetic_rmse": 0.8914413295421015
+    },
+    {
+      "name": "memory32_notime_r03",
+      "development_rmse": 0.8791379388049745,
+      "audit_rmse": 0.8801042787195394,
+      "overall_rmse": 0.8793314730950615,
+      "audit_movielens_rmse": 0.868701495623707,
+      "audit_synthetic_rmse": 0.8921603463711827
+    },
+    {
+      "name": "mf64_time_r03",
+      "development_rmse": 0.8738824548297499,
+      "audit_rmse": 0.8745383298826932,
+      "overall_rmse": 0.8740137922882787,
+      "audit_movielens_rmse": 0.8637622937264628,
+      "audit_synthetic_rmse": 0.885939128141259
+    }
+  ],
+  "audit_paired_old_minus_new_rmse_ci95": [
+    0.020133349400903812,
+    0.0230612565985106
+  ],
+  "bootstrap_replicates": 1000,
+  "bootstrap_seed": 20261123,
+  "test_rmse": null,
+  "overall_protocol": "development rows use calibration OOF predictions; audit rows use five-fold model average; base fitting split is unchanged",
+  "selection": {
+    "selected": "calibration_v2_d8_no_semantics",
+    "weights": {
+      "calibration_v2_d8_no_semantics": 1.0
+    },
+    "development_candidates": {
+      "calibration_v2_d6": 0.8577794479760773,
+      "calibration_v2_d8": 0.8569890821382193,
+      "calibration_v2_d8_no_semantics": 0.8564282047125238
+    },
+    "development_rows": 309513,
+    "audit_rows": 77469,
+    "rule": "lowest development OOF RMSE; fixed before opening current-round audit",
+    "prediction_sha256": "ad27f8c39c706ef580974b16e8d1bca7d8dfe7da6a10529fdae7cfcee9b909b9",
+    "audit_historical_caveat": "earlier project models used the whole outer validation for tuning; audit is reserved only for the new calibration round, not historically untouched test data",
+    "test_rmse": null
+  }
+}

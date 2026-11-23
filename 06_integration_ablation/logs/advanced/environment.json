@@ -1,0 +1,21 @@
+{
+  "python_executable": "D:\\AgentProject2026\\.venv\\Scripts\\python.exe",
+  "python": "3.11.16",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "packages": {
+    "torch": "2.8.0+cu128",
+    "numpy": "2.4.6",
+    "polars": "2.0.0",
+    "catboost": "1.2.8",
+    "pandas": "3.1.1",
+    "matplotlib": "3.11.2"
+  },
+  "gpu": "NVIDIA GeForce RTX 4070 Ti 12GB",
+  "dependency_root": "D:/AgentProject2026/.venv",
+  "neural_seed": 20261123,
+  "calibration_seeds": [
+    20261123,
+    20261124
+  ],
+  "catboost_threads": 8
+}
