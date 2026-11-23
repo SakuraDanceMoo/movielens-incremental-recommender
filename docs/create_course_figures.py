@@ -25,6 +25,11 @@ SOURCES={}
 def read(rel):return json.loads((ROOT/rel).read_text(encoding='utf-8'))
 def save(fig,name,sources):
     OUT.mkdir(parents=True,exist_ok=True)
+    # Figures are printed at about 6 inches in an A4 paper, smaller than their
+    # authoring canvas. Enlarge labels before final layout for readable print.
+    for item in fig.findobj(match=matplotlib.text.Text):
+        item.set_fontsize(item.get_fontsize()*1.35)
+    fig.tight_layout()
     fig.savefig(OUT/name,dpi=220,bbox_inches='tight')
     plt.close(fig);SOURCES[name]=sources
 def bars(ax,labels,values,colors=None):
@@ -113,7 +118,7 @@ def transformer_figures():
         ax.text(x+w/2,y+h/2,t,ha='center',va='center',transform=ax.transAxes,color=NAVY if x<.7 else 'white',fontsize=11)
     for p,q in [((.3,.78),(.38,.78)),((.3,.33),(.38,.33)),((.63,.78),(.73,.72)),((.63,.33),(.73,.60)),((.855,.55),(.855,.30)),((.63,.30),(.73,.24)),((.63,.10),(.73,.16))]:
         ax.annotate('',xy=q,xytext=p,xycoords='axes fraction',arrowprops={'arrowstyle':'->','lw':2,'color':TEAL})
-    ax.text(.02,.02,'结构示意；仅训练评分模型，预训练文本编码器冻结；并非完整复现 HLLM 或 HSTU。',fontsize=10,color=GREY,transform=ax.transAxes)
+    ax.text(.02,.02,'结构示意；冻结文本编码器，三个评分分支按验证结果融合。',fontsize=10,color=GREY,transform=ax.transAxes)
     fig.tight_layout();save(fig,'stage6_transformer_architecture.png',['06_integration_ablation/scripts/transformer_regression.py','06_integration_ablation/scripts/encode_movie_semantics.py'])
 
     rows=selection['ablation_summary']+[{'variant':'final_ensemble','mean_rmse':ensemble['two_seed_mean_rmse'],'std_rmse':ensemble['two_seed_std_rmse']}];labels={'full':'ALS初始化 + Qwen + Transformer','no_semantics':'ALS初始化，移除 Qwen 语义','no_attention':'ALS初始化，自注意力换为 MLP','no_als_init':'随机初始化 + Qwen + Transformer','mf_only':'ALS初始化，仅因子微调',

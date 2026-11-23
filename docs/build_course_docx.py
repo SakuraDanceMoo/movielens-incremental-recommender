@@ -9,6 +9,7 @@ from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
+from docx.opc.constants import RELATIONSHIP_TYPE as RT
 from docx.shared import Cm, Inches, Pt
 
 
@@ -21,12 +22,27 @@ def set_font(run,name='宋体',size=12,bold=False):
 
 
 def add_text(paragraph,text,name='宋体',size=12,bold=False):
-    # Keep link captions readable in print; URLs remain available in Markdown.
-    text=re.sub(r'\[([^\]]+)\]\(([^)]+)\)',r'\1',text)
     text=text.replace('`','')
     pieces=re.split(r'(\*\*.*?\*\*)',text)
     for part in pieces:
-        if part:set_font(paragraph.add_run(part.strip('*') if part.startswith('**') else part),name,size,bold or part.startswith('**'))
+        if not part:continue
+        active_bold=bold or part.startswith('**')
+        part=part.strip('*') if part.startswith('**') else part
+        cursor=0
+        for match in re.finditer(r'\[([^\]]+)\]\((https?://[^)]+)\)',part):
+            if match.start()>cursor:set_font(paragraph.add_run(part[cursor:match.start()]),name,size,active_bold)
+            link=OxmlElement('w:hyperlink')
+            link.set(qn('r:id'),paragraph.part.relate_to(match[2],RT.HYPERLINK,is_external=True))
+            r=OxmlElement('w:r');props=OxmlElement('w:rPr')
+            fonts=OxmlElement('w:rFonts')
+            for key in ['eastAsia','ascii','hAnsi']:fonts.set(qn('w:'+key),name)
+            props.append(fonts)
+            sz=OxmlElement('w:sz');sz.set(qn('w:val'),str(int(size*2)));props.append(sz)
+            color=OxmlElement('w:color');color.set(qn('w:val'),'0563C1');props.append(color)
+            underline=OxmlElement('w:u');underline.set(qn('w:val'),'single');props.append(underline)
+            r.append(props);t=OxmlElement('w:t');t.text=match[1];r.append(t);link.append(r);paragraph._p.append(link)
+            cursor=match.end()
+        if cursor<len(part):set_font(paragraph.add_run(part[cursor:]),name,size,active_bold)
 
 
 def format_paragraph(p,indent=True):
@@ -93,17 +109,21 @@ def build(source:Path,output:Path,author:str):
             table.autofit=True
             for rowidx,values in enumerate(rows):
                 row=table.rows[0] if rowidx==0 else table.add_row()
+                no_split=OxmlElement('w:cantSplit');row._tr.get_or_add_trPr().append(no_split)
                 for cell,text in zip(row.cells,values):
                     p=cell.paragraphs[0];format_paragraph(p,False)
                     p.paragraph_format.space_after=Pt(2)
+                    p.paragraph_format.keep_with_next=rowidx<len(rows)-1
                     add_text(p,text,bold=rowidx==0)
                 if rowidx==0:
                     repeat=OxmlElement('w:tblHeader');row._tr.get_or_add_trPr().append(repeat)
             doc.add_paragraph().paragraph_format.space_after=Pt(0)
             continue
         else:
-            p=doc.add_paragraph();format_paragraph(p,not line.startswith('图 '))
-            if line.startswith('图 '):p.alignment=WD_ALIGN_PARAGRAPH.CENTER
+            caption=line.startswith(('图 ','表 '))
+            p=doc.add_paragraph();format_paragraph(p,not caption)
+            if caption:p.alignment=WD_ALIGN_PARAGRAPH.CENTER
+            if line.startswith('表 '):p.paragraph_format.keep_with_next=True
             add_text(p,line)
         index+=1
     footer=sec.footer.paragraphs[0];footer.alignment=WD_ALIGN_PARAGRAPH.CENTER
