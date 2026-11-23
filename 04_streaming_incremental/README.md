@@ -10,8 +10,8 @@
 
 ```powershell
 & D:/AgentProject2026/.venv/Scripts/python.exe -X utf8 04_streaming_incremental/scripts/hybrid_rating_regression.py `
-  --data-dir 'C:/path/to/训练数据集' `
-  --output 'C:/path/to/训练数据集/test_pairs_predictions_stage4.csv' `
+  --data-dir 'data/raw/hybrid' `
+  --output 'data/raw/hybrid/test_pairs_predictions_stage4.csv' `
   --metrics 04_streaming_incremental/logs/hybrid_rating_metrics.json
 ```
 

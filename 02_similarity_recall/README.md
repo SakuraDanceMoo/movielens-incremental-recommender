@@ -13,8 +13,8 @@
 ```powershell
 & D:/AgentProject2026/.venv/Scripts/python.exe -X utf8 02_similarity_recall/scripts/hybrid_rating_regression.py `
   --mode similarity `
-  --data-dir 'C:/path/to/训练数据集' `
-  --output 'C:/path/to/训练数据集/test_pairs_predictions_stage2.csv' `
+  --data-dir 'data/raw/hybrid' `
+  --output 'data/raw/hybrid/test_pairs_predictions_stage2.csv' `
   --metrics 02_similarity_recall/logs/hybrid_rating_metrics.json
 ```
 

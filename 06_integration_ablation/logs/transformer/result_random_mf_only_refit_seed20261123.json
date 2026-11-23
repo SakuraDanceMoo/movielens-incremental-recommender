@@ -1,0 +1,15 @@
+{
+  "variant": "random_mf_only",
+  "seed": 20261123,
+  "epochs": 3,
+  "neural_weight": 0.75,
+  "rows": 100000,
+  "training_rows": 31900204,
+  "checkpoint_file": "transformer_random_mf_only_full_refit_seed20261123.pt",
+  "null_predictions": 0,
+  "min_prediction": 0.5,
+  "max_prediction": 5.0,
+  "elapsed_seconds": 19.53309169993736,
+  "output_file": "test_pairs_predictions_random_mf_only.csv",
+  "test_rmse": null
+}

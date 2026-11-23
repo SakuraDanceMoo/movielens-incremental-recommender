@@ -11,8 +11,8 @@
 ```powershell
 & D:/AgentProject2026/.venv/Scripts/python.exe -X utf8 05_graph_recommendation/scripts/hybrid_rating_regression.py `
   --mode graph `
-  --data-dir 'C:/path/to/训练数据集' `
-  --output 'C:/path/to/训练数据集/test_pairs_predictions_stage5.csv' `
+  --data-dir 'data/raw/hybrid' `
+  --output 'data/raw/hybrid/test_pairs_predictions_stage5.csv' `
   --metrics 05_graph_recommendation/logs/hybrid_rating_metrics.json
 ```
 

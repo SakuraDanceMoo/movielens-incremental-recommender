@@ -6,7 +6,7 @@
 
 ```powershell
 ..\.venv\Scripts\python.exe -X utf8 01_data_baseline/scripts/audit_hybrid_dataset.py `
-  --data-dir 'C:\path\to\训练数据集'
+  --data-dir 'data/raw/hybrid'
 ```
 
 审计结果见 [混合数据检查与 RMSE 基线](logs/hybrid_data_audit.json)及[实验记录](logs/experiment_hybrid_2026-11-08.md)。评分验证集 RMSE 采用阶段六相同的每用户时间留出协议；`test_pairs.csv` 没有标签，不能计算其真实 RMSE。

@@ -276,7 +276,7 @@ def run(data_dir: Path, output_path: Path | None, driver_memory: str, partitions
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--data-dir", type=Path, required=True)
+    parser.add_argument("--data-dir", type=Path, default=ROOT / "data/raw/hybrid")
     parser.add_argument("--output", type=Path, default=None,
                         help="Prediction CSV path (defaults to test_pairs_predictions.csv beside input data)")
     parser.add_argument("--driver-memory", default="12g")

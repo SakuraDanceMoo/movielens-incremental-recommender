@@ -1,0 +1,9 @@
+{
+  "split": "full",
+  "rows": 31900204,
+  "rank": 16,
+  "iterations": 8,
+  "reg_param": 0.1,
+  "seed": 20261108,
+  "elapsed_seconds": 42.77434889995493
+}

@@ -2,7 +2,36 @@
 
 本项目已切换为使用用户提供的 MovieLens/合成混合评分数据，最终任务是预测 `test_pairs.csv` 的评分并按 RMSE 评价。旧六阶段中的 NDCG、召回和 Top10 结果仍是此前官方 MovieLens 32M 实验，属于历史记录，不能作为混合数据上的结果。
 
-## 最终评分预测
+## 当前方案：冻结 Qwen3 语义、Transformer、MF 与 ALS
+
+2026-11-23完成八种结构、两随机种子的16次全量拟合集训练。每次遍历31,513,222条拟合评分4轮，使用相同的386,982条时间留出评分选轮次和融合权重。最终采用随机初始化Qwen3特征Transformer、随机初始化MF与原ALS，权重为0.25、0.55、0.20。
+
+验证RMSE为 **0.875872445**，较原ALS的0.897474914下降 **2.407%**；两个种子均值为 **0.876024980 ± 0.000215716**（样本标准差）。这些是开发验证结果，未提供独立隐藏测试评分。冻结语义本身的独立收益未得到稳定证明，强MF对照与负结果完整保留。
+
+![Transformer组件对照](../docs/reports/assets/stage6_transformer_ablation.png)
+
+当前预测文件 `data/raw/hybrid/test_pairs_predictions_transformer.csv` 在全量31,900,204条评分上重训后生成，未覆盖旧ALS结果。原始数据、训练缓存与模型权重仅保留本地。核验结果为55项通过，见[`logs/transformer/verification.json`](logs/transformer/verification.json)。
+
+### 依赖与复现
+
+在仓库根目录执行。现有共享环境已经满足依赖时不要同步旧历史锁文件。需要新装CUDA版本PyTorch时先运行第一条安装命令。
+
+```powershell
+$env:UV_CACHE_DIR = 'D:\AgentProject2026\.venv\cache\uv'
+$env:HF_HOME = 'D:\AgentProject2026\.venv\cache\huggingface'
+$env:TEMP = 'D:\AgentProject2026\.venv\tmp'
+$env:TMP = $env:TEMP
+uv pip install --python ..\.venv\Scripts\python.exe torch==2.8.0 --index-url https://download.pytorch.org/whl/cu128
+uv pip install --python ..\.venv\Scripts\python.exe -r requirements-transformer.txt
+..\.venv\Scripts\python.exe -X utf8 run_transformer.py --prepare --encode --experiments --extra-ablations --refit
+..\.venv\Scripts\python.exe -X utf8 06_integration_ablation/scripts/test_transformer.py
+..\.venv\Scripts\python.exe -X utf8 06_integration_ablation/scripts/verify_transformer.py
+..\.venv\Scripts\python.exe -X utf8 docs/create_course_figures.py
+```
+
+同目录的[`transformer_config.json`](transformer_config.json)、[组件对照](logs/transformer/ablation.csv)、[融合分支消融](logs/transformer/ensemble_ablation.csv)、[选模与预测哈希](logs/transformer/ensemble_selection.json)、[实测记录](logs/transformer/experiment_2026-11-23.md)和[方法说明](../docs/transformer_method.md)给出数据口径、运行条件和结果限制。Java11继续使用共享环境已有的`.venv/jdk11`。
+
+## 2026-11-08 原 ALS 评分预测对照
 
 使用 Spark MLlib 显式评分 ALS 在混合数据上训练。完整方法、RMSE 验证、输出字段与限制见[评分预测实验记录](logs/rating_prediction_experiment_2026-11-08.md)、[评分预测指标](logs/rating_prediction_metrics.json)及[预测脚本](scripts/rating_prediction.py)。
 
@@ -11,7 +40,7 @@
 ```powershell
 $env:JAVA_HOME = 'D:\AgentProject2026\.venv\jdk11'
 $env:PATH = "$env:JAVA_HOME\bin;$env:PATH"
-$dataDir = 'C:\path\to\训练数据集'
+$dataDir = 'data/raw/hybrid'
 ..\.venv\Scripts\python.exe -X utf8 06_integration_ablation/scripts/rating_prediction.py `
   --data-dir $dataDir
 ```
@@ -20,7 +49,7 @@ $dataDir = 'C:\path\to\训练数据集'
 
 ## 阶段二、四、五与阶段六 RMSE 对比
 
-以下结果使用同一份混合数据和同一套386,982条逐用户时间留出评分。阶段六 ALS rank=16 在当前对比中最优，最终 `test_pairs_predictions.csv` 采用该模型的全量重训结果。
+以下为2026-11-08归档结果，使用同一份混合数据和同一套386,982条逐用户时间留出评分。当时ALS rank=16最优，旧 `test_pairs_predictions.csv` 采用该模型；当前改进结果见本页上方。
 
 | 模型 | 验证 RMSE |
 | --- | ---: |

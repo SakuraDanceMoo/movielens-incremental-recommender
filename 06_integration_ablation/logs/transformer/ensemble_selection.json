@@ -1,0 +1,75 @@
+{
+  "validation_rows": 386982,
+  "seed": 20261123,
+  "branch_weights": {
+    "random_init_qwen_transformer": 0.25,
+    "random_init_mf": 0.55,
+    "original_als": 0.19999999999999996
+  },
+  "validation_rmse": 0.8758724450580279,
+  "movielens_rmse": 0.8713540845848894,
+  "synthetic_rmse": 0.8807003569089049,
+  "two_seed_mean_rmse": 0.8760249796307262,
+  "two_seed_std_rmse": 0.00021571646144082063,
+  "seed_comparisons": [
+    {
+      "seed": 20261123,
+      "rmse": 0.8758724450580279,
+      "weights": [
+        0.25,
+        0.55,
+        0.19999999999999996
+      ]
+    },
+    {
+      "seed": 20261124,
+      "rmse": 0.8761775142034246,
+      "weights": [
+        0.25,
+        0.55,
+        0.19999999999999996
+      ]
+    }
+  ],
+  "qwen_als_fused_control_rmse": 0.8817047243653947,
+  "mf_als_fused_control_rmse": 0.8777160204112853,
+  "als_rmse": 0.8974749141752105,
+  "selection": "231 simplex candidates in step0.05 per seed, two seeds; selected and evaluated on same validation; not an independent test estimate",
+  "output": "data/raw/hybrid/test_pairs_predictions_transformer.csv",
+  "test_rmse": null,
+  "branch_ablation": [
+    {
+      "variant": "full",
+      "mean_rmse": 0.8760249796307262,
+      "std_rmse": 0.00021571646144082063,
+      "seed20261123": 0.8758724450580279,
+      "seed20261124": 0.8761775142034246
+    },
+    {
+      "variant": "without_qwen",
+      "mean_rmse": 0.8777386043444699,
+      "std_rmse": 3.193808317405779e-05,
+      "seed20261123": 0.8777160207092795,
+      "seed20261124": 0.8777611879796604
+    },
+    {
+      "variant": "without_mf",
+      "mean_rmse": 0.8825826748604974,
+      "std_rmse": 0.0012416099830443008,
+      "seed20261123": 0.8817047240218978,
+      "seed20261124": 0.8834606256990969
+    },
+    {
+      "variant": "without_als",
+      "mean_rmse": 0.8776366205419498,
+      "std_rmse": 0.00023359840119871152,
+      "seed20261123": 0.8774714415283879,
+      "seed20261124": 0.8778017995555117
+    }
+  ],
+  "prediction_rows": 100000,
+  "prediction_sha256": "b1443aa7135444a2bb4cf7103730b694f856cbb1a9c56210c78447b41e46d174",
+  "min_prediction": 0.5,
+  "max_prediction": 5.0,
+  "validation_relative_reduction_vs_als_percent": 2.4070276256173195
+}

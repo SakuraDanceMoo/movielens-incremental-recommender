@@ -1,0 +1,39 @@
+{
+  "stage1_hybrid_data.png": [
+    "01_data_baseline/logs/hybrid_data_audit.json",
+    "06_integration_ablation/logs/rating_prediction_metrics.json"
+  ],
+  "stage2_similarity_rmse.png": [
+    "02_similarity_recall/logs/hybrid_rating_metrics.json",
+    "06_integration_ablation/logs/rating_prediction_metrics.json"
+  ],
+  "stage3_als_rank.png": [
+    "06_integration_ablation/logs/rating_prediction_metrics.json"
+  ],
+  "stage4_event_time.png": [
+    "04_streaming_incremental/scripts/hybrid_rating_regression.py",
+    "04_streaming_incremental/logs/hybrid_rating_metrics.json"
+  ],
+  "stage5_graph_result.png": [
+    "05_graph_recommendation/logs/hybrid_rating_metrics.json",
+    "02_similarity_recall/logs/hybrid_rating_metrics.json",
+    "06_integration_ablation/logs/rating_prediction_metrics.json"
+  ],
+  "stage6_transformer_architecture.png": [
+    "06_integration_ablation/scripts/transformer_regression.py",
+    "06_integration_ablation/scripts/encode_movie_semantics.py"
+  ],
+  "stage6_transformer_ablation.png": [
+    "06_integration_ablation/logs/transformer/ablation.csv",
+    "06_integration_ablation/logs/transformer/ensemble_selection.json"
+  ],
+  "stage6_training_curves.png": [
+    "06_integration_ablation/logs/transformer/history_no_als_init_validation_seed20261123.json",
+    "06_integration_ablation/logs/transformer/history_random_no_semantics_validation_seed20261123.json",
+    "06_integration_ablation/logs/transformer/history_random_mf_only_validation_seed20261123.json"
+  ],
+  "stage6_overall_comparison.png": [
+    "06_integration_ablation/logs/hybrid_rating_comparison.csv",
+    "06_integration_ablation/logs/transformer/ensemble_selection.json"
+  ]
+}

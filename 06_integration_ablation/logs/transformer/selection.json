@@ -1,0 +1,443 @@
+{
+  "variant": "no_als_init",
+  "seed": 20261123,
+  "best_epoch": 4,
+  "neural_weight": 0.55,
+  "validation_rmse": 0.8817047243653947,
+  "baseline_rmse": 0.8974749141752105,
+  "absolute_reduction": 0.015770189809815816,
+  "relative_reduction_percent": 1.7571733271574241,
+  "conditional_paired_bootstrap_delta_95ci": [
+    0.01522647664168827,
+    0.016378672553572463
+  ],
+  "bootstrap_repeats": 400,
+  "validation_rows": 386982,
+  "selection_rule": "lowest two-seed mean among Qwen-semantic Transformer variants (ALS or random init); then lowest validation seed",
+  "unrestricted_best_variant": "random_mf_only",
+  "all_variant_means": {
+    "full": 0.8903600753218894,
+    "no_semantics": 0.8898078032604859,
+    "no_attention": 0.8885720217782116,
+    "no_als_init": 0.8825826752060699,
+    "mf_only": 0.8887384618291809,
+    "random_no_semantics": 0.8828272107019144,
+    "random_no_attention": 0.8854517161256541,
+    "random_mf_only": 0.8777386038082375
+  },
+  "random_start_structures": [
+    {
+      "variant": "no_als_init",
+      "seeds": 2,
+      "mean_rmse": 0.8825826752060699,
+      "std_rmse": 0.0012416099859798241,
+      "rmse_seed20261123": 0.8817047243653947,
+      "rmse_seed20261124": 0.8834606260467452,
+      "mean_seconds": 76.41670784994494,
+      "parameters": 19062127
+    },
+    {
+      "variant": "random_no_semantics",
+      "seeds": 2,
+      "mean_rmse": 0.8828272107019144,
+      "std_rmse": 0.00016327195913581153,
+      "rmse_seed20261123": 0.8827117599924318,
+      "rmse_seed20261124": 0.8829426614113969,
+      "mean_seconds": 76.92304170003626,
+      "parameters": 19062127
+    },
+    {
+      "variant": "random_no_attention",
+      "seeds": 2,
+      "mean_rmse": 0.8854517161256541,
+      "std_rmse": 0.0017788995175844452,
+      "rmse_seed20261123": 0.8841938442137207,
+      "rmse_seed20261124": 0.8867095880375876,
+      "mean_seconds": 42.51900850003585,
+      "parameters": 19055727
+    },
+    {
+      "variant": "random_mf_only",
+      "seeds": 2,
+      "mean_rmse": 0.8777386038082375,
+      "std_rmse": 3.1937746254432966e-05,
+      "rmse_seed20261123": 0.8777160204112853,
+      "rmse_seed20261124": 0.8777611872051899,
+      "mean_seconds": 26.626184699940495,
+      "parameters": 19043246
+    }
+  ],
+  "caveat": "same validation is used for epoch, fusion weight, variant and seed selection; CI conditional on selection, not hidden-test generalization",
+  "all_runs": [
+    {
+      "variant": "full",
+      "seed": 20261123,
+      "epochs": 4,
+      "best_epoch": 2,
+      "neural_weight": 0.35000000000000003,
+      "train_rows": 31513222,
+      "valid_rows": 386982,
+      "parameters": 19062127,
+      "elapsed_seconds": 76.51354329986498,
+      "batch_size": 16384,
+      "best_validation": {
+        "rmse": 0.8899654921610666,
+        "movielens_rmse": 0.8842880547180336,
+        "synthetic_rmse": 0.8960242622328918
+      },
+      "selection_scope": "epoch and convex ensemble weight selected on the same labeled validation; not unbiased test performance"
+    },
+    {
+      "variant": "no_semantics",
+      "seed": 20261123,
+      "epochs": 4,
+      "best_epoch": 2,
+      "neural_weight": 0.35000000000000003,
+      "train_rows": 31513222,
+      "valid_rows": 386982,
+      "parameters": 19062127,
+      "elapsed_seconds": 76.20634360006079,
+      "batch_size": 16384,
+      "best_validation": {
+        "rmse": 0.8898057832762669,
+        "movielens_rmse": 0.8837743727224017,
+        "synthetic_rmse": 0.8962396580434633
+      },
+      "selection_scope": "epoch and convex ensemble weight selected on the same labeled validation; not unbiased test performance"
+    },
+    {
+      "variant": "no_attention",
+      "seed": 20261123,
+      "epochs": 4,
+      "best_epoch": 1,
+      "neural_weight": 0.55,
+      "train_rows": 31513222,
+      "valid_rows": 386982,
+      "parameters": 19055727,
+      "elapsed_seconds": 38.6740054001566,
+      "batch_size": 16384,
+      "best_validation": {
+        "rmse": 0.887722430140259,
+        "movielens_rmse": 0.8824391658838256,
+        "synthetic_rmse": 0.893363037669588
+      },
+      "selection_scope": "epoch and convex ensemble weight selected on the same labeled validation; not unbiased test performance"
+    },
+    {
+      "variant": "no_als_init",
+      "seed": 20261123,
+      "epochs": 4,
+      "best_epoch": 4,
+      "neural_weight": 0.55,
+      "train_rows": 31513222,
+      "valid_rows": 386982,
+      "parameters": 19062127,
+      "elapsed_seconds": 76.61242879997008,
+      "batch_size": 16384,
+      "best_validation": {
+        "rmse": 0.8817047243653947,
+        "movielens_rmse": 0.8742477810243354,
+        "synthetic_rmse": 0.8896455298758635
+      },
+      "selection_scope": "epoch and convex ensemble weight selected on the same labeled validation; not unbiased test performance"
+    },
+    {
+      "variant": "mf_only",
+      "seed": 20261123,
+      "epochs": 4,
+      "best_epoch": 1,
+      "neural_weight": 0.6000000000000001,
+      "train_rows": 31513222,
+      "valid_rows": 386982,
+      "parameters": 19043246,
+      "elapsed_seconds": 25.51318629994057,
+      "batch_size": 16384,
+      "best_validation": {
+        "rmse": 0.888886308213414,
+        "movielens_rmse": 0.8817656047819308,
+        "synthetic_rmse": 0.8964725375324621
+      },
+      "selection_scope": "epoch and convex ensemble weight selected on the same labeled validation; not unbiased test performance"
+    },
+    {
+      "variant": "random_no_semantics",
+      "seed": 20261123,
+      "epochs": 4,
+      "best_epoch": 4,
+      "neural_weight": 0.55,
+      "train_rows": 31513222,
+      "valid_rows": 386982,
+      "parameters": 19062127,
+      "elapsed_seconds": 78.10930730006658,
+      "batch_size": 16384,
+      "best_validation": {
+        "rmse": 0.8827117599924318,
+        "movielens_rmse": 0.8750445633772461,
+        "synthetic_rmse": 0.8908745446141987
+      },
+      "selection_scope": "epoch and convex ensemble weight selected on the same labeled validation; not unbiased test performance"
+    },
+    {
+      "variant": "random_no_attention",
+      "seed": 20261123,
+      "epochs": 4,
+      "best_epoch": 4,
+      "neural_weight": 0.55,
+      "train_rows": 31513222,
+      "valid_rows": 386982,
+      "parameters": 19055727,
+      "elapsed_seconds": 46.34013979998417,
+      "batch_size": 16384,
+      "best_validation": {
+        "rmse": 0.8841938442137207,
+        "movielens_rmse": 0.8769267406108688,
+        "synthetic_rmse": 0.8919343889000553
+      },
+      "selection_scope": "epoch and convex ensemble weight selected on the same labeled validation; not unbiased test performance"
+    },
+    {
+      "variant": "random_mf_only",
+      "seed": 20261123,
+      "epochs": 4,
+      "best_epoch": 3,
+      "neural_weight": 0.75,
+      "train_rows": 31513222,
+      "valid_rows": 386982,
+      "parameters": 19043246,
+      "elapsed_seconds": 26.456093600019813,
+      "batch_size": 16384,
+      "best_validation": {
+        "rmse": 0.8777160204112853,
+        "movielens_rmse": 0.8747100047443275,
+        "synthetic_rmse": 0.8809337309573539
+      },
+      "selection_scope": "epoch and convex ensemble weight selected on the same labeled validation; not unbiased test performance"
+    },
+    {
+      "variant": "full",
+      "seed": 20261124,
+      "epochs": 4,
+      "best_epoch": 1,
+      "neural_weight": 0.4,
+      "train_rows": 31513222,
+      "valid_rows": 386982,
+      "parameters": 19062127,
+      "elapsed_seconds": 75.41558090015315,
+      "batch_size": 16384,
+      "best_validation": {
+        "rmse": 0.8907546584827122,
+        "movielens_rmse": 0.8849519802835137,
+        "synthetic_rmse": 0.8969462207656422
+      },
+      "selection_scope": "epoch and convex ensemble weight selected on the same labeled validation; not unbiased test performance"
+    },
+    {
+      "variant": "no_semantics",
+      "seed": 20261124,
+      "epochs": 4,
+      "best_epoch": 1,
+      "neural_weight": 0.4,
+      "train_rows": 31513222,
+      "valid_rows": 386982,
+      "parameters": 19062127,
+      "elapsed_seconds": 76.17371680005454,
+      "batch_size": 16384,
+      "best_validation": {
+        "rmse": 0.8898098232447048,
+        "movielens_rmse": 0.8845056922814697,
+        "synthetic_rmse": 0.8954726534716029
+      },
+      "selection_scope": "epoch and convex ensemble weight selected on the same labeled validation; not unbiased test performance"
+    },
+    {
+      "variant": "no_attention",
+      "seed": 20261124,
+      "epochs": 4,
+      "best_epoch": 1,
+      "neural_weight": 0.5,
+      "train_rows": 31513222,
+      "valid_rows": 386982,
+      "parameters": 19055727,
+      "elapsed_seconds": 38.25383229996078,
+      "batch_size": 16384,
+      "best_validation": {
+        "rmse": 0.8894216134161643,
+        "movielens_rmse": 0.8847387352331778,
+        "synthetic_rmse": 0.8944247651383607
+      },
+      "selection_scope": "epoch and convex ensemble weight selected on the same labeled validation; not unbiased test performance"
+    },
+    {
+      "variant": "no_als_init",
+      "seed": 20261124,
+      "epochs": 4,
+      "best_epoch": 3,
+      "neural_weight": 0.55,
+      "train_rows": 31513222,
+      "valid_rows": 386982,
+      "parameters": 19062127,
+      "elapsed_seconds": 76.22098689991981,
+      "batch_size": 16384,
+      "best_validation": {
+        "rmse": 0.8834606260467452,
+        "movielens_rmse": 0.8772947918723094,
+        "synthetic_rmse": 0.8900365346936862
+      },
+      "selection_scope": "epoch and convex ensemble weight selected on the same labeled validation; not unbiased test performance"
+    },
+    {
+      "variant": "mf_only",
+      "seed": 20261124,
+      "epochs": 4,
+      "best_epoch": 1,
+      "neural_weight": 0.6000000000000001,
+      "train_rows": 31513222,
+      "valid_rows": 386982,
+      "parameters": 19043246,
+      "elapsed_seconds": 25.359109499957412,
+      "batch_size": 16384,
+      "best_validation": {
+        "rmse": 0.8885906154449479,
+        "movielens_rmse": 0.8811851916666628,
+        "synthetic_rmse": 0.8964775594579639
+      },
+      "selection_scope": "epoch and convex ensemble weight selected on the same labeled validation; not unbiased test performance"
+    },
+    {
+      "variant": "random_no_semantics",
+      "seed": 20261124,
+      "epochs": 4,
+      "best_epoch": 3,
+      "neural_weight": 0.6000000000000001,
+      "train_rows": 31513222,
+      "valid_rows": 386982,
+      "parameters": 19062127,
+      "elapsed_seconds": 75.73677610000595,
+      "batch_size": 16384,
+      "best_validation": {
+        "rmse": 0.8829426614113969,
+        "movielens_rmse": 0.8764290748511576,
+        "synthetic_rmse": 0.8898866065628366
+      },
+      "selection_scope": "epoch and convex ensemble weight selected on the same labeled validation; not unbiased test performance"
+    },
+    {
+      "variant": "random_no_attention",
+      "seed": 20261124,
+      "epochs": 4,
+      "best_epoch": 4,
+      "neural_weight": 0.5,
+      "train_rows": 31513222,
+      "valid_rows": 386982,
+      "parameters": 19055727,
+      "elapsed_seconds": 38.69787720008753,
+      "batch_size": 16384,
+      "best_validation": {
+        "rmse": 0.8867095880375876,
+        "movielens_rmse": 0.8801322736877685,
+        "synthetic_rmse": 0.8937211791738869
+      },
+      "selection_scope": "epoch and convex ensemble weight selected on the same labeled validation; not unbiased test performance"
+    },
+    {
+      "variant": "random_mf_only",
+      "seed": 20261124,
+      "epochs": 4,
+      "best_epoch": 4,
+      "neural_weight": 0.7000000000000001,
+      "train_rows": 31513222,
+      "valid_rows": 386982,
+      "parameters": 19043246,
+      "elapsed_seconds": 26.796275799861178,
+      "batch_size": 16384,
+      "best_validation": {
+        "rmse": 0.8777611872051899,
+        "movielens_rmse": 0.873162446319639,
+        "synthetic_rmse": 0.8826745785501839
+      },
+      "selection_scope": "epoch and convex ensemble weight selected on the same labeled validation; not unbiased test performance"
+    }
+  ],
+  "ablation_summary": [
+    {
+      "variant": "full",
+      "seeds": 2,
+      "mean_rmse": 0.8903600753218894,
+      "std_rmse": 0.0005580248575196527,
+      "rmse_seed20261123": 0.8899654921610666,
+      "rmse_seed20261124": 0.8907546584827122,
+      "mean_seconds": 75.96456210000906,
+      "parameters": 19062127
+    },
+    {
+      "variant": "no_semantics",
+      "seeds": 2,
+      "mean_rmse": 0.8898078032604859,
+      "std_rmse": 2.8566890782163573e-06,
+      "rmse_seed20261123": 0.8898057832762669,
+      "rmse_seed20261124": 0.8898098232447048,
+      "mean_seconds": 76.19003020005766,
+      "parameters": 19062127
+    },
+    {
+      "variant": "no_attention",
+      "seeds": 2,
+      "mean_rmse": 0.8885720217782116,
+      "std_rmse": 0.0012015040168714434,
+      "rmse_seed20261123": 0.887722430140259,
+      "rmse_seed20261124": 0.8894216134161643,
+      "mean_seconds": 38.46391885005869,
+      "parameters": 19055727
+    },
+    {
+      "variant": "no_als_init",
+      "seeds": 2,
+      "mean_rmse": 0.8825826752060699,
+      "std_rmse": 0.0012416099859798241,
+      "rmse_seed20261123": 0.8817047243653947,
+      "rmse_seed20261124": 0.8834606260467452,
+      "mean_seconds": 76.41670784994494,
+      "parameters": 19062127
+    },
+    {
+      "variant": "mf_only",
+      "seeds": 2,
+      "mean_rmse": 0.8887384618291809,
+      "std_rmse": 0.00020908636173019073,
+      "rmse_seed20261123": 0.888886308213414,
+      "rmse_seed20261124": 0.8885906154449479,
+      "mean_seconds": 25.436147899948992,
+      "parameters": 19043246
+    },
+    {
+      "variant": "random_no_semantics",
+      "seeds": 2,
+      "mean_rmse": 0.8828272107019144,
+      "std_rmse": 0.00016327195913581153,
+      "rmse_seed20261123": 0.8827117599924318,
+      "rmse_seed20261124": 0.8829426614113969,
+      "mean_seconds": 76.92304170003626,
+      "parameters": 19062127
+    },
+    {
+      "variant": "random_no_attention",
+      "seeds": 2,
+      "mean_rmse": 0.8854517161256541,
+      "std_rmse": 0.0017788995175844452,
+      "rmse_seed20261123": 0.8841938442137207,
+      "rmse_seed20261124": 0.8867095880375876,
+      "mean_seconds": 42.51900850003585,
+      "parameters": 19055727
+    },
+    {
+      "variant": "random_mf_only",
+      "seeds": 2,
+      "mean_rmse": 0.8777386038082375,
+      "std_rmse": 3.1937746254432966e-05,
+      "rmse_seed20261123": 0.8777160204112853,
+      "rmse_seed20261124": 0.8777611872051899,
+      "mean_seconds": 26.626184699940495,
+      "parameters": 19043246
+    }
+  ]
+}

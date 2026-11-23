@@ -1,0 +1,12 @@
+{
+  "model": "Qwen/Qwen3-Embedding-0.6B",
+  "rows": 175170,
+  "feature_dimension": 128,
+  "max_tokens": 64,
+  "batch_size": 128,
+  "pooling": "last token, first128 matryoshka dimensions, L2 normalize",
+  "input": "movie title (synthetic numeric prefix removed) and genres only",
+  "fine_tuned": false,
+  "ratings_used": false,
+  "elapsed_seconds": 147.93996919994242
+}

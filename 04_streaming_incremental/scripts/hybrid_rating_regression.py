@@ -75,7 +75,7 @@ def run(data_dir: Path, output: Path, metrics_path: Path) -> dict:
 
 
 def main():
-    parser = argparse.ArgumentParser(); parser.add_argument("--data-dir", type=Path, required=True); parser.add_argument("--output", type=Path, required=True); parser.add_argument("--metrics", type=Path, required=True); args = parser.parse_args(); run(args.data_dir.resolve(), args.output.resolve(), args.metrics.resolve())
+    parser = argparse.ArgumentParser(); parser.add_argument("--data-dir", type=Path, default=ROOT / "data/raw/hybrid"); parser.add_argument("--output", type=Path, required=True); parser.add_argument("--metrics", type=Path, required=True); args = parser.parse_args(); run(args.data_dir.resolve(), args.output.resolve(), args.metrics.resolve())
 
 
 if __name__ == "__main__":

@@ -1,0 +1,11 @@
+{
+  "split": "fit",
+  "rows": 31513222,
+  "rank": 16,
+  "iterations": 8,
+  "reg_param": 0.1,
+  "seed": 20261108,
+  "elapsed_seconds": 49.67081869998947,
+  "validation_rmse": 0.8974749141752105,
+  "fallback_rows": 828
+}

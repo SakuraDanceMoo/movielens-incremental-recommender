@@ -170,7 +170,7 @@ def run(mode: str, data_dir: Path, output: Path, metrics_path: Path, driver_memo
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--mode", choices=["similarity", "graph"], required=True)
-    parser.add_argument("--data-dir", type=Path, required=True)
+    parser.add_argument("--data-dir", type=Path, default=ROOT / "data/raw/hybrid")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--metrics", type=Path, required=True)
     parser.add_argument("--driver-memory", default="12g")

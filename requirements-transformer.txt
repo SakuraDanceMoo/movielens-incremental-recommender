@@ -1,0 +1,10 @@
+# Install only into the shared D-drive environment; CUDA wheels are platform-specific.
+torch==2.8.0
+transformers==4.57.6
+pyspark==3.5.8
+httpx==0.28.1
+polars==2.0.0
+numpy==2.4.6
+matplotlib==3.11.2
+# Report generation
+python-docx==1.2.0

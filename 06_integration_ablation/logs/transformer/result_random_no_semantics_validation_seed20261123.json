@@ -1,0 +1,18 @@
+{
+  "variant": "random_no_semantics",
+  "seed": 20261123,
+  "epochs": 4,
+  "best_epoch": 4,
+  "neural_weight": 0.55,
+  "train_rows": 31513222,
+  "valid_rows": 386982,
+  "parameters": 19062127,
+  "elapsed_seconds": 78.10930730006658,
+  "batch_size": 16384,
+  "best_validation": {
+    "rmse": 0.8827117599924318,
+    "movielens_rmse": 0.8750445633772461,
+    "synthetic_rmse": 0.8908745446141987
+  },
+  "selection_scope": "epoch and convex ensemble weight selected on the same labeled validation; not unbiased test performance"
+}

@@ -19,3 +19,7 @@ __pycache__/
 04_streaming_incremental/logs/hybrid_rating_run.log
 05_graph_recommendation/logs/hybrid_rating_run.log
 07_rating_prediction/
+**/data/processed/transformer/
+**/models/*.pt
+**/models/*.pth
+**/models/*.safetensors

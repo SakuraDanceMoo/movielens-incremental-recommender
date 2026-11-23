@@ -1,0 +1,58 @@
+{
+  "python": "3.11.16",
+  "torch": "2.8.0+cu128",
+  "cuda": "12.8",
+  "gpu": "NVIDIA GeForce RTX 4070 Ti",
+  "packages": {
+    "transformers": "4.57.6",
+    "polars": "2.0.0",
+    "numpy": "2.4.6",
+    "matplotlib": "3.11.2",
+    "python-docx": "1.2.0"
+  },
+  "seeds": [
+    20261123,
+    20261124
+  ],
+  "device": "single GPU",
+  "batch_size": 16384,
+  "training_rows_per_epoch": 31513222,
+  "epochs_per_run": 4,
+  "frozen_encoder": "Qwen/Qwen3-Embedding-0.6B",
+  "trainable_dim": 32,
+  "heads": 4,
+  "blocks": 1,
+  "tokens": [
+    "user factors",
+    "movie factors",
+    "Qwen semantics",
+    "genres and year"
+  ],
+  "optimizer": "AdamW fused, factor lr0.001, other lr0.002, no weight_decay",
+  "schedule": "lr multiplied by 0.7^(epoch-2) after epoch2",
+  "loss": "MSE + 0.01 * (mean(user_factor^2)+mean(item_factor^2)+0.1*mean(bias^2))",
+  "batch_order": "separate CUDA Generator seed+777, identical per variant",
+  "candidate_neural_weights": [
+    0.0,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.85,
+    0.9,
+    0.95,
+    1.0
+  ]
+}

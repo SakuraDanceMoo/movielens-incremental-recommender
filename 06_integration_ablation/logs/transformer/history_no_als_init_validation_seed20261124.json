@@ -1,0 +1,42 @@
+[
+  {
+    "epoch": 1,
+    "train_mse": 0.8471511418286585,
+    "epoch_seconds": 19.16675930004567,
+    "rmse": 0.894335156229518,
+    "movielens_rmse": 0.8876233535529638,
+    "synthetic_rmse": 0.9014894742128129,
+    "raw_neural_rmse": 0.9357327521299903,
+    "neural_weight": 0.2
+  },
+  {
+    "epoch": 2,
+    "train_mse": 0.7453565363770166,
+    "epoch_seconds": 18.574868299998343,
+    "rmse": 0.8884810213950094,
+    "movielens_rmse": 0.8833405732054072,
+    "synthetic_rmse": 0.8939700910818472,
+    "raw_neural_rmse": 0.9011625867835572,
+    "neural_weight": 0.45
+  },
+  {
+    "epoch": 3,
+    "train_mse": 0.6381820303871182,
+    "epoch_seconds": 18.609507499961182,
+    "rmse": 0.8834606260467452,
+    "movielens_rmse": 0.8772947918723094,
+    "synthetic_rmse": 0.8900365346936862,
+    "raw_neural_rmse": 0.8919692688607167,
+    "neural_weight": 0.55
+  },
+  {
+    "epoch": 4,
+    "train_mse": 0.58458757406653,
+    "epoch_seconds": 18.551428799983114,
+    "rmse": 0.884102102905965,
+    "movielens_rmse": 0.8778433185487597,
+    "synthetic_rmse": 0.890776456204224,
+    "raw_neural_rmse": 0.8948167192499519,
+    "neural_weight": 0.55
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "experiment": "qwen3-semantic-feature-transformer-rating-regression",
+  "dataset": "hybrid-half-half-latest100k-v1",
+  "stage": 6,
+  "data_dir": "data/raw/hybrid",
+  "frozen_encoder": "Qwen/Qwen3-Embedding-0.6B",
+  "semantic_dimensions": 128,
+  "encoder_max_tokens": 64,
+  "model": {"dimension": 32, "heads": 4, "blocks": 1, "token_count": 4, "feed_forward": "SwiGLU"},
+  "training": {"epochs": 4, "batch_size": 16384, "seeds": [20261123, 20261124], "loss": "MSE", "factor_regularizer": 0.01},
+  "variants": ["full", "no_semantics", "no_attention", "no_als_init", "mf_only", "random_no_semantics", "random_no_attention", "random_mf_only"],
+  "validation": {"rows": 386982, "epoch_selection": "lowest clipped validation RMSE after convex ALS fusion", "neural_weight_candidates": "0 to 1 inclusive, step0.05"},
+  "prediction_range": [0.5, 5.0],
+  "test_labels_available": false,
+  "output_file": "test_pairs_predictions_transformer.csv"
+}

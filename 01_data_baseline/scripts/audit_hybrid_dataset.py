@@ -84,7 +84,7 @@ def audit(data_dir: Path) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--data-dir", type=Path, required=True)
+    parser.add_argument("--data-dir", type=Path, default=ROOT / "data/raw/hybrid")
     parser.add_argument("--output", type=Path,
                         default=STAGE / "logs/hybrid_data_audit.json")
     args = parser.parse_args()
